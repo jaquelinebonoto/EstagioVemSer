@@ -16,7 +16,7 @@ public class MeuArquivo
     public MeuArquivo()
     {
         // initialise instance variables
-        -x = 0;
+        x = 0;
     }
 
     /**
