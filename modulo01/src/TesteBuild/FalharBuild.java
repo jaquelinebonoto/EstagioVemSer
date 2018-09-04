@@ -16,7 +16,7 @@ public class FalharBuild
     public FalharBuild()
     {
         // initialise instance variables
-        -x = 0;
+        x = 0;
     }
 
     /**
