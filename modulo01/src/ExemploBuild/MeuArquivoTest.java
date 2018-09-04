@@ -43,6 +43,6 @@ public class MeuArquivoTest
     
     @Test
     public void falhar() {
-        assertEquals(1, -1);
+        assertEquals(1, 1);
     }
 }
