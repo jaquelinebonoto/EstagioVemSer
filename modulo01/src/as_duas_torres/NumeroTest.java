@@ -25,7 +25,7 @@ public class NumeroTest
     @Test
     public void testeSomaDigitos (){
         assertEquals(true, new Numero(9).verificarSomaDivisivel(1892376));
-        assertEquals(true, new Numero(3).verificarSomaDivisivel(17));
+        assertEquals(false, new Numero(3).verificarSomaDivisivel(17));
     }  
         
 }
