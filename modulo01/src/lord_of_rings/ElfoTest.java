@@ -11,8 +11,8 @@ public class ElfoTest{
     public void celebornAtiraUmaFlecha(){
       Elfo celeborn = new Elfo("Celeborn");
       celeborn.atirarFlecha();
-      assertEquals(6, celeborn.getQtdFlechas());
-      assertEquals(1, celeborn.getExperiencia());
+      assertEquals(7, celeborn.getQtdFlechas());
+      assertEquals(0, celeborn.getExperiencia());
     }
     @Test
     public void legolasAtiraUmaFlecha(){
@@ -25,7 +25,7 @@ public class ElfoTest{
       elfo.atirarFlecha();
       elfo.atirarFlecha();
       elfo.atirarFlecha();
-      assertEquals(0, elfo.getFlecha().getQuantidade());
-      assertEquals(7, elfo.getExperiencia());
+      assertEquals(7, elfo.getQtdFlechas());
+      assertEquals(0, elfo.getExperiencia());
     }
 }

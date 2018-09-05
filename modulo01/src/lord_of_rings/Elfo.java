@@ -28,11 +28,11 @@
     }
     
     public int getExperiencia () {
-        return experiencia++;
+         return experiencia;
     }
     
     public int getQtdFlechas(){
-        return this.qtdFlechas;
+        return flecha.getQuantidade();
     }        
     
     
