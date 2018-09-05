@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=NumeroTest
+comment0.text=\r\n\ The\ test\ class\ NumeroTest.\r\n\r\n\ @author\ \ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ testeImpar()
+comment2.params=
+comment2.target=void\ testeSomaDigitos()
+numComments=3

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Numero
+comment1.params=number
+comment1.target=Numero(int)
+comment2.params=
+comment2.target=boolean\ impar()
+comment3.params=number
+comment3.target=boolean\ verificarSomaDivisivel(int)
+comment4.params=
+comment4.target=int\ getNumero()
+numComments=5
