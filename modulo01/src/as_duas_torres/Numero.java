@@ -15,11 +15,12 @@ public class Numero {
 	
 	public boolean verificarSomaDivisivel (int number) {
 		int soma=0;
+		int aux=numero;
 		while (numero>0) {
 			soma = soma +numero%10;
 			numero = numero/10;
 		}
-		if (soma!=0 || soma%numero==0){
+		if (soma!=0 || soma%aux==0){
 		    return true;
 		}else{
 			return false;
