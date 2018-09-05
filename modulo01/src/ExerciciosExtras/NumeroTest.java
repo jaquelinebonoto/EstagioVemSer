@@ -33,6 +33,21 @@ public class NumeroTest {
         // Assert
         assertFalse(resultado);
     }
+    
+    @Test
+    public void verificar1892376DivisivelPor9() {
+        assertTrue(new Numero(9).verificarSomaDivisivel(1892376));
+    }
+    
+    @Test
+    public void verificar0DeveSerVerdadeiro() {
+        assertTrue(new Numero(98765).verificarSomaDivisivel(0));
+    }
+    
+    @Test
+    public void verificarSe23NaoEhDivisivel() {
+        assertFalse(new Numero(98765).verificarSomaDivisivel(23));
+    }
 }
 
 
