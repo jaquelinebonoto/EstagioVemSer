@@ -59,7 +59,7 @@ public class InventarioTest {
         inventario.remover(0);
         assertNull(inventario.obter(0));
     }
-    
+
     @Test
     public void removerItemAntesDeAdicionarProximo() {
         Inventario inventario = new Inventario(1);
@@ -71,4 +71,86 @@ public class InventarioTest {
         assertEquals(armadura, inventario.obter(0));
         assertEquals(1, inventario.getItens().length);
     }
+
+    @Test
+    public void getDescricoesVariosItens() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 1);
+        Item escudo = new Item("Escudo", 2);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        String resultado = inventario.getDescricoesItens();
+        assertEquals("Espada,Escudo", resultado);
+    }
+
+    @Test
+    public void getDescricoesItensRemovendoItemNoMeio() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 1);
+        Item escudo = new Item("Escudo", 2);
+        Item flechas = new Item("Flechas", 3);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        inventario.adicionar(flechas);
+        inventario.remover(1);
+        String resultado = inventario.getDescricoesItens();
+        assertEquals("Espada,Flechas", resultado);
+    }
+
+    @Test
+    public void getDescricoesItensVazio() {
+        Inventario inventario = new Inventario();
+        String resultado = inventario.getDescricoesItens();
+        assertEquals("", resultado);
+    }
+
+    @Test
+    public void getItemMaiorQuantidadeComVarios() {
+        Inventario inventario = new Inventario();
+        Item lanca = new Item("Lança", 1);
+        Item espada = new Item("Espada de aço valiriano", 3);
+        Item escudo = new Item("Escudo de madeira", 2);
+        inventario.adicionar(lanca);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        Item resultado = inventario.getItemComMaiorQuantidade();
+        assertEquals(espada, resultado);
+    }
+    
+    @Test
+    public void getItemMaiorQuantidadeInventarioVazio() {
+        Inventario inventario = new Inventario(0);
+        Item resultado = inventario.getItemComMaiorQuantidade();
+        assertNull(resultado);
+    }
+
+    @Test
+    public void getItemMaiorQuantidadeItensComMesmaQuantidade() {
+        Inventario inventario = new Inventario();
+        Item lanca = new Item("Lança", 3);
+        Item espada = new Item("Espada de aço valiriano", 3);
+        Item escudo = new Item("Escudo de madeira", 2);
+        inventario.adicionar(lanca);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        Item resultado = inventario.getItemComMaiorQuantidade();
+        assertEquals(lanca, resultado);
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
