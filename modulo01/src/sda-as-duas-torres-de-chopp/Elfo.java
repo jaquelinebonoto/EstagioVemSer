@@ -1,7 +1,6 @@
 public class Elfo {
     private String nome;
     private int experiencia;
-    
     private Item arco;
     private Item flecha;
 
@@ -20,10 +19,11 @@ public class Elfo {
         return nome;
     }
 
-    public void atirarFlecha() {
+    public void atirarFlecha(Dwarf dwarf) {
         if (flecha.getQuantidade() > 0) {
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
+            dwarf.perderVida();
         }
     }
 
@@ -37,9 +37,4 @@ public class Elfo {
     public int getExperiencia() {
         return this.experiencia;
     }
-
-    
-    
-    
-    
 }
