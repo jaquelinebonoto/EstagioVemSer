@@ -9,8 +9,8 @@ public class NumerosTest {
 
     @Test
     public void calcularMediaDeArrayPreenchido() {
-        double[] entrada = new double[] { 1.0, 3.0, 5.0, 1.0, -10.0 };
-        double[] esperado = new double[] { 2.0, 4.0, 3.0, -4.5 };
+        double[] entrada = { 1.0, 3.0, 5.0, 1.0, -10.0 };
+        double[] esperado = { 2.0, 4.0, 3.0, -4.5 };
         Numeros numeros = new Numeros(entrada);
         double[] obtido = numeros.calcularMediaSeguinte();
         assertArrayEquals(esperado, obtido, DELTA);
