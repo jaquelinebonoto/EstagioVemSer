@@ -6,20 +6,23 @@
  que retorne um array com a média entre cada número e o número seguinte. 
  */
 public class Numeros{
-    double[] entrada;
-    double[] media;
-    int n;
+    private double[] entrada;
+    private double[] media=new double [3];
+    private int n;
     
-    public Numeros(double []entrada, int n){
+    public Numeros(double []entrada){
         this.entrada = entrada;
-        this.n = n;
     }
 
-    public double calcularMediaSeguinte (double []entrada){
-        int i=0;
-        for (i=0; i<n; i++){
-            media[i] = (entrada[i]+entrada[i+1]/2);
+    public int calculaTamanhoEntrada (double []entrada){
+        n= entrada.length;
+        return n;
+    }
+    
+    public double[] calcularMediaSeguinte (){
+        for (int i=0; i<=n; i++){
+            media[i] = ((entrada[i]+entrada[1+i])/2);
         }
-        return media[n];
+        return media;
     }
 }

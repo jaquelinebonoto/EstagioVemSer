@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Numeros
 comment0.text=\r\n\ Crie\ uma\ classe\ Numeros,\ que\ recebe\ um\ array\ de\ n\u00FAmeros\ racionais\ \r\n\ (inteiros\ negativos,\ positivos\ ou\ com\ precis\u00E3o\ num\u00E9rica)\ informado\ \r\n\ na\ sua\ cria\u00E7\u00E3o\ e\ que\ tenha\ um\ m\u00E9todo\ calcularMediaSeguinte\ \r\n\ que\ retorne\ um\ array\ com\ a\ m\u00E9dia\ entre\ cada\ n\u00FAmero\ e\ o\ n\u00FAmero\ seguinte.\ \r\n
-comment1.params=entrada\ n
-comment1.target=Numeros(double[],\ int)
+comment1.params=entrada
+comment1.target=Numeros(double[])
 comment2.params=entrada
-comment2.target=double\ calcularMediaSeguinte(double[])
-numComments=3
+comment2.target=int\ calculaTamanhoEntrada(double[])
+comment3.params=
+comment3.target=double[]\ calcularMediaSeguinte()
+numComments=4

@@ -1,13 +1,6 @@
 #BlueJ class context
 comment0.target=NumerosTest
-comment0.text=\r\n\tdouble[]\ entrada\ \=\ new\ double[\ ]\ {\ 1.0,\ 3.0,\ 5.0,\ 1.0,\ -10.0\ };\r\n\tNumeros\ numeros\ \=\ new\ Numeros(entrada);\r\n\tnumeros.calcularMediaSeguinte();\ //\ [\ 2.0,\ 4.0,\ 3.0,\ -4.5\ ]\r\n
+comment0.text=\r\n\tdouble[]\ entrada\ \=\ new\ double[\ ]\ {\ 1.0,\ 3.0,\ 5.0,\ 1.0,\ -10.0\ };\r\n\tNumeros\ numeros\ \=\ new\ Numeros(entrada);\r\n\tnumeros.calcularMediaSeguinte();\ //\ [2.0,4.0,3.0,-4.5]\r\n
 comment1.params=
-comment1.target=NumerosTest()
-comment1.text=\r\n\ Construtor\ default\ para\ a\ classe\ de\ teste\ NumerosTest\r\n
-comment2.params=
-comment2.target=void\ setUp()
-comment2.text=\r\n\ Define\ a\ .\r\n\r\n\ Chamado\ antes\ de\ cada\ m\u00E9todo\ de\ caso\ de\ teste.\r\n
-comment3.params=
-comment3.target=void\ tearDown()
-comment3.text=\r\n\ Tears\ down\ the\ test\ fixture.\r\n\r\n\ Chamado\ ap\u00F3s\ cada\ m\u00E9todo\ de\ teste\ de\ caso.\r\n
-numComments=4
+comment1.target=void\ calculaMediaArrayProfessor()
+numComments=2

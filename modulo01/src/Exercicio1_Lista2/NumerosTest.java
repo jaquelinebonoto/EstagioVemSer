@@ -14,7 +14,11 @@ public class NumerosTest{
     @Test
     public void calculaMediaArrayProfessor(){
         double[] entrada = new double[ ] {1.0,3.0,5.0,1.0,-10.0};
-	Numeros numeros = new Numeros(entrada, 4);
-	assertArrayEquals (double []{2.0,4.0,3.0,-4.5},numeros.calcularMediaSeguinte());
+	Numeros numeros = new Numeros(entrada);
+	double[] mediasObtidas = numeros.calcularMediaSeguinte();
+       assertEquals(2.0, mediasObtidas[0], 0.1);
+       assertEquals(4.0, mediasObtidas[1], 0.1);
+       assertEquals(3.0, mediasObtidas[2], 0.1);
+       assertEquals(-4.5, mediasObtidas[3], 0.1);
     }
 }
