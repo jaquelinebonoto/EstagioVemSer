@@ -15,7 +15,7 @@ public class ElfoTest
     public void celebornAtiraUmaFlecha() {
         Elfo celeborn = new Elfo("Celeborn");
         celeborn.atirarFlecha();
-        assertEquals(6, celeborn.getQtdFlechas());
+        assertEquals(6, celeborn.getFlecha().getQuantidade());
         assertEquals(1, celeborn.getExperiencia());
     }
 
@@ -30,7 +30,7 @@ public class ElfoTest
         elfo.atirarFlecha();
         elfo.atirarFlecha();
         elfo.atirarFlecha();
-        assertEquals(0, elfo.getQtdFlechas());
+        assertEquals(0, elfo.getFlecha().getQuantidade());
         assertEquals(7, elfo.getExperiencia());
     }
 }

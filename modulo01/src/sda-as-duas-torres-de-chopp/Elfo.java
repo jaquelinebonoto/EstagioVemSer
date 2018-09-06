@@ -1,12 +1,15 @@
 public class Elfo {
     private String nome;
-    private int qtdFlechas;
     private int experiencia;
+    
+    private Item arco;
+    private Item flecha;
 
     // type initializer
     {
-        qtdFlechas = 7;
         experiencia = 0;
+        arco = new Item("Arco", 1);
+        flecha = new Item("Flecha", 7);
     }
 
     public Elfo(String nomeInformado) {
@@ -18,15 +21,18 @@ public class Elfo {
     }
 
     public void atirarFlecha() {
-        if (qtdFlechas > 0) {
-            qtdFlechas--;
+        if (flecha.getQuantidade() > 0) {
+            flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
         }
     }
 
-    public int getQtdFlechas() {
-        return this.qtdFlechas;
+    public Item getFlecha() {
+        return this.flecha;
     }
+    // Law of Demeter
+    // elfo.getFlecha().getQuantidade();
+    // elfo.getQtdFlechas();
 
     public int getExperiencia() {
         return this.experiencia;
