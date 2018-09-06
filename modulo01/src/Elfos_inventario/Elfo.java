@@ -22,7 +22,6 @@ public class Elfo {
     
     public void atirarFlecha() {
         if (flecha.getQuantidade() > 0) return;
-        //qtdFlechas--;
         flecha.setQuantidade(flecha.getQuantidade()-1);
         experiencia++;
     }
