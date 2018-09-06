@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Numeros
-comment0.text=public\ class\ Numeros{\r\n\ \ \ \ private\ double[]\ entrada;\r\n\ \ \ \ private\ double[]\ media\=new\ double\ [3];\r\n\ \ \ \ private\ int\ n;\r\n\ \ \ \ \r\n\ \ \ \ public\ Numeros(double\ []entrada){\r\n\ \ \ \ \ \ \ \ this.entrada\ \=\ entrada;\r\n\ \ \ \ }\r\n\r\n\ \ \ \ public\ int\ calculaTamanhoEntrada\ (double\ []entrada){\r\n\ \ \ \ \ \ \ \ n\=\ entrada.length;\r\n\ \ \ \ \ \ \ \ return\ n;\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ public\ double[]\ calcularMediaSeguinte\ (){\r\n\ \ \ \ \ \ \ \ for\ (int\ i\=0;\ i<\=n;\ i++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ media[i]\ \=\ ((entrada[i]+entrada[1+i])/2);\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ media;\r\n\ \ \ \ }\r\n}
+comment0.text=\r\n\ Crie\ uma\ classe\ Numeros,\ que\ recebe\ um\ array\ de\ n\u00FAmeros\ racionais\ \r\n\ (inteiros\ negativos,\ positivos\ ou\ com\ precis\u00E3o\ num\u00E9rica)\ informado\ \r\n\ na\ sua\ cria\u00E7\u00E3o\ e\ que\ tenha\ um\ m\u00E9todo\ calcularMediaSeguinte\ \r\n\ que\ retorne\ um\ array\ com\ a\ m\u00E9dia\ entre\ cada\ n\u00FAmero\ e\ o\ n\u00FAmero\ seguinte.\ \r\n
 comment1.params=entrada
 comment1.target=Numeros(double[])
 comment2.params=entrada
