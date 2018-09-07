@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=NumerosTest
-comment0.text=\r\n\ \ \ \ double[]\ entrada\ \=\ new\ double[\ ]\ {\ 1.0,\ 3.0,\ 5.0,\ 1.0,\ -10.0\ };\r\n\ \ \ \ Numeros\ numeros\ \=\ new\ Numeros(entrada);\r\n\ \ \ \ numeros.calcularMediaSeguinte();\ //\ [2.0,4.0,3.0,-4.5]\r\n
-comment1.params=
-comment1.target=void\ calculaMediaArrayProfessor()
-numComments=2

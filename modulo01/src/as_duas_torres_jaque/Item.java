@@ -1,22 +1,21 @@
-
-public class Item{
+public class Item {
     private String descricao;
     private int quantidade;
-    
-    public Item(String descricao, int quantidade){
+
+    public Item(String descricao, int quantidade) {
         this.descricao = descricao;
         this.quantidade = quantidade;
     }
-
-    public String getDescricao (){
+    
+    public String getDescricao() {
         return this.descricao;
     }
     
-    public int getQuantidade(){
+    public int getQuantidade() {
         return this.quantidade;
-    }    
+    }
     
-    public void setQuantidade(int novaQuantidade){
+    public void setQuantidade(int novaQuantidade) {
         this.quantidade = novaQuantidade;
     }
 }
