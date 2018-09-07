@@ -89,12 +89,23 @@ public class InventarioTest {
         Item espada = new Item("Espada", 1);
         Item escudo = new Item("Escudo", 2);
         Item flechas = new Item("Flechas", 3);
+        Item xicara = new Item("Chip", 1);
+
         inventario.adicionar(espada);
         inventario.adicionar(escudo);
         inventario.adicionar(flechas);
+        inventario.adicionar(xicara);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        inventario.adicionar(flechas);
+        inventario.adicionar(xicara);
+
         inventario.remover(1);
+        inventario.remover(2);
+        inventario.remover(3);
+        inventario.remover(5);
         String resultado = inventario.getDescricoesItens();
-        assertEquals("Espada,Flechas", resultado);
+        assertEquals("Espada,Espada,Flechas,Chip", resultado);
     }
 
     @Test
@@ -116,7 +127,7 @@ public class InventarioTest {
         Item resultado = inventario.getItemComMaiorQuantidade();
         assertEquals(espada, resultado);
     }
-    
+
     @Test
     public void getItemMaiorQuantidadeInventarioVazio() {
         Inventario inventario = new Inventario(0);
@@ -136,16 +147,8 @@ public class InventarioTest {
         Item resultado = inventario.getItemComMaiorQuantidade();
         assertEquals(lanca, resultado);
     }
-    
+
 }
-
-
-
-
-
-
-
-
 
 
 
