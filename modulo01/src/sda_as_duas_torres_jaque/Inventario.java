@@ -65,4 +65,3 @@ public class Inventario {
         return this.itens.length > 0 ? this.itens[indice] : null;
     }
 }
-

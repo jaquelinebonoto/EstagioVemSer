@@ -1,4 +1,4 @@
-public class Elfo {
+   public class Elfo {
     private String nome;
     private int experiencia;
     private Item arco;
@@ -30,9 +30,6 @@ public class Elfo {
     public Item getFlecha() {
         return this.flecha;
     }
-    // Law of Demeter
-    // elfo.getFlecha().getQuantidade();
-    // elfo.getQtdFlechas();
 
     public int getExperiencia() {
         return this.experiencia;

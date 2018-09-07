@@ -8,7 +8,8 @@ public class Dwarf {
     }
     
     public void perderVida() {
-        vida -= 10.0;
+        if(status == Status.VIVO) vida -= 10.0;
+        updateStatus();
     }
     
     public double getVida() {
@@ -17,5 +18,10 @@ public class Dwarf {
     
     public Status getStatus() {
         return this.status;
+    }
+    
+    public Status updateStatus (){
+        if (getVida()==0.0) status = Status.MORTO;
+        return status;
     }
 }
