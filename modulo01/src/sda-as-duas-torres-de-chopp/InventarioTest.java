@@ -6,15 +6,9 @@ import org.junit.Test;
 public class InventarioTest {
 
     @Test
-    public void criarInventarioSemQuantidadeInformada() {
-        Inventario inventario = new Inventario();
-        assertEquals(99, inventario.getItens().length);
-    }
-
-    @Test
     public void criarInventarioInformandoQuantidadeItens() {
         Inventario inventario = new Inventario(42);
-        assertEquals(42, inventario.getItens().length);
+        assertEquals(0, inventario.getItens().size());
     }
 
     @Test
@@ -22,18 +16,18 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         Item espada = new Item("Espada", 1);
         inventario.adicionar(espada);
-        assertEquals(espada, inventario.getItens()[0]);
+        assertEquals(espada, inventario.getItens().get(0));
     }
 
     @Test
-    public void adicionarDoisItensComEspaçoParaUmNaoAdicionaSegundo() {
+    public void adicionarDoisItensComEspaçoInicialParaUmAdicionaSegundo() {
         Inventario inventario = new Inventario(1);
         Item espada = new Item("Espada", 1);
         Item armadura = new Item("Armadura", 1);
         inventario.adicionar(espada);
         inventario.adicionar(armadura);
-        assertEquals(espada, inventario.getItens()[0]);
-        assertEquals(1, inventario.getItens().length);
+        assertEquals(espada, inventario.getItens().get(0));
+        assertEquals(2, inventario.getItens().size());
     }
 
     @Test
@@ -44,20 +38,20 @@ public class InventarioTest {
         assertEquals(espada, inventario.obter(0));
     }
 
-    @Test
+    @Test(expected=IndexOutOfBoundsException.class)
     public void obterItemNaoAdicionado() {
         Inventario inventario = new Inventario(1);
         Item espada = new Item("Espada", 1);
-        assertNull(inventario.obter(0));
+        Item primeiroItem = inventario.obter(0);
     }
 
-    @Test
+    @Test(expected=IndexOutOfBoundsException.class)
     public void removerItem() {
         Inventario inventario = new Inventario(1);
         Item espada = new Item("Espada", 1);
         inventario.adicionar(espada);
         inventario.remover(0);
-        assertNull(inventario.obter(0));
+        Item primeiroItem = inventario.obter(0);
     }
 
     @Test
@@ -69,7 +63,7 @@ public class InventarioTest {
         inventario.remover(0);
         inventario.adicionar(armadura);
         assertEquals(armadura, inventario.obter(0));
-        assertEquals(1, inventario.getItens().length);
+        assertEquals(1, inventario.getItens().size());
     }
 
     @Test
@@ -92,20 +86,20 @@ public class InventarioTest {
         Item xicara = new Item("Chip", 1);
 
         inventario.adicionar(espada);
-        inventario.adicionar(escudo);
+        inventario.adicionar(escudo);//
         inventario.adicionar(flechas);
-        inventario.adicionar(xicara);
+        inventario.adicionar(xicara);//
         inventario.adicionar(espada);
-        inventario.adicionar(escudo);
+        inventario.adicionar(escudo);//
         inventario.adicionar(flechas);
-        inventario.adicionar(xicara);
+        inventario.adicionar(xicara);//
 
         inventario.remover(1);
         inventario.remover(2);
         inventario.remover(3);
-        inventario.remover(5);
+        inventario.remover(4);
         String resultado = inventario.getDescricoesItens();
-        assertEquals("Espada,Espada,Flechas,Chip", resultado);
+        assertEquals("Espada,Flechas,Espada,Flechas", resultado);
     }
 
     @Test

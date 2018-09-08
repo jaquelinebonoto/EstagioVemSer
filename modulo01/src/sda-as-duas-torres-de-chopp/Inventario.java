@@ -1,46 +1,39 @@
-public class Inventario {
-    private Item[] itens;
-    private int posicaoAPreencher = 0, ultimaPosicaoPreenchida = 0;
+import java.util.ArrayList;
 
-    public Inventario(int quantidadeDeItens) {
-        this.itens = new Item[quantidadeDeItens];
-    }
+public class Inventario {
+    private ArrayList<Item> itens;
 
     public Inventario() {
-        this(99);
+        this(0);
+    }
+    
+    public Inventario(int quantidadeDeItens) {
+        this.itens = new ArrayList<>(quantidadeDeItens);
     }
 
-    public Item[] getItens() {
+    public ArrayList<Item> getItens() {
         return this.itens;
     }
 
     public void adicionar(Item item) {
-        for (int i = this.posicaoAPreencher; i < this.itens.length; i++) {
-            if (this.itens[i] == null) {
-                this.itens[i] = item;
-                posicaoAPreencher = i + 1;
-                ultimaPosicaoPreenchida = i;
-                break;
-            }
-        }
+        this.itens.add(item);
     }
 
     public Item obter(int posicao) {
-        return this.itens[posicao];
+        return this.itens.get(posicao);
     }
 
     public void remover(int posicao) {
-        this.itens[posicao] = null;
-        posicaoAPreencher = posicao;
+        this.itens.remove(posicao);
     }
 
     public String getDescricoesItens() {
         StringBuilder descricoes = new StringBuilder();
-        for (int i = 0; i < this.itens.length; i++) {
-            if (this.itens[i] != null) {
-                String descricao = this.itens[i].getDescricao();
+        for (int i = 0; i < this.itens.size(); i++) {
+            if (this.itens.get(i) != null) {
+                String descricao = this.itens.get(i).getDescricao();
                 descricoes.append(descricao);
-                boolean deveColocarVirgula = i < this.ultimaPosicaoPreenchida;
+                boolean deveColocarVirgula = i < this.itens.size() - 1;
                 if (deveColocarVirgula) {
                     descricoes.append(",");
                 }
@@ -53,16 +46,16 @@ public class Inventario {
     public Item getItemComMaiorQuantidade() {
 
         int indice = 0, maiorQuantidadeParcial = 0;
-        for (int i = 0; i < this.itens.length; i++) {
-            if (this.itens[i] != null) {
-                int qtdAtual = this.itens[i].getQuantidade();
+        for (int i = 0; i < this.itens.size(); i++) {
+            if (this.itens.get(i) != null) {
+                int qtdAtual = this.itens.get(i).getQuantidade();
                 if (qtdAtual > maiorQuantidadeParcial) {
                     maiorQuantidadeParcial = qtdAtual;
                     indice = i;
                 }
             }
         }
-        return this.itens.length > 0 ? this.itens[indice] : null;
+        return !this.itens.isEmpty() ? this.itens.get(indice) : null;
     }
 }
 
