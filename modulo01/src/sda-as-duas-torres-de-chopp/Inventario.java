@@ -57,5 +57,15 @@ public class Inventario {
         }
         return !this.itens.isEmpty() ? this.itens.get(indice) : null;
     }
+    
+    public Item buscar(String descricao) {
+        for (int i = 0; i < this.itens.size(); i++) {
+            Item itemAtual = this.itens.get(i);
+            if (itemAtual.getDescricao().equals(descricao)) {
+                return itemAtual;
+            }
+        }
+        return null;
+    }
 }
 

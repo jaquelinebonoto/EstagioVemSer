@@ -142,12 +142,46 @@ public class InventarioTest {
         assertEquals(lanca, resultado);
     }
 
+    @Test
+    public void buscarItemComInventarioVazio() {
+        Inventario inventario = new Inventario();
+        assertNull(inventario.buscar("Malha de ferro"));
+    }
+
+    @Test
+    public void buscarItemComMesmaDescricaoRetornaPrimeiro() {
+        Inventario inventario = new Inventario();
+        Item lanca = new Item("Lança", 3);
+        Item espada = new Item("Espada de aço valiriano", 3);
+        Item espada2 = new Item("Espada de aço valiriano", 2);
+        inventario.adicionar(lanca);
+        inventario.adicionar(espada);
+        inventario.adicionar(espada2);
+        Item resultado = inventario.buscar("Espada de aço valiriano");
+        assertEquals("Espada de aço valiriano", resultado.getDescricao());
+        assertEquals(3, resultado.getQuantidade());
+    }
+
+    @Test
+    public void buscarItemForaDoInventarioRetornaNull() {
+        Inventario inventario = new Inventario();
+        Item lanca = new Item("Lança", 3);
+        Item espada = new Item("Espada de aço valiriano", 3);
+        inventario.adicionar(lanca);
+        inventario.adicionar(espada);
+        Item resultado = inventario.buscar("Botas de couro");
+        assertNull(resultado);
+    }
+
+    @Test
+    public void buscarItemNormal() {
+        Inventario inventario = new Inventario();
+        Item lanca = new Item("Lança", 1);
+        Item espada = new Item("Espada de aço valiriano", 3);
+        inventario.adicionar(lanca);
+        inventario.adicionar(espada);
+        Item resultado = inventario.buscar("Lança");
+        assertEquals("Lança", resultado.getDescricao());
+        assertEquals(1, resultado.getQuantidade());
+    }
 }
-
-
-
-
-
-
-
-
