@@ -21,7 +21,7 @@ public class InventarioListTest{
 
     @Test
     public void adicionar2ItensEVoltarTamanho(){
-       InventarioList inventario1 = new InventarioList();
+        InventarioList inventario1 = new InventarioList();
         Item espada = new Item("Espada", 1);
         Item flecha = new Item("Flecha", 2);
         inventario1.adicionar(espada);
@@ -29,7 +29,6 @@ public class InventarioListTest{
         assertEquals(2, inventario1.tamanhoInventario());  
     }
 
-    
     @Test
     public void buscaItemPeloNomeArmadura(){
         InventarioList inventario1 = new InventarioList();
@@ -44,19 +43,33 @@ public class InventarioListTest{
         Item resultado = inventario1.buscarItem("Armadura");
         assertEquals(armadura.getDescricao(), resultado.getDescricao());
     }
-    
+
     /*@Test
     public void buscaItemPorNomeIncorretoRetornaNull(){
-        InventarioList inventario1 = new InventarioList();
-        Item espada = new Item("Espada", 1);
-        Item flecha = new Item("Flecha", 2);
-        Item machado = new Item("Machado", 2);
-        Item armadura= new Item("Armadura", 1);
-        inventario1.adicionar(espada);
-        inventario1.adicionar(flecha);
-        inventario1.adicionar(machado);
-        inventario1.adicionar(armadura);
-        Item resultado = inventario1.buscarItem("armadura");
-        assertEquals(null, resultado);
+    InventarioList inventario1 = new InventarioList();
+    Item espada = new Item("Espada", 1);
+    Item flecha = new Item("Flecha", 2);
+    Item machado = new Item("Machado", 2);
+    Item armadura= new Item("Armadura", 1);
+    inventario1.adicionar(espada);
+    inventario1.adicionar(flecha);
+    inventario1.adicionar(machado);
+    inventario1.adicionar(armadura);
+    Item resultado = inventario1.buscarItem("carro");
+    assertEquals(null, resultado.getDescricao());
     }*/
+
+    @Test
+    public void inverteLista(){
+        InventarioList inventario = new InventarioList();
+        Item espada = new Item("Espada", 1);
+        Item escudo = new Item("Escudo", 2);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        inventario.inverter();
+        InventarioList invertida = new InventarioList();
+        invertida.adicionar(escudo);
+        invertida.adicionar(espada);
+        assertEquals(invertida.getItens(), inventario.getItens()); // retorna os itens Espada, Escudo
+    }
 }
