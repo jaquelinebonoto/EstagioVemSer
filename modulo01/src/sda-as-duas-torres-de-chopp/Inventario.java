@@ -67,5 +67,12 @@ public class Inventario {
         }
         return null;
     }
+    
+    public ArrayList<Item> inverter() {
+        ArrayList<Item> listaInvertida = new ArrayList<>(this.itens.size());
+        for (int i = this.itens.size() - 1; i >= 0; i--) {
+            listaInvertida.add(this.itens.get(i));
+        }
+        return listaInvertida;
+    }
 }
-

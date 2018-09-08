@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 public class InventarioTest {
 
@@ -183,5 +184,47 @@ public class InventarioTest {
         Item resultado = inventario.buscar("Lança");
         assertEquals("Lança", resultado.getDescricao());
         assertEquals(1, resultado.getQuantidade());
+    }
+
+    @Test
+    public void inverterInventarioVazio() {
+        Inventario inventario = new Inventario();
+        assertTrue(inventario.inverter().isEmpty());
+    }
+
+    @Test
+    public void inverterInventarioComApenasUmElemento() {
+        Inventario inventario = new Inventario();
+        Item bracelete = new Item("Bracelete prateado", 2);
+        inventario.adicionar(bracelete);
+        ArrayList<Item> invertidos = inventario.inverter();
+        assertEquals(bracelete, invertidos.get(0));
+        assertEquals(1, invertidos.size());
+    }
+
+    @Test
+    public void inverterInventarioComItensIguais() {
+        Inventario inventario = new Inventario();
+        Item bracelete1 = new Item("Bracelete prateado", 2);
+        Item bracelete2 = new Item("Bracelete prateado", 2);
+        inventario.adicionar(bracelete1);
+        inventario.adicionar(bracelete2);
+        ArrayList<Item> invertidos = inventario.inverter();
+        assertEquals(bracelete2, invertidos.get(0));
+        assertEquals(bracelete1, invertidos.get(1));
+        assertEquals(2, invertidos.size());
+    }
+
+    @Test
+    public void inverterInventarioComItensDescricaoDiferentes() {
+        Inventario inventario = new Inventario();
+        Item bracelete1 = new Item("Bracelete prateado", 2);
+        Item malha = new Item("Malha de couro", 1);
+        inventario.adicionar(bracelete1);
+        inventario.adicionar(malha);
+        ArrayList<Item> invertidos = inventario.inverter();
+        assertEquals(malha, invertidos.get(0));
+        assertEquals(bracelete1, invertidos.get(1));
+        assertEquals(2, invertidos.size());
     }
 }
