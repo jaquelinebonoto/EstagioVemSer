@@ -64,12 +64,17 @@ public class InventarioListTest{
         InventarioList inventario = new InventarioList();
         Item espada = new Item("Espada", 1);
         Item escudo = new Item("Escudo", 2);
+        Item flecha = new Item("Flecha", 2);
+        Item machado = new Item("Machado", 2);
         inventario.adicionar(espada);
         inventario.adicionar(escudo);
-        inventario.inverter();
+        inventario.adicionar(flecha);
+        inventario.adicionar(machado);
         InventarioList invertida = new InventarioList();
+        invertida.adicionar(machado);
+        invertida.adicionar(flecha);
         invertida.adicionar(escudo);
         invertida.adicionar(espada);
-        assertEquals(invertida.getItens(), inventario.getItens()); // retorna os itens Espada, Escudo
+        assertEquals(invertida.getItens(), inventario.inverter().getItens());
     }
 }
