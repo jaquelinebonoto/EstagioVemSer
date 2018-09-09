@@ -85,4 +85,25 @@ public class EstatisticasInventarioTest{
         EstatisticasInventario inventario1 = new EstatisticasInventario(inventario);
         assertEquals(7.0, inventario1.calcularMediana(inventario), DELTA);        
     }
+    
+    @Test 
+    public void QuatroItensAcimaDaMedia(){
+        InventarioList inventario = new InventarioList();
+        Item espada = new Item("Espada", 2);
+        Item flecha = new Item("Flecha", 2);
+        Item machado = new Item("Machado", 3);
+        Item armadura= new Item("Armadura", 7);
+        Item espada1 = new Item("Espada1", 8);
+        Item flecha1 = new Item("Flecha1", 9);
+        Item machado1 = new Item("Machado1", 9);
+        inventario.adicionar(espada);
+        inventario.adicionar(flecha);
+        inventario.adicionar(machado);
+        inventario.adicionar(armadura);
+        inventario.adicionar(espada1);
+        inventario.adicionar(flecha1);
+        inventario.adicionar(machado1);
+        EstatisticasInventario inventario1 = new EstatisticasInventario(inventario);
+        assertEquals(4, inventario1.itensAcimaDaMedia(inventario1, inventario));        
+    }
 }

@@ -23,4 +23,14 @@ public class EstatisticasInventario{
         else mediana= inventario.getItens().get(posicao).getQuantidade();
         return mediana;
     }
+    
+    public int itensAcimaDaMedia(EstatisticasInventario inventario, InventarioList inventario1){
+        double media=0;
+        int cont=0;
+        media =inventario.calcularMedia(inventario1);
+        for (int i=0; i<inventario1.tamanhoInventario(); i++){
+            if(inventario1.getItens().get(i).getQuantidade()>= media) cont++;
+        }  
+        return cont;
+    }
 }
