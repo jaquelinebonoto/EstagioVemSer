@@ -16,4 +16,11 @@ public class EstatisticasInventario{
         return soma/totalItem;
     }
     
+    public double calcularMediana(InventarioList inventario){
+        int n = inventario.tamanhoInventario(), posicao=n/2;
+        double mediana=0;
+        if (n%2==0) mediana = (inventario.getItens().get(posicao-1).getQuantidade()+inventario.getItens().get(posicao).getQuantidade())/2.0;
+        else mediana= inventario.getItens().get(posicao).getQuantidade();
+        return mediana;
+    }
 }
