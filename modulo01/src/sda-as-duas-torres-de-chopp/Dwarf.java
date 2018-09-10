@@ -1,25 +1,25 @@
 public class Dwarf {
-    private String nome;
-    private Status status = Status.VIVO;
-    private double vida = 110.0;
+    private Atributos atributos;
     private final double QTD_DANO = 10.0;
     
     public Dwarf(String nome) {
-        this.nome = nome;
+        this.atributos = new Atributos(nome, 110.0, Status.VIVO);
     }
     
     public void perderVida() {
-        vida -= this.vida >= QTD_DANO ? QTD_DANO : 0;
+        double dano = this.atributos.getVida() >= QTD_DANO ? QTD_DANO : 0;
+        double vida = this.atributos.getVida() - dano;
+        this.atributos.setVida(vida);
         if (vida == 0.0) {
-            this.status = Status.MORTO;
+            this.atributos.setStatus(Status.MORTO);
         }
     }
     
     public double getVida() {
-        return this.vida;
+        return this.atributos.getVida();
     }
     
     public Status getStatus() {
-        return this.status;
+        return this.atributos.getStatus();
     }
 }
