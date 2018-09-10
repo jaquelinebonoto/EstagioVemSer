@@ -1,11 +1,9 @@
 public class Dwarf {
-    private String nome;
-    private Status status = Status.VIVO;
-    private double vida = 110.0;
+    private Atributos atributos;
     private final double DANO = 10.0;
     
     public Dwarf(String nome) {
-        this.nome = nome;
+        this.atributos = new Atributos (nome, Status.VIVO, 110.0);
     }
     
     public void perderVida() {

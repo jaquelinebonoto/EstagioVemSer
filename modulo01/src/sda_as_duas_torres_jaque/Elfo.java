@@ -1,5 +1,5 @@
    public class Elfo {
-    private String nome;
+    private Atributos atributos;
     private int experiencia;
     private Item arco;
     private Item flecha;
@@ -12,7 +12,7 @@
     }
 
     public Elfo(String nomeInformado) {
-        nome = nomeInformado;
+        this.atributos = new Atributos (nomeInformado, Status.VIVO, 100.0);
     }
 
     public String getNome() {
