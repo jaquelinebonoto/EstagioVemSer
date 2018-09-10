@@ -3,6 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class InventarioTest {
 
@@ -239,5 +240,58 @@ public class InventarioTest {
         Inventario inventario = new Inventario();
         inventario.adicionar(new Item("Espada", 1));
         assertFalse(inventario.vazio());
+    }
+
+    @Test
+    public void ordenarItensVazio() {
+        Inventario inventario = new Inventario();
+        inventario.ordenarItens();
+        assertTrue(inventario.getItens().isEmpty());
+    }
+
+    @Test
+    public void ordenarItensUmElemento() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        inventario.adicionar(espada);
+        inventario.ordenarItens();
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(espada));
+        assertEquals(esperado, inventario.getItens());
+    }
+
+    @Test
+    public void ordenarItensTotalmenteDesordenado() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        Item escudo = new Item("Escudo", 5);
+        Item botas = new Item("Botas", 4);
+        Item capuz = new Item("Capuz de couro", 4);
+        Item armadura = new Item("Armadura de aço", 3);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        inventario.adicionar(botas);
+        inventario.adicionar(capuz);
+        inventario.adicionar(armadura);
+        inventario.ordenarItens();
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(armadura, botas, capuz, escudo, espada));
+        assertEquals(esperado, inventario.getItens());
+    }
+
+    @Test
+    public void ordenarItensTotalmenteOrdenado() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        Item escudo = new Item("Escudo", 5);
+        Item botas = new Item("Botas", 4);
+        Item capuz = new Item("Capuz de couro", 4);
+        Item armadura = new Item("Armadura de aço", 3);
+        inventario.adicionar(armadura);
+        inventario.adicionar(botas);
+        inventario.adicionar(capuz);
+        inventario.adicionar(escudo);
+        inventario.adicionar(espada);
+        inventario.ordenarItens();
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(armadura, botas, capuz, escudo, espada));
+        assertEquals(esperado, inventario.getItens());
     }
 }
