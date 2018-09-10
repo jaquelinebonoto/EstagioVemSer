@@ -26,6 +26,10 @@ public class Inventario {
     public void remover(int posicao) {
         this.itens.remove(posicao);
     }
+    
+    public boolean vazio() {
+        return this.itens.isEmpty();
+    }
 
     public String getDescricoesItens() {
         StringBuilder descricoes = new StringBuilder();
@@ -75,4 +79,6 @@ public class Inventario {
         }
         return listaInvertida;
     }
+    
+    //public 
 }

@@ -227,4 +227,17 @@ public class InventarioTest {
         assertEquals(bracelete1, invertidos.get(1));
         assertEquals(2, invertidos.size());
     }
+
+    @Test
+    public void vazioComInventarioVazio() {
+        Inventario inventario = new Inventario();
+        assertTrue(inventario.vazio());
+    }
+
+    @Test
+    public void vazioComInventarioCheio() {
+        Inventario inventario = new Inventario();
+        inventario.adicionar(new Item("Espada", 1));
+        assertFalse(inventario.vazio());
+    }
 }
