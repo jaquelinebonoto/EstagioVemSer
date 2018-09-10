@@ -38,4 +38,18 @@ public class InventarioList {
         }
         return invertida;
     }
+    
+    /*public void ordenarItensPorQuantidade(){
+        int menor=0, maior=0;
+        InventarioList ordenado = new InventarioList();
+        for (int i=0; i>=this.itens.size()-1; i++){
+            if (itens.get(i).getQuantidade()==0) ordenado.adicionar(itens.get(i));
+            if (itens.get(i).getQuantidade() > menor && itens.get(i).getQuantidade()< maior){
+                menor = itens.get(i).getQuantidade();
+            }
+            if (itens.get(i).getQuantidade()>maior){
+                maior = itens.get(i).getQuantidade();
+            } 
+        }
+    }*/
 }
