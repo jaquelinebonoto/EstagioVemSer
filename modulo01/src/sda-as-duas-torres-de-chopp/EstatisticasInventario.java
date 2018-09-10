@@ -21,6 +21,7 @@ public class EstatisticasInventario {
         if (this.inventario.vazio()) {
             return Double.NaN;
         }
+        this.inventario.ordenarItens();
         int qtdItens = this.inventario.getItens().size();
         int meio = qtdItens / 2;
         boolean qtdImpar = qtdItens % 2 == 1;

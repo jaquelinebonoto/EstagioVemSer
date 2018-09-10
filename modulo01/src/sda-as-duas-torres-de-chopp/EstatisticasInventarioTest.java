@@ -90,8 +90,7 @@ public class EstatisticasInventarioTest {
         inventario.adicionar(new Item("Bracelete", 4));
         inventario.adicionar(new Item("Flechas de fogo", 3));
         EstatisticasInventario estatisticas = new EstatisticasInventario(inventario);
-        // TODO: passar esse cenario quando implementar ordenaçao.
-        //assertEquals(3, estatisticas.calcularMediana(), DELTA);
+        assertEquals(3, estatisticas.calcularMediana(), DELTA);
     }
 
     @Test
