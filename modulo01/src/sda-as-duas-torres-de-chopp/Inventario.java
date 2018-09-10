@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Inventario {
     private ArrayList<Item> itens;
@@ -6,7 +8,7 @@ public class Inventario {
     public Inventario() {
         this(0);
     }
-    
+
     public Inventario(int quantidadeDeItens) {
         this.itens = new ArrayList<>(quantidadeDeItens);
     }
@@ -26,7 +28,7 @@ public class Inventario {
     public void remover(int posicao) {
         this.itens.remove(posicao);
     }
-    
+
     public boolean vazio() {
         return this.itens.isEmpty();
     }
@@ -61,7 +63,7 @@ public class Inventario {
         }
         return !this.itens.isEmpty() ? this.itens.get(indice) : null;
     }
-    
+
     public Item buscar(String descricao) {
         for (int i = 0; i < this.itens.size(); i++) {
             Item itemAtual = this.itens.get(i);
@@ -71,7 +73,7 @@ public class Inventario {
         }
         return null;
     }
-    
+
     public ArrayList<Item> inverter() {
         ArrayList<Item> listaInvertida = new ArrayList<>(this.itens.size());
         for (int i = this.itens.size() - 1; i >= 0; i--) {
@@ -79,23 +81,20 @@ public class Inventario {
         }
         return listaInvertida;
     }
-    
+
     public void ordenarItens() {
         ordenarItens(TipoOrdenacao.ASC);
     }
-    
+
     public void ordenarItens(TipoOrdenacao tipoOrdenacao) {
-        for (int i = 0; i < this.itens.size(); i++) {
-            for (int j = 0; j < this.itens.size() - 1; j++) {
-                Item atual = this.itens.get(j);
-                Item proximo = this.itens.get(j + 1);
-                boolean deveTrocar = tipoOrdenacao == TipoOrdenacao.ASC ? atual.getQuantidade() > proximo.getQuantidade() : atual.getQuantidade() < proximo.getQuantidade();
-                if (deveTrocar) {
-                    Item itemTrocado = atual;
-                    this.itens.set(j, proximo);
-                    this.itens.set(j + 1, itemTrocado);
+        Collections.sort(this.itens, new Comparator<Item>() {
+                public int compare(Item item1, Item item2) {
+                    int quantidade1 = item1.getQuantidade();
+                    int quantidade2 = item2.getQuantidade();
+                    return tipoOrdenacao == TipoOrdenacao.ASC ?
+                        Integer.compare(quantidade1, quantidade2) :
+                        Integer.compare(quantidade2, quantidade1);
                 }
-            }
-        }
+            });
     }
 }
