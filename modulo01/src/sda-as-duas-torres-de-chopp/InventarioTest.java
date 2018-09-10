@@ -356,7 +356,7 @@ public class InventarioTest {
         Item botas = new Item("Botas", 4);
         Item capuz = new Item("Capuz de couro", 4);
         Item armadura = new Item("Armadura de aço", 3);
-        inventario.adicionar(espada);
+        inventario.adicionar(new Item("Espada", 10));
         inventario.adicionar(escudo);
         inventario.adicionar(botas);
         inventario.adicionar(capuz);
