@@ -1,5 +1,4 @@
-public class Elfo {
-    private Atributos atributos;
+public class Elfo extends Personagem {
     private int experiencia;
     private Item arco;
     private Item flecha;
@@ -12,11 +11,7 @@ public class Elfo {
     }
 
     public Elfo(String nomeInformado) {
-        this.atributos = new Atributos(nomeInformado, 100.0, Status.VIVO);
-    }
-
-    public String getNome() {
-        return this.atributos.getNome();
+        super(nomeInformado, 100.0, Status.VIVO);
     }
 
     public void atirarFlecha(Dwarf dwarf) {

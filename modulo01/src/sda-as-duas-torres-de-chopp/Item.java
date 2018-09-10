@@ -1,4 +1,4 @@
-public class Item {
+public class Item extends Object {
     private String descricao;
     private int quantidade;
 
@@ -20,6 +20,7 @@ public class Item {
     }
     
     // espada.equals(outraEspada);
+    @Override
     public boolean equals(Object outroItem) {
         Item outro = (Item)outroItem;
         
