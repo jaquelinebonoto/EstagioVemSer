@@ -87,7 +87,7 @@ public class EstatisticasInventarioTest{
     }
     
     @Test 
-    public void QuatroItensAcimaDaMedia(){
+    public void quatroItensAcimaDaMedia(){
         InventarioList inventario = new InventarioList();
         Item espada = new Item("Espada", 2);
         Item flecha = new Item("Flecha", 2);
