@@ -81,18 +81,7 @@ public class Inventario {
     }
     
     public void ordenarItens() {
-        for (int i = 0; i < this.itens.size(); i++) {
-            for (int j = 0; j < this.itens.size() - 1; j++) {
-                Item atual = this.itens.get(j);
-                Item proximo = this.itens.get(j + 1);
-                boolean deveTrocar = atual.getQuantidade() > proximo.getQuantidade();
-                if (deveTrocar) {
-                    Item itemTrocado = atual;
-                    this.itens.set(j, proximo);
-                    this.itens.set(j + 1, itemTrocado);
-                }
-            }
-        }
+        ordenarItens(TipoOrdenacao.ASC);
     }
     
     public void ordenarItens(TipoOrdenacao tipoOrdenacao) {
