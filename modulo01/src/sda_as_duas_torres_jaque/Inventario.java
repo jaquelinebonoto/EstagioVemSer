@@ -1,46 +1,45 @@
-public class Inventario {
-    private Item[] itens;
-    private int posicaoAPreencher = 0, ultimaPosicaoPreenchida = 0;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-    public Inventario(int quantidadeDeItens) {
-        this.itens = new Item[quantidadeDeItens];
-    }
+public class Inventario {
+    private ArrayList<Item> itens;
 
     public Inventario() {
-        this(99);
+        this(0);
     }
 
-    public Item[] getItens() {
+    public Inventario(int quantidadeDeItens) {
+        this.itens = new ArrayList<>(quantidadeDeItens);
+    }
+
+    public ArrayList<Item> getItens() {
         return this.itens;
     }
 
     public void adicionar(Item item) {
-        for (int i = this.posicaoAPreencher; i < this.itens.length; i++) {
-            if (this.itens[i] == null) {
-                this.itens[i] = item;
-                posicaoAPreencher = i + 1;
-                ultimaPosicaoPreenchida = i;
-                break;
-            }
-        }
+        this.itens.add(item);
     }
 
     public Item obter(int posicao) {
-        return this.itens[posicao];
+        return this.itens.get(posicao);
     }
 
     public void remover(int posicao) {
-        this.itens[posicao] = null;
-        posicaoAPreencher = posicao;
+        this.itens.remove(posicao);
+    }
+
+    public boolean vazio() {
+        return this.itens.isEmpty();
     }
 
     public String getDescricoesItens() {
         StringBuilder descricoes = new StringBuilder();
-        for (int i = 0; i < this.itens.length; i++) {
-            if (this.itens[i] != null) {
-                String descricao = this.itens[i].getDescricao();
+        for (int i = 0; i < this.itens.size(); i++) {
+            if (this.itens.get(i) != null) {
+                String descricao = this.itens.get(i).getDescricao();
                 descricoes.append(descricao);
-                boolean deveColocarVirgula = i < this.ultimaPosicaoPreenchida;
+                boolean deveColocarVirgula = i < this.itens.size() - 1;
                 if (deveColocarVirgula) {
                     descricoes.append(",");
                 }
@@ -53,15 +52,52 @@ public class Inventario {
     public Item getItemComMaiorQuantidade() {
 
         int indice = 0, maiorQuantidadeParcial = 0;
-        for (int i = 0; i < this.itens.length; i++) {
-            if (this.itens[i] != null) {
-                int qtdAtual = this.itens[i].getQuantidade();
+        for (int i = 0; i < this.itens.size(); i++) {
+            if (this.itens.get(i) != null) {
+                int qtdAtual = this.itens.get(i).getQuantidade();
                 if (qtdAtual > maiorQuantidadeParcial) {
                     maiorQuantidadeParcial = qtdAtual;
                     indice = i;
                 }
             }
         }
-        return this.itens.length > 0 ? this.itens[indice] : null;
+        return !this.itens.isEmpty() ? this.itens.get(indice) : null;
     }
+
+    public Item buscar(String descricao) {
+        for (int i = 0; i < this.itens.size(); i++) {
+            Item itemAtual = this.itens.get(i);
+            if (itemAtual.getDescricao().equals(descricao)) {
+                return itemAtual;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Item> inverter() {
+        ArrayList<Item> listaInvertida = new ArrayList<>(this.itens.size());
+        for (int i = this.itens.size() - 1; i >= 0; i--) {
+            listaInvertida.add(this.itens.get(i));
+        }
+        return listaInvertida;
+    }
+
+    public void ordenarItens() {
+        ordenarItens(TipoOrdenacao.ASC);
+    }
+<<<<<<< HEAD:modulo01/src/sda_as_duas_torres_jaque/Inventario.java
+=======
+
+    public void ordenarItens(TipoOrdenacao tipoOrdenacao) {
+        Collections.sort(this.itens, new Comparator<Item>() {
+                public int compare(Item item1, Item item2) {
+                    int quantidade1 = item1.getQuantidade();
+                    int quantidade2 = item2.getQuantidade();
+                    return tipoOrdenacao == TipoOrdenacao.ASC ?
+                        Integer.compare(quantidade1, quantidade2) :
+                        Integer.compare(quantidade2, quantidade1);
+                }
+            });
+    }
+>>>>>>> master:modulo01/src/sda-as-duas-torres-de-chopp/Inventario.java
 }
