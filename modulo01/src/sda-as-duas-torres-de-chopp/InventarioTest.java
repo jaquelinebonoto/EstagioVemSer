@@ -294,4 +294,75 @@ public class InventarioTest {
         ArrayList<Item> esperado = new ArrayList(Arrays.asList(armadura, botas, capuz, escudo, espada));
         assertEquals(esperado, inventario.getItens());
     }
+
+    @Test
+    public void ordenarItensTipoOrdenacaoVazio() {
+        Inventario inventario = new Inventario();
+        inventario.ordenarItens(TipoOrdenacao.DESC);
+        assertTrue(inventario.getItens().isEmpty());
+    }
+
+    @Test
+    public void ordenarItensTipoOrdenacaoUmElemento() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        inventario.adicionar(espada);
+        inventario.ordenarItens(TipoOrdenacao.DESC);
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(espada));
+        assertEquals(esperado, inventario.getItens());
+    }
+
+    @Test
+    public void ordenarItensTipoOrdenacaoDescTotalmenteDesordenado() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        Item escudo = new Item("Escudo", 5);
+        Item botas = new Item("Botas", 4);
+        Item capuz = new Item("Capuz de couro", 4);
+        Item armadura = new Item("Armadura de aço", 3);
+        inventario.adicionar(armadura);
+        inventario.adicionar(capuz);
+        inventario.adicionar(botas);
+        inventario.adicionar(escudo);
+        inventario.adicionar(espada);
+        inventario.ordenarItens(TipoOrdenacao.DESC);
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(espada, escudo, capuz, botas, armadura));
+        assertEquals(esperado, inventario.getItens());
+    }
+
+    @Test
+    public void ordenarItensTipoOrdenacaoDescTotalmenteOrdenado() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        Item escudo = new Item("Escudo", 5);
+        Item botas = new Item("Botas", 4);
+        Item capuz = new Item("Capuz de couro", 4);
+        Item armadura = new Item("Armadura de aço", 3);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        inventario.adicionar(botas);
+        inventario.adicionar(capuz);
+        inventario.adicionar(armadura);
+        inventario.ordenarItens(TipoOrdenacao.DESC);
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(espada, escudo, botas, capuz, armadura));
+        assertEquals(esperado, inventario.getItens());
+    }
+    
+    @Test
+    public void ordenarItensTipoOrdenacaoAscTotalmenteDesordenado() {
+        Inventario inventario = new Inventario();
+        Item espada = new Item("Espada", 10);
+        Item escudo = new Item("Escudo", 5);
+        Item botas = new Item("Botas", 4);
+        Item capuz = new Item("Capuz de couro", 4);
+        Item armadura = new Item("Armadura de aço", 3);
+        inventario.adicionar(espada);
+        inventario.adicionar(escudo);
+        inventario.adicionar(botas);
+        inventario.adicionar(capuz);
+        inventario.adicionar(armadura);
+        inventario.ordenarItens(TipoOrdenacao.ASC);
+        ArrayList<Item> esperado = new ArrayList(Arrays.asList(armadura, botas, capuz, escudo, espada));
+        assertEquals(esperado, inventario.getItens());
+    }
 }
