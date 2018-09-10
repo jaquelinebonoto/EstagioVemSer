@@ -85,8 +85,10 @@ public class Inventario {
     public void ordenarItens() {
         ordenarItens(TipoOrdenacao.ASC);
     }
-<<<<<<< HEAD:modulo01/src/sda_as_duas_torres_jaque/Inventario.java
-=======
+
+    public int tamanhoInventario (){
+        return itens.size();
+    }
 
     public void ordenarItens(TipoOrdenacao tipoOrdenacao) {
         Collections.sort(this.itens, new Comparator<Item>() {
@@ -95,9 +97,8 @@ public class Inventario {
                     int quantidade2 = item2.getQuantidade();
                     return tipoOrdenacao == TipoOrdenacao.ASC ?
                         Integer.compare(quantidade1, quantidade2) :
-                        Integer.compare(quantidade2, quantidade1);
+                    Integer.compare(quantidade2, quantidade1);
                 }
             });
     }
->>>>>>> master:modulo01/src/sda-as-duas-torres-de-chopp/Inventario.java
 }

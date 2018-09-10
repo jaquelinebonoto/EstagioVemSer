@@ -1,9 +1,9 @@
-public class Atributos {
-    private String nome;
-    private double vida;
-    private Status status;
+public class Personagem {
+    protected String nome;
+    protected double vida;
+    protected Status status;
     
-    public Atributos(String nome, double vida, Status status) {
+    public Personagem(String nome, double vida, Status status) {
         this.nome = nome;
         this.vida = vida;
         this.status = status;

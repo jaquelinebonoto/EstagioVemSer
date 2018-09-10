@@ -1,36 +1,47 @@
-import java.util.ArrayList;
-public class EstatisticasInventario{
-    private InventarioList inventario;
+public class EstatisticasInventario {
 
-    public EstatisticasInventario(InventarioList inventario){
+    private Inventario inventario;
+
+    public EstatisticasInventario(Inventario inventario) {
         this.inventario = inventario;
     }
-   
-    public double calcularMedia(){
-        double totalItem=0.0, soma=0.0;
-        int i=0;
-        totalItem = inventario.tamanhoInventario();
-        for (i=0; i<totalItem; i++){ 
-            soma= soma+ inventario.getItens().get(i).getQuantidade();
+
+    public double calcularMedia() {
+        if (this.inventario.vazio()) {
+            return Double.NaN;
         }
-        return soma/totalItem;
+        double somaQtds = .0;
+        for (Item item : inventario.getItens()) {
+            somaQtds += item.getQuantidade();
+        }
+        return somaQtds / inventario.getItens().size();
+    }
+
+    public double calcularMediana() {
+        if (this.inventario.vazio()) {
+            return Double.NaN;
+        }
+        this.inventario.ordenarItens();
+        int qtdItens = this.inventario.getItens().size();
+        int meio = qtdItens / 2;
+        boolean qtdImpar = qtdItens % 2 == 1;
+        if (qtdImpar) {
+            return this.inventario.obter(meio).getQuantidade();
+        }
+        int qtdMeioMenosUm = this.inventario.obter(meio - 1).getQuantidade();
+        int qtdMeio = this.inventario.obter(meio).getQuantidade();
+        return (qtdMeioMenosUm + qtdMeio) / 2.;
     }
     
-    public double calcularMediana(InventarioList inventario){
-        int n = inventario.tamanhoInventario(), posicao=n/2;
-        double mediana=0;
-        if (n%2==0) mediana = (inventario.getItens().get(posicao-1).getQuantidade()+inventario.getItens().get(posicao).getQuantidade())/2.0;
-        else mediana= inventario.getItens().get(posicao).getQuantidade();
-        return mediana;
-    }
-    
-    public int itensAcimaDaMedia(EstatisticasInventario inventario, InventarioList inventario1){
-        double media=0;
-        int cont=0;
-        media =inventario.calcularMedia();
-        for (int i=0; i<inventario1.tamanhoInventario(); i++){
-            if(inventario1.getItens().get(i).getQuantidade()> media) cont++;
-        }  
-        return cont;
+    public int itensAcimaDaMedia() {
+        double media = this.calcularMedia();
+        int qtdAcima = 0;
+        
+        for (Item item : this.inventario.getItens()) {
+            if (item.getQuantidade() > media) {
+                qtdAcima++;
+            }
+        }
+        return qtdAcima;
     }
 }

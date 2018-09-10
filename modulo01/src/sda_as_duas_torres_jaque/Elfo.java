@@ -1,9 +1,4 @@
-<<<<<<< HEAD:modulo01/src/sda_as_duas_torres_jaque/Elfo.java
-   public class Elfo {
-    private Atributos atributos;
-=======
 public class Elfo extends Personagem {
->>>>>>> master:modulo01/src/sda-as-duas-torres-de-chopp/Elfo.java
     private int experiencia;
     private Item arco;
     private Item flecha;
@@ -16,15 +11,7 @@ public class Elfo extends Personagem {
     }
 
     public Elfo(String nomeInformado) {
-<<<<<<< HEAD:modulo01/src/sda_as_duas_torres_jaque/Elfo.java
-        this.atributos = new Atributos (nomeInformado, Status.VIVO, 100.0);
-    }
-
-    public String getNome() {
-        return nome;
-=======
         super(nomeInformado, 100.0, Status.VIVO);
->>>>>>> master:modulo01/src/sda-as-duas-torres-de-chopp/Elfo.java
     }
 
     public void atirarFlecha(Dwarf dwarf) {
