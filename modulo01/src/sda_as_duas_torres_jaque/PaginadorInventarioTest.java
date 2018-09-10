@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PaginadorInventarioTest {
-    @Test
+    /*@Test
     public void PaginadorInventarioTest() {
         InventarioList inventario = new InventarioList();
         InventarioList inventarioTeste = new InventarioList();
@@ -31,5 +31,5 @@ public class PaginadorInventarioTest {
         //paginador.pular(2);
         //paginador.limitar(2); // retorna os itens “Poção de HP” e “Bracelete”
 
-    }
+    }*/
 }

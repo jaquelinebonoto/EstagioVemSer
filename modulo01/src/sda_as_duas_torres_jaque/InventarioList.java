@@ -26,7 +26,6 @@ public class InventarioList {
         for(i = 1; i < this.itens.size()-1; i ++){  
             String description = itens.get(i).getDescricao();
             if(description.equals(descricao)) break;
-            //if (i==this.itens.size()-2 && !(description.equals(descricao))) itens.get(0);
         }
         return itens.get(i);
     }

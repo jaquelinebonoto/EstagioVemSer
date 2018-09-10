@@ -6,8 +6,8 @@ public class EstatisticasInventario{
         this.inventario = inventario;
     }
    
-    public double calcularMedia(InventarioList inventario){
-        double totalItem=0, soma=0;
+    public double calcularMedia(){
+        double totalItem=0.0, soma=0.0;
         int i=0;
         totalItem = inventario.tamanhoInventario();
         for (i=0; i<totalItem; i++){ 
@@ -27,7 +27,7 @@ public class EstatisticasInventario{
     public int itensAcimaDaMedia(EstatisticasInventario inventario, InventarioList inventario1){
         double media=0;
         int cont=0;
-        media =inventario.calcularMedia(inventario1);
+        media =inventario.calcularMedia();
         for (int i=0; i<inventario1.tamanhoInventario(); i++){
             if(inventario1.getItens().get(i).getQuantidade()> media) cont++;
         }  

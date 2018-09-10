@@ -17,7 +17,7 @@ public class EstatisticasInventarioTest{
         inventario.adicionar(machado);
         inventario.adicionar(armadura);
         EstatisticasInventario inventario1 = new EstatisticasInventario(inventario);
-        assertEquals(1.5, inventario1.calcularMedia(inventario), DELTA);
+        assertEquals(1.5, inventario1.calcularMedia(), DELTA);
     }
     
     @Test 

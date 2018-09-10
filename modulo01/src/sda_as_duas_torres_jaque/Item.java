@@ -18,4 +18,12 @@ public class Item {
     public void setQuantidade(int novaQuantidade) {
         this.quantidade = novaQuantidade;
     }
+    
+    //espada.equals(outraEspada)
+    public boolean equals(Object outroItem){
+        Item outro = (Item)outroItem;
+        boolean iguais = this.descricao.equals(outro.getDescricao())
+                            && this.quantidade == outro.getQuantidade();
+        return iguais;        
+    }
 }
