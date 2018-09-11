@@ -1,18 +1,7 @@
-public class Dwarf extends Personagem{
-    //private Atributos atributos;
-    private final double DANO = 10.0;
+public class Dwarf extends Personagem {
 
     public Dwarf(String nome) {
         super(nome, 110.0, Status.VIVO);
-    }
-
-    public void perderVida() {
-        if(status == Status.VIVO) vida -= DANO;
-        updateStatus();
-    }
-
-    public Status updateStatus (){
-        if (getVida()==0.0) status = Status.MORTO;
-        return status;
+        QTD_DANO = 10.0;
     }
 }

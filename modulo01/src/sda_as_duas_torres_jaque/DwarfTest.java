@@ -58,45 +58,4 @@ public class DwarfTest {
         assertEquals(0.0, dwarf.getVida(), DELTA);
         assertEquals(Status.MORTO, dwarf.getStatus());
     }
-    
-    @Test
-    public void ficarCom0VidasPartindoDeRecemNascido (){
-        Dwarf dwarf = new Dwarf("Tyrion Lannister");
-        for (int i=0; i<=10; i++) dwarf.perderVida();
-        assertEquals(0.0, dwarf.getVida(), DELTA);
-    }
-    
-    @Test
-    public void ficarCom0VidasPartindoDoValorAtual() {
-        Dwarf dwarf = new Dwarf("Greyjoy");
-        dwarf.perderVida(); 
-        double v = dwarf.getVida();
-        for (int i=0; i<v/10.0; i++) dwarf.perderVida();
-        assertEquals(0.0, dwarf.getVida(), DELTA);
-    }
-    
-    @Test
-    public void trocarStatusQuando0Vidas () {
-        Dwarf dwarf = new Dwarf("Zack Efron");
-        for (int i=0; i<=10; i++) {dwarf.perderVida();}
-        dwarf.updateStatus();
-        assertEquals (Status.MORTO, dwarf.getStatus());
-    }
-    
-    @Test
-    public void perderVidaDepoisDeMorto () {
-        Dwarf dwarf = new Dwarf("Zack Efron");
-        for (int i=0; i<=10; i++) {dwarf.perderVida();}
-        dwarf.updateStatus();
-        dwarf.perderVida();
-        assertEquals (0.0, dwarf.getVida(), DELTA); 
-    }
-    
-    @Test
-    public void perderVidaDepoisDeMortoSemChamarUpdateStatus () {
-        Dwarf dwarf = new Dwarf("Zack Efron");
-        for (int i=0; i<=10; i++) {dwarf.perderVida();}
-        dwarf.perderVida();
-        assertEquals (0.0, dwarf.getVida(), DELTA); 
-    }
 }

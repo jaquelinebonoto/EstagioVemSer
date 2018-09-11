@@ -1,13 +1,15 @@
-public class Personagem {
+public abstract class Personagem {
     protected String nome;
     protected double vida;
     protected Status status;
     protected Inventario inventario;
+    protected double QTD_DANO;
 
-    public Personagem(String nome, double vida, Status status) {
+    Personagem(String nome, double vida, Status status) {
         this.nome = nome;
         this.vida = vida;
         this.status = status;
+        this.inventario = new Inventario();
     }
 
     public String getNome() {
@@ -30,25 +32,23 @@ public class Personagem {
         this.status = status;
     }
 
-    public void ganharItem(Item item){
-        int quant = item.getQuantidade();
-        for (int i=0; i<=this.inventario.tamanhoInventario()-1; i++){
-            if(item.equals(inventario.obter(i))){
-                item.setQuantidade(inventario.obter(i).getQuantidade() + quant);
-            }
-            inventario.adicionar(item);
-        }           
+    public void ganharItem(Item item) {
+        this.inventario.adicionar(item);
     }
 
-    public void perderItem(){
-
+    public void perderItem(Item item) {
+        // discussao a cerca da Law of Demeter
+        this.inventario.getItens().remove(item);
     }
 
-    public Inventario getInventario(){
+    public Inventario getInventario() {
         return this.inventario;
     }
 
-    public void setInventario (Inventario inventario){
-        this.inventario = inventario;
+    public void perderVida() {
+        vida -= vida >= QTD_DANO ? QTD_DANO : vida;
+        if (vida == 0.0) {
+            this.status = Status.MORTO;
+        }
     }
 }
