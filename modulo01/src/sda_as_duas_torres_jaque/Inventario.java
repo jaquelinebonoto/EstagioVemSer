@@ -49,8 +49,17 @@ public class Inventario {
         return descricoes.toString();
     }
 
-    public Item getItemComMaiorQuantidade() {
+    public Item getItem(Item item){
+        for (int i = 0; i < this.itens.size(); i++) {
+            Item itemAtual = this.itens.get(i);
+            if (itemAtual.equals(item)) {
+                return itemAtual;
+            }
+        }
+        return null;
+    }
 
+    public Item getItemComMaiorQuantidade() {
         int indice = 0, maiorQuantidadeParcial = 0;
         for (int i = 0; i < this.itens.size(); i++) {
             if (this.itens.get(i) != null) {

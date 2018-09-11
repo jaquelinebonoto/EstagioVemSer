@@ -45,4 +45,40 @@ public class ElfoTest {
         assertEquals(1, legolas.getExperiencia());
         assertEquals(100.0, gimli.getVida(), DELTA);
     }
+    
+    @Test
+    public void testarSeNasceuComSeteFlechas(){
+        Elfo legolas = new Elfo("Legolas");
+        Item flecha = new Item ("Flecha", 7);
+        Inventario inventarioElfo = new Inventario();
+        inventarioElfo.adicionar(flecha);
+        assertEquals(7, inventarioElfo.getItem(flecha).getQuantidade());
+    }
+    
+    @Test
+    public void testarSeNasceuComSeteFlechasComAtalho(){
+        Elfo legolas = new Elfo("Legolas");
+        assertEquals(7, legolas.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void ganharMaisUmaFlecha () {
+        Elfo legolas = new Elfo("Legolas");
+        Item flecha = new Item ("Flecha", 1);
+        Inventario inventarioElfo = new Inventario();
+        legolas.setInventario(inventarioElfo);
+        legolas.ganharItem(flecha);
+        assertEquals(8, legolas.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void ganharNovoItem () {
+        Elfo legolas = new Elfo("Legolas");
+        Item chapeu = new Item ("Chapéu", 1);
+        Inventario inventarioElfo = new Inventario();
+        legolas.setInventario(inventarioElfo);
+        legolas.ganharItem(chapeu);
+        assertEquals(1, legolas.getInventario().getItem(chapeu).getQuantidade());
+    }
+
 }
