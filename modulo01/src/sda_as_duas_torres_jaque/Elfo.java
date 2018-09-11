@@ -19,20 +19,21 @@ public class Elfo extends Personagem {
         }
     }
 
-    public Item getFlecha() {
+    public Item getItem (Item item){
+        for (int i = 0; i < this.inventarioElfo.tamanhoInventario(); i++) {
+            Item itemAtual = this.inventarioElfo.obter(i);
+            if (itemAtual.equals(item)) {
+                return itemAtual;
+            }
+        }
+        return null;
+    }
+
+    public Item getFlecha(){
         return this.flecha;
     }
-    
     public int getExperiencia() {
         return this.experiencia;
-    }
-
-    public double getVida() {
-        return this.vida;
-    }
-
-    public Status getStatus() {
-        return this.status;
     }
 
     public Status updateStatus (){

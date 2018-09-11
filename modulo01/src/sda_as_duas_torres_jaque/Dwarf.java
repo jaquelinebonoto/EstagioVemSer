@@ -1,5 +1,5 @@
 public class Dwarf extends Personagem{
-    private Atributos atributos;
+    //private Atributos atributos;
     private final double DANO = 10.0;
 
     public Dwarf(String nome) {
@@ -9,14 +9,6 @@ public class Dwarf extends Personagem{
     public void perderVida() {
         if(status == Status.VIVO) vida -= DANO;
         updateStatus();
-    }
-
-    public double getVida() {
-        return this.vida;
-    }
-
-    public Status getStatus() {
-        return this.status;
     }
 
     public Status updateStatus (){
