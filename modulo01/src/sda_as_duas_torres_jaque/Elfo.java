@@ -27,11 +27,9 @@ public class Elfo extends Personagem {
     public Item getFlecha() {
         return this.inventario.buscar("Flecha");
     }
-    // Law of Demeter
-    // elfo.getFlecha().getQuantidade();
-    // elfo.getQtdFlechas();
 
     public int getExperiencia() {
         return this.experiencia;
     }
+
 }
