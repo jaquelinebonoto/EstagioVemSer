@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ElfoDaLuzTest {
 
-    private final double DELTA = 0.1;
+    private static final double DELTA = 0.1;
     @Test
     public void elfoDaLuzNasceCom7FlechasE1EspadaEspecial(){
         ElfoDaLuz legolas = new ElfoDaLuz("Legolas");
@@ -22,6 +22,15 @@ public class ElfoDaLuzTest {
         assertEquals(1, legolas.getEspadaEspecial().getQuantidade());
     }  
 
+    /*
+    @Test
+    public void tentarTirarOutroObjeto(){
+        ElfoDaLuz legolas = new ElfoDaLuz("Legolas");
+        legolas.perderItem(new Item("Flecha", 7));
+        assertEquals(0, legolas.getFlecha().getQuantidade());
+    }*/
+    
+
     @Test
     public void atacar1VezComEspadaEspecial(){
         ElfoDaLuz feanor = new ElfoDaLuz("Fëanor");
@@ -36,5 +45,21 @@ public class ElfoDaLuzTest {
         feanor.atacarComEspada(new Dwarf("Gul")); // ganha 10 unidades, foi o ataque 2    
         feanor.getVida(); // 89.0
     }
- 
+
+    @Test
+    public void atacarAteMorrer(){
+        ElfoDaLuz feanor = new ElfoDaLuz("Fëanor");
+        Dwarf gul = new Dwarf("Gul");
+        for (int i=0; i<17; i++)feanor.atacarComEspada(gul);
+        assertEquals(0, feanor.getVida(), DELTA);
+        assertEquals(0, gul.getVida(), DELTA);
+    }
+    
+    @Test
+    public void elfoDaLuzSoAtacaComUnidadeDeEspada () {
+        ElfoDaLuz feanor = new ElfoDaLuz("Fëanor");
+        feanor.getInventario().getItens().get(2).setQuantidade(0);
+        feanor.atacarComEspada(new Dwarf("Gul"));
+        assertEquals(79, feanor.getVida(), DELTA);
+    }
 }
