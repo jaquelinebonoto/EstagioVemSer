@@ -1,6 +1,6 @@
 #BlueJ package file
-dependency1.from=InventarioTest
-dependency1.to=Inventario
+dependency1.from=InventarioListTest
+dependency1.to=Item
 dependency1.type=UsesDependency
 dependency10.from=Personagem
 dependency10.to=Inventario

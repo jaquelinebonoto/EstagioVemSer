@@ -1,23 +1,22 @@
 import java.util.*;
 
 public class AgendasContatos {
-    private HashMap<String, String> agendaContatos = new HashMap<>();
-
-    AgendaContatos agenda = new AgendaContatos();
-    agendaContatos.put("Bernardo", "555555");
-    agendaContatos.put("Mithrandir", "444444");
-    agendaContatos.consultar("Bernardo"); // “555555”
-
-    public void registrarContato(String nome, String telefone) {
-        ArrayList<agenda> listaAtual = this.registrarContato(nome);
-        boolean primeiroContato = listaAtual == null;
-        if (primeiroContato) {
-            listaAtual = new ArrayList<>();
-            dwarvesPorElfo.put(elfo, listaAtualDoElfo);
-        }
-        listaAtualDoElfo.add(telefone);
+    private HashMap<String, String> agenda = new HashMap<>();
+    
+    public void adicionar(String nome, String telefone) {
+        agenda.put(nome, telefone);
     }
+    
+    public String consultar(String nome){
+        return agenda.get(nome);
+    }
+    
+    /*public String pesquisarPorValor (String telefone){
+        for (String key : agenda.keySet()){
+            if (agenda.containsValue(telefone));
+            telefone. = agenda.hashCode();
 
-    agenda.csv(); // retorna a seguinte string:
+        }
+    }*/
 }
 
