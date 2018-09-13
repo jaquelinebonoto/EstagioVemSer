@@ -6,9 +6,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ElfoTest {
-    
+
     private final double DELTA = 0.1;
-    
+
+    @Test
+    public void contarElfos(){
+        Elfo legolas = new Elfo("Legolas");
+        Elfo legolas1 = new ElfoNoturno("Legolas1");
+        Elfo legolas2 = new ElfoVerde("Legolas2");
+        Elfo legolas3 = new ElfoDaLuz("Legolas3");
+        Elfo legolas4 = new Elfo("Legolas4");
+        Elfo legolas5 = new ElfoDaLuz("Legolas3");
+        Elfo legolas6 = new Elfo("Legolas4");
+        assertEquals(19, Elfo.getElfos());
+    }
+
     @Test
     public void criarElfoInformandoNome() {
         Elfo legolas = new Elfo("Legolas");
@@ -47,5 +59,5 @@ public class ElfoTest {
         assertEquals(1, legolas.getExperiencia());
         assertEquals(100.0, gimli.getVida(), DELTA);
     }
-    
+
 }

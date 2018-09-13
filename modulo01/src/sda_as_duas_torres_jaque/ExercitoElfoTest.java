@@ -14,4 +14,5 @@ public class ExercitoElfoTest{
         assertEquals(doe, army.consultar("John Doe"));     
         //assertEquals(jack, army.consultar("Mithrandir")); 
     }
+
 }

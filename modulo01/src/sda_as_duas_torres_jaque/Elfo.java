@@ -1,6 +1,7 @@
 public class Elfo extends Personagem {
     protected int experiencia;
     protected int QTD_EXPERIENCIA;
+    private static int quantElfos = 0;
     // type initializer
     {
         experiencia = 0;
@@ -8,12 +9,16 @@ public class Elfo extends Personagem {
         QTD_DANO = 0.;
         super.ganharItem(new Item("Arco", 1));
         super.ganharItem(new Item("Flecha", 7));
+        quantElfos++;
     }
 
     public Elfo(String nomeInformado) {
         super(nomeInformado, 100.0, Status.VIVO);
     }
 
+    public static int getElfos(){
+        return Elfo.quantElfos;
+    }
     public void atirarFlecha(Dwarf dwarf) {
         Item flecha = getFlecha();
         if (flecha.getQuantidade() > 0) {
