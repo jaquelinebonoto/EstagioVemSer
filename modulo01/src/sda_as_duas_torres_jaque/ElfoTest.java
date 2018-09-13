@@ -18,7 +18,7 @@ public class ElfoTest {
         Elfo legolas4 = new Elfo("Legolas4");
         Elfo legolas5 = new ElfoDaLuz("Legolas3");
         Elfo legolas6 = new Elfo("Legolas4");
-        assertEquals(19, Elfo.getElfos());
+        assertEquals(88, Elfo.getElfos());
     }
 
     @Test
