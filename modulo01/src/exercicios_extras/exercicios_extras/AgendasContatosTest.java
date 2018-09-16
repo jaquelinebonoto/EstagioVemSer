@@ -14,12 +14,12 @@ public class AgendasContatosTest {
         assertEquals("444444", agenda.consultar("Mithrandir"));   
     }
 
-    @Test
+    /*@Test
     public void adicionarDoisContatosEGerarCsv(){
         AgendasContatos agenda = new AgendasContatos();
         agenda.adicionar("Bernardo", "555555");
         agenda.adicionar("Mithrandir", "444444");
         assertEquals("Bernardo,555555\nMithrandir,444444\n", agenda.csv());        
-    }
+    }*/
 
 }
