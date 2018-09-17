@@ -16,11 +16,21 @@ public class AtaqueIntercalado implements Estrategias {
         if (elfosVerdes.size()<elfosNoturnos.size()) tamanhoIgualdade=elfosVerdes.size();
         else tamanhoIgualdade=elfosNoturnos.size();
         int k=0;
-        for (int i = 0; i <= tamanhoIgualdade-1; i++) {
-            ordenados.add(k, elfosVerdes.get(i));
-            k++;
-            ordenados.add(k, elfosNoturnos.get(i));
-            k++;
+        if (atacantes.get(0) instanceof ElfoVerde){
+            for (int i = 0; i <= tamanhoIgualdade-1; i++) {
+                ordenados.add(k, elfosVerdes.get(i));
+                k++;
+                ordenados.add(k, elfosNoturnos.get(i));
+                k++;
+            }
+        }
+        if (atacantes.get(0) instanceof ElfoNoturno){
+            for (int i = 0; i <= tamanhoIgualdade-1; i++) {
+                ordenados.add(k, elfosNoturnos.get(i));
+                k++;
+                ordenados.add(k, elfosVerdes.get(i));
+                k++;
+            }
         }
         return ordenados;
     }
