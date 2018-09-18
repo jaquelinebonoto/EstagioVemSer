@@ -1,0 +1,61 @@
+
+a{
+    color:blue
+}
+#divisaoDeElementosFundoChocolate{
+    background-color: chocolate;
+}
+.fundo-chocolate{
+    background-color: chocolate;
+}
+
+header{
+position: fixed;
+
+}
+nav {
+  background-color: aquamarine;
+}
+ul {
+  padding: 60px;
+  list-style-type: none;
+}
+
+ul li {
+  background: #cce5ff;
+  /*margin: 5px;*/
+}
+
+li a {
+  display: block;
+  padding: 3px;
+}
+
+li{
+float: left;
+}
+
+label, input[type='radio']{
+  cursor: pointer;
+}
+
+footer{
+  position: fixed;
+  bottom: 0px;
+  background: #cce5ff;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+footer > span { /*isso é tipo firstchild. se fosse segundo nivel >>   */
+  color: aliceblue;
+  font-size: 1.1em;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.centralizado {
+  width: 0px;
+  margin: 0 auto;
+}
