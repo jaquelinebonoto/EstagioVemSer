@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
+img{
+  border-radius: 5px;
+}
+
 #header {
     text-align: center; 
     background-color: #006989;
@@ -56,17 +60,11 @@
 body * {
   font-family: 'Oswald', sans-serif;
 }
-.conteudo {
-    background-color: FFCA81;   
-    padding: 25px; 
-    position: relative;
-    height: 1000px;
-}
 
 .conteudo .cidade{
-    background-color: #FF952C;
-    margin: 25px;
-    padding: 5px;
+    background-color: #FAA381;
+    margin: 0 25px 25px;
+    padding: 25px;
     position: relative;
     border-radius: 15px;
 }
@@ -80,7 +78,6 @@ body * {
 }
 
 .conteudo .restaurantes #fotoRest {
-    box-shadow: 4px 4px 4px #ccc;
     width: 389px;
     height:293px;
     margin: 0 auto;
@@ -93,7 +90,6 @@ body * {
     width: 384px;
     height:288px;
     margin: 0 auto;
-    border-radius: 50px;
     position: relative;   
 }
 
@@ -108,14 +104,34 @@ body * {
 }
 
 .conteudo .entretenimento{
-    background-color: aqua;
+    background-color: #50C5B7;
     margin: 25px;
-    padding: 5px;
+    padding: 25px;
     position: relative;
     border-radius: 15px;
 }
 
-footer h3 {
+.img-local{
+  height: 360px;
+  width: 100%;
+}
+
+#footer h3{
+  color: purple;  
+}
+
+footer {
+    
+}
+
+.cidade-img1{
+  height: 150px;
   margin: 0 auto;
-  position: absolute;
+  
+}
+
+.cidade-img2{
+  height: 150px;
+  margin: 0 auto;
+  
 }
