@@ -27,7 +27,7 @@
 }
 
 #footer img{
-    
+    background-image: url("footer2.jpg");
 }
 
 #menu ul {
@@ -53,27 +53,18 @@
     border-bottom: solid 3px #76C2AF;
 }
 
-.conteudo{
-    background-color: #006989;   
+body * {
+  font-family: 'Oswald', sans-serif;
+}
+.conteudo {
+    background-color: FFCA81;   
     padding: 25px; 
     position: relative;
-    height: 1200px;
-}
-.conteudo h1{
-    font-family: 'Oswald', sans-serif;
-}
-
-.conteudo p{
-    font-family: 'Oswald', sans-serif;
-}
-
-.conteudo #dica{
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
+    height: 1000px;
 }
 
 .conteudo .cidade{
-    background-color: aqua;
+    background-color: #FF952C;
     margin: 25px;
     padding: 5px;
     position: relative;
@@ -81,15 +72,11 @@
 }
 
 .conteudo .restaurantes{
-    background-color: aqua;
+    background-color:#BDC9D6;
     margin: 25px;
     padding: 25px;
     position: relative;
     border-radius: 15px;
-}
-
-.conteudo .restaurantes a{
-    font-family: 'Oswald', sans-serif;
 }
 
 .conteudo .restaurantes #fotoRest {
@@ -97,8 +84,6 @@
     width: 389px;
     height:293px;
     margin: 0 auto;
-    /* margin-left: 370px; */
-    /* margin-right: 370px; */
     border-radius: 50px;
     padding: 3px;
     position: relative;
@@ -128,4 +113,9 @@
     padding: 5px;
     position: relative;
     border-radius: 15px;
+}
+
+footer h3 {
+  margin: 0 auto;
+  position: absolute;
 }
