@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+#header {
+    text-align: center; 
+    background-color: #006989;
+    background-image: url("caminitoopaco.jpg");
+    background-repeat: repeat;
+    box-shadow: 0px 5px 15px #8c97a3; 
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    padding-top: 10px; 
+    height: 300px; 
+    padding-left: 10%;
+}
+
+#header #header_texto {
+	font-size: 3em;
+    float:left; 
+    text-align: left; 
+    padding-left: 10px;
+    position: relative; 
+    top: 50%; 
+    transform: translate(0, -50%);  
+    vertical-align: middle;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+}
+
+#footer img{
+    
+}
+
+#menu ul {
+    padding:10px;
+    margin:0px;
+    background-color:#EDEDED;
+    list-style:none;
+}
+
+#menu ul li { 
+    display: inline; 
+}
+
+#menu ul li a {
+    padding: 12px 80px;
+    display: inline-block;
+    margin-left: 120px;
+    /* visual do link */
+    background-color:#EDEDED;
+    color: #333;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    border-bottom: solid 3px #76C2AF;
+}
+
+.conteudo{
+    background-color: #006989;   
+    padding: 25px; 
+    position: relative;
+    height: 1200px;
+}
+.conteudo h1{
+    font-family: 'Oswald', sans-serif;
+}
+
+.conteudo p{
+    font-family: 'Oswald', sans-serif;
+}
+
+.conteudo #dica{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.conteudo .cidade{
+    background-color: aqua;
+    margin: 25px;
+    padding: 5px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.conteudo .restaurantes{
+    background-color: aqua;
+    margin: 25px;
+    padding: 25px;
+    position: relative;
+    border-radius: 15px;
+}
+
+.conteudo .restaurantes a{
+    font-family: 'Oswald', sans-serif;
+}
+
+.conteudo .restaurantes #fotoRest {
+    box-shadow: 4px 4px 4px #ccc;
+    width: 389px;
+    height:293px;
+    margin: 0 auto;
+    /* margin-left: 370px; */
+    /* margin-right: 370px; */
+    border-radius: 50px;
+    padding: 3px;
+    position: relative;
+}
+
+.conteudo .restaurantes #fotoRest img{
+    width: 384px;
+    height:288px;
+    margin: 0 auto;
+    border-radius: 50px;
+    position: relative;   
+}
+
+.conteudo .restaurantes #fotoRest img #foto{
+    opacity: 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000000;
+    background-color: (0,0,0,0.3);
+    font-size: 9pt;
+    line-height: 370px;
+    padding: 5px;
+}
+
+.conteudo .entretenimento{
+    background-color: aqua;
+    margin: 25px;
+    padding: 5px;
+    position: relative;
+    border-radius: 15px;
+}
