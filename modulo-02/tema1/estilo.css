@@ -69,6 +69,12 @@ body * {
     border-radius: 15px;
 }
 
+.conteudo .cidade img{
+  margin-left: 270px;
+  float: center;
+  position: relative;
+}
+
 .conteudo .restaurantes{
     background-color:#BDC9D6;
     margin: 25px;
@@ -111,9 +117,14 @@ body * {
     border-radius: 15px;
 }
 
+.conteudo .entretenimento img{
+  margin-left: 250px;
+  float: center;
+  position: relative;
+}
+
 .img-local{
-  height: 360px;
-  width: 100%;
+  width: 50%;
 }
 
 #footer h3{

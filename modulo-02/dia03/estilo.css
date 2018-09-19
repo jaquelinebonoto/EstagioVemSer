@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+}
+
+#flex-finland {
+  display: flex;
+  background-color: blue;
+  justify-content: center;
+  width: 100%;
+  height: calc(100%/3);
+  position: relative;
+}
+
+#flex-finland :nth-child(1){
+  background-color: white;
+  width: calc(100%/3);
+  position: relative;
+  
+}
+
+#flex-finland :nth-child(2){
+  background-color:#0C09AA;
+  width: calc(100%/2);
+  position: relative;
+  
+}
+
+#flex-finland :nth-child(3){
+  background-color: white;
+  width: calc(100%/6);
+  position: relative;
+ 
+}
+
+#flex-finland2 {
+  display: flex;
+  background-color: #0C09AA;
+  justify-content: center;
+  width: 100%;
+  height: calc(100%/3);
+}
+
+#flex-finland2 :nth-child(1){
+  background-color: white;
+  width: 160px;
+  position: relative;
+  float: left;
+}
+
+#flex-finland2 :nth-child(2){
+  background-color: #0C09AA;
+  width:160px;
+  position: relative;
+  float: left;
+}
+
+#flex-finland2 :nth-child(3){
+  background-color: white;
+  width: 400px;
+  position: relative;
+  float: left;
+}
+#flex-finland3 {
+  display: flex;
+  background-color: #0C09AA;
+  justify-content: center;
+  width: 100%;
+  height: calc(100%/3);
+}
+
+#flex-finland3 :nth-child(1){
+  background-color: white;
+  width: 160px;
+  position: relative;
+  float: left;
+}
+
+#flex-finland3 :nth-child(2){
+  background-color: #0C09AA;
+  width:160px;
+  position: relative;
+  float: left;
+}
+
+#flex-finland3 :nth-child(3){
+  background-color: white;
+  width: 400px;
+  position: relative;
+  float: left;
+}
