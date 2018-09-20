@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+}
+
+.libano{
+    height: 100vh;
+    width: 100vw;
+    background-color: springgreen;
+}
+
+.container, .col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .alt19 {
+    height: 19vh;
+  }
+
+  .bandeira{
+      height: 62vh;
+  }
+
+  .full{
+      width: 100vw;
+  }
+
+  .full img{
+      height: 37vh;
+      width: 20vw;
+      margin: 0 auto;
+      position: relative;
+      margin-top: 6%;
+  }
+
+  .white {
+    background-color: #ffffff;
+  }
+  
+  .red {
+    background-color: red;
+  }
