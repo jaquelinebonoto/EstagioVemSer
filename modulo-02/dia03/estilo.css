@@ -5,17 +5,17 @@
 #flex-finland {
   display: flex;
   background-color: blue;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   width: 100%;
-  height: calc(100%/3);
-  position: relative;
+  height: calc (100%/3);
+  
 }
 
 #flex-finland :nth-child(1){
   background-color: white;
   width: calc(100%/3);
   position: relative;
-  
 }
 
 #flex-finland :nth-child(2){

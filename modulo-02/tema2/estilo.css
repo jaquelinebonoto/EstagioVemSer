@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+  }
+
+  #finlandia{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: yellow;
+
+  }
+
+  #coluna1 {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      background-color: antiquewhite;
+      width: 22%;
+      height: 100%;
+      position: relative;
+      margin: 0;
+      float: left;
+
+  }
+
+  #coluna1 :nth-child(1){
+    background-color: white;
+    width: 100%;
+    height: 33%;
+    position: relative;
+  }
+
+  #coluna1 :nth-child(2){
+    background-color: rgb(20, 20, 196);
+    width: 100%;
+    height: 29%;
+    position: relative;
+}
+
+#coluna1 :nth-child(3){
+    background-color: white;
+    width: 100%;
+    height: 38%;
+    position: relative;
+}
+
+
+
+  #coluna2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-color: blueviolet;
+    width: 14%;
+    height: 100%;
+    position: relative;
+
+    float: left;
+}
+
+#coluna2 :nth-child(1){
+    background-color: rgb(20, 20, 196);
+    width: 100%;
+    height: 33.3%;
+    position: relative;
+}
+
+#coluna2 :nth-child(2){
+    background-color: rgb(20, 20, 196);
+    width: 100%;
+    height:  33.3%;
+    position: relative;
+}
+
+#coluna2 :nth-child(3){
+    background-color: rgb(20, 20, 196);
+    width: 100%;
+    height:  33.3%;
+    position: relative;
+}
+
+
+#coluna3 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-color: antiquewhite;
+    width: 64%;
+    height: 100%;
+    position: relative;
+    float: left;
+
+}
+
+#coluna3 :nth-child(1){
+    background-color: white;
+    width: 100%;
+    height: 33.3%;
+    position: relative;
+  }
+
+  #coluna3 :nth-child(2){
+    background-color: rgb(20, 20, 196);
+    width: 100%;
+    height: 29%;
+    position: relative;
+}
+
+#coluna3 :nth-child(3){
+    background-color: white;
+    width: 100%;
+    height: 37.3%;
+    position: relative;
+}
