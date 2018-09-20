@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+  }
+  
+  .flag {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: orange;
+  }
+  
+  .stripe {
+    width: 100%;
+    height: calc( 100% / 3 );
+    float: left;
+  }
+  
+  .black {
+    background-color: #000000;
+    height: 100%;
+  }
+  
+  .yellow {
+    background-color: #FDDA24;
+    height: 100%;
+  }
+  
+  .red {
+    background-color: #EF3340;
+    height: 100%;
+  }
