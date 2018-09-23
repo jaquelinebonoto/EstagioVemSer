@@ -61,10 +61,82 @@ console.log("------------------------------------------------------------------"
     
     console.log("------------------------------------------------------------------");
     
-    /*Crie uma função concatenarSemUndefined que recebe duas variáveis. Caso qualquer uma delas seja undefined (cuide a melhor forma de verificar isso, foi visto em aula), considere “” no lugar. Exemplo:
+    /*Crie uma função concatenarSemUndefined que recebe duas variáveis. 
+    Caso qualquer uma delas seja undefined 
+    (cuide a melhor forma de verificar isso, foi visto em aula), 
+    considere “” no lugar. Exemplo:
 
 	concatenarSemUndefined( undefined, “Soja” ) // “Soja”
 	concatenarSemUndefined( “Soja”, “ é bom” ) // “Soja é bom”
     concatenarSemUndefined( “Soja é” ) // “Soja é”*/
     
+    var coiso = {
+        name: "coisa",
+        concatenarSemUndefined
+    }
+    var coisaSeria = {
+        name: " cousaSeria",
+        concatenarSemUndefined
+    }  
+    var doida = {
+        name: " doida",
+        concatenarSemUndefined
+    }
     
+    function concatenarSemUndefined (nome, outroNome){
+        if (nome === undefined){
+            console.log(""+outroNome);
+        } else if (outroNome === undefined){
+            console.log(nome+""); 
+        } else console.log(nome + outroNome);
+    }
+
+    function testePraDarErrado (circulo) {
+        if (this.tipoCalculo==="A"){
+            return (Math.PI * Math.pow(this.raio, 2))
+        }
+    }
+
+    coiso.concatenarSemUndefined(coiso.name, coisaSeria.name);
+    coiso.concatenarSemUndefined(coiso.name, doida.name);
+    coiso.concatenarSemUndefined(coiso.name, testePraDarErrado(doida));
+    coiso.concatenarSemUndefined(testePraDarErrado(doida), doida.name);
+
+    console.log("------------------------------------------------------------------");
+
+    /*Crie uma função concatenarSemNull que recebe duas variáveis. Caso qualquer uma delas seja null (cuide a melhor forma de verificar isso, foi visto em aula), considere “” no lugar. Exemplo:
+
+	concatenarSemNull( null, “Soja” ) // “Soja”
+	concatenarSemNull( “Soja”, “ é bom” ) // “Soja é bom”
+    concatenarSemNull( “Soja é” ) // “Soja éundefined”*/
+    
+    function queroQueDeErro (data){
+        console.log(data);
+        return(data)
+    }
+
+    var coiso = {
+        name: "coisa",
+        concatenarSemNull
+    }
+    var coisaSeria = {
+        name: " cousaSeria",
+        concatenarSemNull
+    }  
+    var doida = {
+        name: " doida",
+        concatenarSemNull
+    }
+
+    function concatenarSemNull (nome, outroNome){
+        if (nome === null){
+            console.log(""+outroNome);
+        } else if (outroNome === null){
+            console.log(nome+""); 
+        } else console.log(nome + outroNome);
+    }
+    var foo = null;
+    coiso.concatenarSemNull(coiso.name, coisaSeria.name);
+    coiso.concatenarSemNull(coiso.name, doida.name);
+    coiso.concatenarSemNull(coiso.name, foo);
+    coiso.concatenarSemNull(foo, doida.name);
