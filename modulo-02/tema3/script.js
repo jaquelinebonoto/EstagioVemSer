@@ -12,7 +12,7 @@ const objeto2 = {
     tipoCalculo: "B",
     calcularCirculo
 }   
-const objeto3 = { //teste para valor negativo (não deve pasasr para função inválida)
+const objeto3 = { //teste para valor negativo (não deve passar para função inválida)
     raio: -1,
     tipoCalculo: 3,
     calcularCirculo
@@ -31,7 +31,7 @@ function calcularCirculo (circulo) {
         circunferencia = 2*Math.PI*this.raio;
         return(circunferencia);
     }
-    else (console.log("Função informada inválida"));
+    //else (console.log("Função informada inválida"));
 }
 console.log(objeto.calcularCirculo(objeto));
 console.log(objeto2.calcularCirculo(objeto2));
