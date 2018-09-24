@@ -58,6 +58,13 @@ console.log("------------------------------------------------------------------"
     }
     console.log("Ano 2016 é bissexto?   " + ano2016.naoBissexto(ano2016));
     console.log("Ano 2018 é bissexto?   " + ano2018.naoBissexto(ano2018));
+
+    /*function notBissexto (){
+      const ano = arguments[ 0 ]
+      const bissexto = ((ano % 4==0 && ano % 100 !=0)) || (ano%400==0)
+      return !bissexto
+    }*/
+
     
     console.log("------------------------------------------------------------------");
     
@@ -201,27 +208,42 @@ console.log("------------------------------------------------------------------"
     console.log(adicionar(5642, 8749));
     console.log(adicionar(-12, 4));
     console.log(adicionar(0, -1));
+    
+    console.log("Com recursividade-------------------------------------------------");
+    //amarrar variáveis
+    //adicionar(3) deve retornar uma função. (adicionar(3))(4)
+    //cyrring 
+    //var funcao = adicionar(3)
+    //funcao(4) //retorna 7
+    function add (numero1){
+        return function(numero2){
+          return numero1 + numero2
+        }
+    }
+    console.log(add(3)(4));
+    console.log(add(5642)(8749));
+    console.log(add(-12)(4));
+    console.log(add(0)(-1));
 
     console.log("------------------------------------------------------------------");
     /*Faça uma função fiboSum que calcule a soma da sequência de Fibonacci para n números informados. Exemplo de chamada:
     fiboSum(7)  // 33 (soma dos 7 primeiros números da sequência: 1+1+2+3+5+8+13)
     Dica: aproveite toda "beleza" dos algoritmos recursivos (com cuidado). */
 
-    function fiboSum (numero){ //somando os valores até chegar no valor 7
+    function fibonacci (numero){ //somando os valores até chegar no valor 7
         if (numero==0) return 0;
         if (numero==1) return 1;
-        return fiboSum(numero-1) + fiboSum (numero-2);
+        return fibonacci(numero-1) + fibonacci (numero-2);
+    }
+
+    function fiboSum (n) {
+      if (n==1){
+        return 1
+      }
+      const elemento = fibonacci(n)
+      return elemento + fiboSum(n-1)
     }
     
+    console.log(fibonacci(7));
     console.log(fiboSum(7));
-    console.log(fiboSum(33));
 
-    var soma=1;
-    var outro=0;
-    function fiboSoma (numero){ //somando os valores até ter 7 valores
-        for (i=1; i<=numero; i++){
-            soma = soma + (numero-1) + numero-2;
-        }
-        return soma;
-    }
-    console.log(fiboSoma(7));

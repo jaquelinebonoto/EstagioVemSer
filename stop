@@ -1,0 +1,761 @@
+[33mcommit 7ec1495fc588d54f9264dce3ab8400df0f0e8bf9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 23 15:25:16 2018 -0300
+
+    feat(exercicios 5 e 6): inicio do desevolvimento.
+
+[33mcommit 3e5b4d50c0a99ac0c5e0e6c4215e468ce492f5b3[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 22 21:41:04 2018 -0300
+
+    feat(exercicios 3 e 4): concatenção null e undefined
+
+[33mcommit fb50b998cd9965d08e0b6864a97a717407ec1c2e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 22 18:44:01 2018 -0300
+
+    feat(Exercicio 2): para verificar se o ano é bissexto
+
+[33mcommit 58c3118faa653c02a273da6c58f1f5b58be7bcab[m
+Merge: 0f76692 9314908
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 22 18:14:29 2018 -0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 0f766924d7ed5ce65dde8e51e58de3efd859281b[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 22 18:13:51 2018 -0300
+
+    feat(exercício 1 lista 3): exercicio js cálculo para círculos
+
+[33mcommit 9314908583ffb1071d18a1f7454e16b621e8d69e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 21 13:41:54 2018 -0300
+
+    refactor(japao): flexbox centralização ajustada
+
+[33mcommit 0c4ce88561942042827418c19edd3eebb47576cc[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 20 20:36:49 2018 -0300
+
+    feat(BandeiraLibano): desenvolvimento bandeira do libano
+
+[33mcommit cec93b7669387878d41be54c2777ffd299d0fe59[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 20 19:48:02 2018 -0300
+
+    feat(Bandeiras): exercícios bandeiras
+
+[33mcommit 0e407994d6afc9aad2e43ccb79500c89ab99f596[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 19 21:56:38 2018 -0300
+
+    fix(Finlândia): bandeira da Finlândia com aplicação de flexbox
+
+[33mcommit cc3a96292d99e64d9bd98bc1b0fecd4d3055d849[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 19 17:29:12 2018 -0300
+
+    feat(flexBox): bandeira da finlandia
+
+[33mcommit 5f413d62edb93841e7550f87e4b4bbfb76b64461[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 19 16:09:26 2018 -0300
+
+    fix(Buenos Aires): novos elementos adicionados após atividade de aula
+
+[33mcommit e6ba9458947f95df0678b13c731023c1181a9a0d[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 19 13:44:19 2018 -0300
+
+    ANTES DO NILCON
+
+[33mcommit 746564bca6a203eed3f013db70f540b05c878bb4[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 18 23:17:33 2018 -0300
+
+    feat(Index): homework buenos aires
+
+[33mcommit 3091f99c8cf21aadf5ae5e3e7cf0d52dc300b5c0[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 18 17:30:15 2018 -0300
+
+    feat(dia2): html forms  - css
+
+[33mcommit f39def4721384b3e6ffbf780e17e2684a19ffbeb[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 18 13:38:29 2018 -0300
+
+    update
+
+[33mcommit e5f997f7471f1b73c4f1b868785334a75ccf1268[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 18 13:13:48 2018 -0300
+
+    feat(modulo2): exercicios html
+
+[33mcommit 2ee67402c9e64dd87267bd6ef4d8aef8e385a7af[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 17 14:00:47 2018 -0300
+
+    ajeitando o desktop na dbc
+
+[33mcommit 69df3dba7c0ae597adb74a2aea850a52bf1f44f5[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 16 22:15:21 2018 -0300
+
+    refactor(AtaquesOrdenados): inserido teste primeiro tipo de Elfo
+
+[33mcommit 2fe834b1b37eab433330edb5fbb67538c1f2737c[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 16 22:04:30 2018 -0300
+
+    feat(AtaqueIntercalado): teste com numero impar de elfos verde e noturno
+
+[33mcommit 92d2012db40f5b52a5af0b7c29761b0805cf658c[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 16 20:19:54 2018 -0300
+
+    fix(ContarElfos): retirada
+
+[33mcommit 6e3914eacbb7232a7e300636b82cbc2fd9a42704[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 16 20:17:52 2018 -0300
+
+    refactor(ExerciciosExtras): reorganização
+
+[33mcommit 2f83aa67ce1a32cbbd034915893b212aa2832e34[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 16 20:10:01 2018 -0300
+
+    fix(NoturnosPorUltimo): testes rodando. elfos da luz inseridos no meio
+
+[33mcommit 5f3ebcfc35fadbb68855d77aea2a04c5182e059a[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 16 11:28:36 2018 -0300
+
+    feat(DwarfBarbaLonga): classe dwarf barba longa e inicio estratégias
+
+[33mcommit 805b30ed40a25acbff873a9a4eb87737fd025724[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 14 15:29:27 2018 -0300
+
+    feat(FormasGeometricas): Interfaces
+
+[33mcommit f9e45e22836ff171d42304cda3a87da95dc3c37e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 13 17:30:45 2018 -0300
+
+    feat(exericios extra): agenda e interface tradutor
+
+[33mcommit fa95c65f4e348dc79b3f81c88e237aa55119ec64[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 13 12:53:25 2018 -0300
+
+    fix(ElfoTest): agora vai
+
+[33mcommit 4041f252fe675b3899e4e4e3f36d90a0f11cfd9b[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 13 12:50:10 2018 -0300
+
+    fix(ElfoTest): conta Elfos
+
+[33mcommit 69cdc528b9be4bea43c707e24f7589cb08a7d526[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 13 12:44:05 2018 -0300
+
+    feat(Elfos): contagem de elfos nascidos
+
+[33mcommit 42af52018ec84566893065eaa5b09a5756f313c7[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 12 17:30:52 2018 -0300
+
+    refactor(ElfoDaLuz): adicionada Classe Item Imperdivel
+
+[33mcommit 2d937bb09c3a6f96d4ed8b5d4952555c7f66f49d[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 12 14:04:19 2018 -0300
+
+    fix(Exercicio Extra): inserindo chave e retornando valor no hashmap
+
+[33mcommit 656f90abc41f5231133d3d6339af0bda551e640a[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 12 06:45:52 2018 -0300
+
+    Exercicio extra HashMap
+
+[33mcommit bcc8e6f4528563b4fc5c4a529bf5fe2f3abcaabb[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 21:53:34 2018 -0300
+
+    feat(ElfoDaLuz): nova subclasse Elfo adicionada
+
+[33mcommit 5158109c2856be62f38e293009bce5be903eff22[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 20:50:07 2018 -0300
+
+    up
+
+[33mcommit 83bd32c98b3394d3c14b4d453181743a7d35cf3a[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 20:48:04 2018 -0300
+
+    retirada
+
+[33mcommit 2b3934c08718c4f24a7c5ef53f36dde6028cfaed[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 20:43:23 2018 -0300
+
+    casa
+
+[33mcommit ff479a31cf23bb2470ab9ef3952bd92b28de0a4b[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 17:30:28 2018 -0300
+
+    fix(Aula): ajustes de aula.
+
+[33mcommit b60f7fa3dda6de38ee0fae70e10efda969ca0e32[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 11:38:04 2018 -0300
+
+    feat(Elfos): subclasses pré modeladas
+
+[33mcommit 81a40d795817a3cfcf2bdc264117aa4f74b54d2d[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 11 11:02:51 2018 -0300
+
+    fear(Elfos): ganhar item. not working
+
+[33mcommit b6e311ceb957eb177ad325a39b6d909c80ecd044[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 21:12:01 2018 -0300
+
+    feat(Jogo): subindo novamente
+
+[33mcommit 7b02edcff2ae3b377fe68ce1911ea09775d7bae1[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 21:09:14 2018 -0300
+
+    cleaning
+
+[33mcommit 8a35fa0e9c843fe7912da2281ba981fb1e2b764b[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 21:05:32 2018 -0300
+
+    package
+
+[33mcommit 2a8178a71ffae27558258697d62d9435634ec367[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 20:58:46 2018 -0300
+
+    arrumando a sujeira. diversos arquivos.
+
+[33mcommit eb1edc53d4ef20e55870aee02aed29502742e10d[m
+Merge: 625e307 a285b89
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 19:44:50 2018 -0300
+
+    Merge remote-tracking branch 'staff/master'
+
+[33mcommit a285b898b8c9544c40e6d579c292eac937b871dd[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Mon Sep 10 17:16:42 2018 -0300
+
+    refactor(Inventário): implementar Collections.sort no itens.
+
+[33mcommit d55cc3368963313bb4f5e6fd745070a4432986d2[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Mon Sep 10 16:53:03 2018 -0300
+
+    feat(Personagem): adicionar classe Personagem e alterar modelagem para recebê-la.
+
+[33mcommit 54129a4df5e426c19f2bc1f6340bdecb28f0f332[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Mon Sep 10 15:48:25 2018 -0300
+
+    feat(Atributos): exemplo de reaproveitamento de código por composição.
+
+[33mcommit 625e30781ab2719eaa3a34df9e1ab54416fcbb54[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 15:45:20 2018 -0300
+
+    feat(Atributos): inicio em aula. refatoracao de dwarf e elfo
+
+[33mcommit 09d6dc4fd20524dfe3a047c086d8e8a71dad6f8a[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Mon Sep 10 15:13:42 2018 -0300
+
+    fix(Varias Classes): correções de aula.
+
+[33mcommit fb6dc9b0bbe295000ebc0b11eb8c7035b913db96[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Mon Sep 10 15:03:07 2018 -0300
+
+    feat(Item): adicionar exemplo com equals.
+
+[33mcommit 7c429b316a7a92aac9baca072105bc18081718bf[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sun Sep 9 23:08:45 2018 -0300
+
+    fix(Inventario): corrigir caso de cálculo de mediana com itens desordenados.
+
+[33mcommit c6c3b359a9b0188e2d9cef83d16d7864d7187ea6[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sun Sep 9 22:46:10 2018 -0300
+
+    refactor(Inventario): remover duplicação reutilizando código parametrizado.
+
+[33mcommit 6a982c4f869bbfd097781d77724490ec32e75118[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sun Sep 9 22:45:17 2018 -0300
+
+    feat(Inventario): adicionar possibilidade de informar qual tipo de ordenação (desc/asc).
+
+[33mcommit fb1815173ea57081d51aea22973c4870bbbf8be9[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sun Sep 9 22:33:26 2018 -0300
+
+    feat(Inventario): adicionar método para ordenar itens por quantidade de forma asc.
+
+[33mcommit 831dcc2e5d3bcb26aabeaa3a2644d7b50b1c0c92[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sun Sep 9 22:16:59 2018 -0300
+
+    feat(Paginador): adicionar classe que organiza os itens em páginas de sub-resultados.
+
+[33mcommit cef3f29ed45c15cdf5541f03264e28b148c7f2c9[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sun Sep 9 21:43:39 2018 -0300
+
+    feat(Estatisticas): adicionar classe que calcular estatísticas do inventário.
+
+[33mcommit 3c4a34e603cbb95c7e071f118456129e0fe54624[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 9 21:09:11 2018 -0300
+
+    fix(Estatisticas): conserto nome metodo e condicao sse acima media
+
+[33mcommit 5f87367649fe257daf057af46f206f903f0210cb[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 9 21:05:32 2018 -0300
+
+    Feat(Paginador): eu não entendi direito, mas já tem uma estrutura ali.
+
+[33mcommit 3d1a25a74898c12d8cb8899939844fdaec737747[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 9 16:33:49 2018 -0300
+
+    feat(Estatisticas): itens que foram pedidos acima da média.
+
+[33mcommit 94ae4b26fd0b7078a81b27f165a95fbe2d1e4feb[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 9 16:19:53 2018 -0300
+
+    feat(Medianas): adicionado calculo de medianas a classe InventarioList
+
+[33mcommit d4bcc8b1eb2fe966a56a77e32afd811a9a03cc19[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 9 15:13:08 2018 -0300
+
+    feat(Estatisticas): media de ítens
+
+[33mcommit 768f1cb6200e3ca3a18b5165469dc1217ac35a56[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sun Sep 9 13:50:58 2018 -0300
+
+    fix(Inventario): Funcao inverte arraylist.
+
+[33mcommit 284082213c6fd3ee17241825389bc38422b6dafd[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 8 19:31:06 2018 -0300
+
+    feat(Inventario): teste de reversão. not working yet
+
+[33mcommit f4d07269dd8e58a13ee657ff23bd625d5ea96f8e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 8 14:26:38 2018 -0300
+
+    fix(Inventario): Teste de busca de String ok. Ajustar invalid search
+
+[33mcommit 6ffb9906920dbdfa2de08edb178363365df32cba[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sat Sep 8 12:06:20 2018 -0300
+
+    feat(Inventario): implementar método para inverter ordem dos itens no inventario.
+
+[33mcommit 6ca624d2b1acb2c43827741a386c9c4b2f64d36e[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Sat Sep 8 11:48:12 2018 -0300
+
+    feat(Inventario): adicionar método de busca por descrição.
+
+[33mcommit 5066098ff143324bedeb7b7c7e63e9143f3dabfb[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Sat Sep 8 08:41:20 2018 -0300
+
+    feat(Inventario): Testes para busca de item através de String
+
+[33mcommit e6ac5911894413661a2b1364372c80290d2d2bd4[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Fri Sep 7 23:07:39 2018 -0300
+
+    feat(Inventario): alterar implementação de array para arraylist.
+
+[33mcommit 322ae40bebeeb22271088202bd2b95c049086808[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Fri Sep 7 21:47:50 2018 -0300
+
+    feat(Dwarf): alterar status para morto quando vida ficar 0 e evitar que vida fique negativa.
+
+[33mcommit 942d3a242749c5131e684e9e789aa9e29cc63fef[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 12:43:38 2018 -0300
+
+    feat(As Duas Torres): até Dwarf - 0 vidas.
+
+[33mcommit 840ec7df164eb2ed93d3e05c1c2448c83730c946[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 12:41:05 2018 -0300
+
+    Retirada exercício as duas torres
+
+[33mcommit cd5d0f2a2aef6fea4628549cb088e183d20e287e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 12:37:37 2018 -0300
+
+    Retirada de exercícios antigos
+
+[33mcommit 056982dd7e286eac7a8e2fe4e2dd479be109fdde[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 12:19:17 2018 -0300
+
+    feat(DwarfMorto): Quando Dwarf não tem mais vidas muda o Status
+
+[33mcommit 6e79ba2f142731af15b2bb8f86c4619c110d1bb4[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 10:28:37 2018 -0300
+
+    Atualização de arquivos - organizacao de pastas
+
+[33mcommit a133c602b1ffc57e5154ad5373186d1a0dff9a09[m
+Merge: e71bbe8 4c45318
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 10:20:28 2018 -0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit e71bbe8eace6728fa11d5e79bc6d083abd1b1722[m
+Merge: db37fba c432614
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Fri Sep 7 10:11:24 2018 -0300
+
+    Merge remote-tracking branch 'staff/master'
+
+[33mcommit c43261483c824dfff657364c624b9c42d7e26685[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Fri Sep 7 10:00:12 2018 -0300
+
+    fix(Inventario): corrigir getDescricoesItens com caso onde se adiciona mais itens que se remove.
+
+[33mcommit 4474b5e77f81ba2bdb1cd494554c215ac6cc09e6[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 18:46:12 2018 -0300
+
+    feat(Elfo): alterar elfo para atirar flecha em dwarf.
+
+[33mcommit 31b2879e335687617fe70b59f49207fed640a63c[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 18:45:50 2018 -0300
+
+    feat(Dwarf): adicionar classe Dwarf, que perde vida e tem status.
+
+[33mcommit 4c453180d112911e62a285afc16cfda956f42bed[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 6 17:37:25 2018 -0300
+
+    feat(Dwarf): iniciandoList
+
+[33mcommit fdd11f81bcc4af706ca295c93d5b321014c1820f[m
+Merge: 621df3d f8c133f
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 6 16:46:04 2018 -0300
+
+    Merge remote-tracking branch 'staff/master'
+
+[33mcommit 621df3d2e45e84a89ef87b2495e5e0951e5d648f[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 6 16:32:58 2018 -0300
+
+    feat(Exercicio inventario): classes e teste de adiciona item
+
+[33mcommit f8c133fcf9512ae2f5d3222ad251312ca7dbfbd8[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 16:14:03 2018 -0300
+
+    feat(Inventario): adicionar operações getDescricoesItens e getItemMaiorQuantidade().
+
+[33mcommit a0d987e49a6ffc589197c6d864125000e37af3bc[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 16:13:35 2018 -0300
+
+    test(Numeros): utilizar syntatic sugar para declaração de arrau de doubles.
+
+[33mcommit 705f5d9923b5a2c44f26446ebe059bf3bdd92be5[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 16:13:04 2018 -0300
+
+    feat(Git): adicionar arquivo gitignore.
+
+[33mcommit be41bc4b7c5528b58c95d0e5e1ca876e7ddb0525[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 14:34:33 2018 -0300
+
+    feat(Inventario): adicionar inventario com adicionar, obter e remover.
+
+[33mcommit 46283dce24df74765b0afcc4e394d5e9ab087af9[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Thu Sep 6 14:15:30 2018 -0300
+
+    feat(Numeros): implementar cálculo de media com os números seguintes.
+
+[33mcommit 5f0cb8b5a7da34648553e02fb17ca1b85ed5539f[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 6 13:18:29 2018 -0300
+
+    fix(NumeroVetor): tamanho corrigido. OK
+
+[33mcommit d82cf17acae169bc47a235aeca9385e30721db39[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Thu Sep 6 13:12:14 2018 -0300
+
+    fix(NumeroVetor): teste rodando. Problema no tamanho do array
+
+[33mcommit db37fbaf0304ee374e1f15326755f3ba937999c2[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 23:48:10 2018 -0300
+
+    fix(NumerosVetor): Teste rodando parcial. Errado a partir do 2o. equals.
+
+[33mcommit d7f26f90ae9950b28d0d2dbe9ad945cb55099005[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 22:18:12 2018 -0300
+
+    feat(NumerosVetor):assert não resolvido
+
+[33mcommit 4c07290b3fe1daceb3590d5ea8c57bbf81942202[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Wed Sep 5 21:54:30 2018 -0300
+
+    feat(Elfo): commitar alterações para suportar a classe item em elfo.
+
+[33mcommit 8bdbec332877652bf39d667ef996a8b3cd0e3c5b[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 20:18:14 2018 -0300
+
+    fix(Elfo):corrigido (mas corrigir melhor depois)
+
+[33mcommit 8970c284cc9371a5de12de0a9398699c23ee85f2[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 17:35:29 2018 -0300
+
+    feat(Elfos Relacionamento):composição
+
+[33mcommit cb29f6f72f1fcc4139bbdd81cfbcef0943f86d11[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Wed Sep 5 17:11:09 2018 -0300
+
+    feat(Elfo): adicionar atirarFlecha.
+
+[33mcommit e11cb6320f4455207a559edcadca5f6d8849117b[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 16:40:33 2018 -0300
+
+    refactor(exercicio funcionario): otimizacoes de aula
+
+[33mcommit 5ad21f19194a3918eb2f11eb0ae025aacfdbfa32[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 16:39:03 2018 -0300
+
+    refactor(exericio numeros): otimizacoes de aula
+
+[33mcommit 421441e6f0d80fa014f1649663f9d8fd12f9d05c[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Wed Sep 5 16:37:00 2018 -0300
+
+    feat(Numero): adicionar funcionalidade para verificar se é divisível.
+
+[33mcommit 92fa650046f63e9bf58eaf1f557c25ce9734636c[m
+Merge: cd80149 cc1cf9d
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Wed Sep 5 16:03:14 2018 -0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit cd80149946b471a892afea24f6c5a30f198e3c5b[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Wed Sep 5 16:02:36 2018 -0300
+
+    feat(Funcionario): adicionar classe Funcionario e um metodo para obter lucro do salarios.
+
+[33mcommit fa37137881758c495ef8aef52d692f50e9051e7d[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Wed Sep 5 16:01:54 2018 -0300
+
+    feat(Numero): adicionar metodo para verificar se e impar.
+
+[33mcommit 7500232842817ebc15dabed1122e3409274c91f3[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 14:05:20 2018 -0300
+
+    feat(exercicio 2): funcionário
+
+[33mcommit acbef3b441abb979c8456af2251ef01655fa4377[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 13:39:49 2018 -0300
+
+    feat (exercicio numeros 1 e 3): classe numero e teste no BlueJ
+
+[33mcommit f4f8bb3d206ee4d51fe8631eefc02fc98bfc1068[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 13:37:43 2018 -0300
+
+    fix (todos os exercícios): limpeza e reorganização de arquivos.
+
+[33mcommit 9b90437dd1b868c0089581b900916721b313bb4d[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 13:30:37 2018 -0300
+
+    fix (exercício 3): criação de variável aux. Teste aprovado no blueJ.
+
+[33mcommit 88888c65003d50c4f569f9b066ee1a3b22d5a55d[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 13:26:22 2018 -0300
+
+    teste
+
+[33mcommit d0cac3522154532a41f8c640f68e88d814cbfe47[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 13:23:54 2018 -0300
+
+    fix(exercicio 1 e 3): retirada da classe e teste elfo.
+
+[33mcommit 5548afcec0731816f8dfb91b582473291eb54a8e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 13:13:48 2018 -0300
+
+    fix (exercício 1 e 3): ajuste de testes.
+
+[33mcommit dff7a71ce295e590077be3d057136e4ce94f678e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 12:43:37 2018 -0300
+
+    simples atualização de workspace (sorry for that)
+
+[33mcommit 6e6b44746ca6da82fa40f834869215fc48a04a85[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 12:41:09 2018 -0300
+
+    fix (exercício 1 e 3): número informado livre no problema 3.
+
+[33mcommit adad055ea276f1c014b70781b530e43b0b7c6e1e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 12:39:50 2018 -0300
+
+    feat (exercício4): início do exercício 4 feito no Eclipse
+
+[33mcommit a0b3312f5a815a47d1604722c4fccd38e258763a[m
+Author: Jaqueline Paz Bonoto <jaqueline.bonoto@dbccompany.com.br>
+Date:   Wed Sep 5 14:07:43 2018 +0000
+
+    Initial Bitbucket Pipelines configuration
+
+[33mcommit 03554925bcfe210637c168b280def620d83317f8[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 4 22:34:38 2018 -0300
+
+    Exercicios 1, 2 e 3 iniciados no Eclipse.
+
+[33mcommit 4672df5d1ac4fa26c5dc6f805c2b28729c49fb0e[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 4 17:56:10 2018 -0300
+
+    atividade em aula
+
+[33mcommit cc1cf9d2422e09ba514554828c742756aaa0c2bf[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 19:20:29 2018 +0000
+
+    doc(README): atualizar arquivo de leitura.
+
+[33mcommit d28ce00f52ae2fcb145efb0e9a003df07ef5b0e8[m
+Author: Jaqueline <jaqueline.bonoto@dbccompany.com.br>
+Date:   Tue Sep 4 16:15:55 2018 -0300
+
+    teste Jack
+
+[33mcommit 138ea6c3cd3cfe903a57ccc9badc907b7137c454[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 15:20:52 2018 -0300
+
+    fix(Test): corrigir cenário de teste.
+
+[33mcommit 88e7609e07c0bb88c4926e31b8ae928dd102faca[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 15:17:41 2018 -0300
+
+    test(Falhar): forçar falha de testes.
+
+[33mcommit bb37cfaa9a9047d83172a49dceaebacc4e0f91cd[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 15:13:41 2018 -0300
+
+    corrigir build.
+
+[33mcommit 425af91770e3918659b90f2db438458d49636712[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 15:04:55 2018 -0300
+
+    alterações incríveis.
+
+[33mcommit 3e129ac169d4eead10e1d44b2cd2b2c498663184[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 14:48:05 2018 -0300
+
+    fix(Build): remover arquivos temporários.
+
+[33mcommit 0607e23677e438cd3f2dfda4b177f57e95c03739[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 14:45:36 2018 -0300
+
+    test(Fail): falhar teste propositalmente.
+
+[33mcommit 89a0371be96f872638ea9f294f5e1f47948c277a[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 14:43:37 2018 -0300
+
+    fix(Build): corrigir build.
+
+[33mcommit f6025d91af7dcf0cdc5a3d8c92e2c4d0f72bfc74[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 14:39:20 2018 -0300
+
+    feat(Tmp): adicionar alterações temporárias.
+
+[33mcommit 52fe9d3f9a1c93553f88a67b170c4328d996f97a[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 17:27:36 2018 +0000
+
+    Initial Bitbucket Pipelines configuration
+
+[33mcommit 99115e73185b130e72a593a81f2bfcabf45c3332[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 14:21:19 2018 -0300
+
+    chore(Gradle): adicionar inicialmente build com gradle.
+
+[33mcommit fe390ef2714b09345389355475e61dcafa483e78[m
+Author: Bernardo Bosak de Rezende <bernardo.bosak@dbccompany.com.br>
+Date:   Tue Sep 4 14:17:23 2018 -0300
+
+    Initial commit
