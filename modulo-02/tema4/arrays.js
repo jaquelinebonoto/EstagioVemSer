@@ -71,24 +71,34 @@ function verificaExperienciaRetornaString (experiencia){
     return "com"
 }
 
-function formatarElfos (objetos){
-    //for (var i=0; i<=objetos.length-1; i++){
-    objetos.forEach (nome => porNoCaps(objetos))
+function formatarElfosSoNome (objetos){
+    function porNoCaps (objetos){
+        objetos.nome = objetos.nome.toUpperCase()
+        return objetos
+    }
+    objetos.forEach (objetos => porNoCaps(objetos))
     return objetos
 }
 
+function formatarElfosNomeExperiencia (objetos){
+  var elfo1 = {nome:" ", temExperiencia: true}
+  var elfo2 = {nome:" ", temExperiencia: true}
+  var novoArray = [elfo1, elfo2]
+  
+  var i=0
+  function porNoCaps (objetos){
+      novoArray[i].nome = objetos.nome.toUpperCase()
+      i++
+      return novoArray
+  }
+  objetos.forEach (objetos => porNoCaps(objetos))
 
-    /*for (var i=0; i<=objetos.length-1; i++){
-        function nomeMaiusculo(objetos){
-            objetos[i].nome = objetos.nome.toUpperCase()
-        }
-        /*function experience(experiencia){
-            if (objetos.experiencia<=0)
-                temExperiencia = false
-            else temExperiencia= true
-            return experiencia=temExperiencia
-        }*/
-       // function descricao()
-    //}
-
-
+  var j=0
+  function verificaExperiencia (objetos){
+    if (objetos.experiencia<=0) novoArray[j].temExperiencia = false
+    j++
+    return novoArray
+  }
+  objetos.forEach (objetos => verificaExperiencia(objetos))
+  return novoArray
+}

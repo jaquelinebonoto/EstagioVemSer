@@ -87,21 +87,42 @@ describe( 'verificaExperienciaRetornaString', function() {
         var res = verificaExperienciaRetornaString(experience) + " experiência"
         expect(res).to.equal('sem experiência');
     })
+  })
 
-    describe( 'formatarElfos', function() {
+    describe( 'formatarElfosSoNome', function() {
         beforeEach( function() {
             chai.should()
           } )
           const expect = chai.expect
     
-        const elfo3 = { nome: "LEGOLAS", experiencia: 0, qtdFlechas: 6 }
-        const elfo4 = { nome: "GALADRIEL", experiencia: 1, qtdFlechas: 1 }
-        const arrayEsperado = [ elfo3, elfo4]
+          const elfo3 = { nome: "LEGOLAS", experiencia: 0, qtdFlechas: 6 }
+          const elfo4 = { nome: "GALADRIEL", experiencia: 1, qtdFlechas: 1 }
+          const arrayEsperado = [ elfo3, elfo4]
+
+          const elfo1 = { nome: "Legolas", experiencia: 0, qtdFlechas: 6 }
+          const elfo2 = { nome: "Galadriel", experiencia: 1, qtdFlechas: 1 }
+          const arrayElfos = [ elfo1, elfo2]
 
         it( 'deve retornar os nomes em Caps Lock usando Array', function() {
             var result = {}
-            result = formatarElfos(arrayElfos)
+            result = formatarElfosSoNome(arrayElfos)
             expect(result).to.eql(arrayEsperado);
         })
+      })
+
+
+  describe( 'formatarElfosNomeExperiencia', function() {
+          beforeEach( function() {
+          chai.should()
+          } )
+          const expect = chai.expect
+          
+          const elfo3 = { nome: "LEGOLAS", temExperiencia: false}
+          const elfo4 = { nome: "GALADRIEL", temExperiencia: true}
+          const arrayEsperado2 = [ elfo3, elfo4]
+
+        it( 'deve retornar nome em Caps e experiencia TRUE or FALSE', function() {
+          var result = formatarElfosNomeExperiencia(arrayElfos)
+          expect(result).to.eql(arrayEsperado2);
+        })
     })
-})
