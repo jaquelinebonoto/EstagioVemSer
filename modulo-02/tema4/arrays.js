@@ -71,6 +71,11 @@ function verificaExperienciaRetornaString (experiencia){
     return "com"
 }
 
+function formatarElfos (objetos){
+    //for (var i=0; i<=objetos.length-1; i++){
+    objetos.forEach (nome => porNoCaps(objetos))
+    return objetos
+}
 
 
     /*for (var i=0; i<=objetos.length-1; i++){

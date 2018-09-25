@@ -87,4 +87,21 @@ describe( 'verificaExperienciaRetornaString', function() {
         var res = verificaExperienciaRetornaString(experience) + " experiência"
         expect(res).to.equal('sem experiência');
     })
+
+    describe( 'formatarElfos', function() {
+        beforeEach( function() {
+            chai.should()
+          } )
+          const expect = chai.expect
+    
+        const elfo3 = { nome: "LEGOLAS", experiencia: 0, qtdFlechas: 6 }
+        const elfo4 = { nome: "GALADRIEL", experiencia: 1, qtdFlechas: 1 }
+        const arrayEsperado = [ elfo3, elfo4]
+
+        it( 'deve retornar os nomes em Caps Lock usando Array', function() {
+            var result = {}
+            result = formatarElfos(arrayElfos)
+            expect(result).to.eql(arrayEsperado);
+        })
+    })
 })
