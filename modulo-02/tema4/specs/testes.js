@@ -124,5 +124,21 @@ describe( 'verificaExperienciaRetornaString', function() {
         it( 'deve retornar nome em Caps e experiencia TRUE or FALSE', function() {
           var result = formatarElfosNomeExperiencia(arrayElfos)
           expect(result).to.eql(arrayEsperado2);
-        })
+        }) 
     })
+
+    describe( 'formatarElfos', function() {
+      beforeEach( function() {
+      chai.should()
+      } )
+      const expect = chai.expect
+
+      const elfo3 = { nome: "LEGOLAS", temExperiencia: false, qtdFlechas: 6}
+      const elfo4 = { nome: "GALADRIEL", temExperiencia: true, qtdFlechas: 1}
+      const arrayEsperado3 = [ elfo3, elfo4]
+
+    it( 'deve retornar nome/experiencia/qtdflechas no mesmo objeto', function() {
+      var result = formatarElfos(arrayElfos)
+      expect(result).to.eql(arrayEsperado3);
+    }) 
+})

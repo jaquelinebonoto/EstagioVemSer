@@ -102,3 +102,28 @@ function formatarElfosNomeExperiencia (objetos){
   objetos.forEach (objetos => verificaExperiencia(objetos))
   return novoArray
 }
+
+
+
+
+function formatarElfos (objetos){
+  function porNoCaps (objeto){
+      objeto.nome = objeto.nome.toUpperCase()
+  }
+  objetos.forEach (objeto => porNoCaps(objeto))
+
+  function verificaExperiencia (objeto){
+    if (objeto.experiencia<=0) objeto.temExperiencia = false
+  }
+  objetos.forEach (objeto => verificaExperiencia(objeto))
+   
+  const textoExperiencia = objetos.temExperiencia  ? 'com' : 'sem'
+  const textoFlechas = objetos.qtdFlechas !== 1 ?  's' : ''
+  elfo.descricao = `${ objeto.nome } ${textoExperiencia} experiencia e com ${qtdFlechas} flecha ${textoFlechas}`
+  objetos.forEach (objeto => descricao(objeto))
+  objetos.forEach (objeto => textoExperiencia(objeto))
+  objetos.forEach (objeto => textoFlechas(objeto))
+
+  delete objetos.experiencia
+  return objetos
+}
