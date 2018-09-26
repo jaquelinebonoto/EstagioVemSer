@@ -17,16 +17,24 @@ if ( nomeArmazenado ) {
   perguntarNome()
 }
 
-
+meuH3.innerText = "Numero de Clicks: " + count
 //meuH2.innerText = 'Carregando...'
 
 //localStorage['nome'] = nome
 //localStorage.setItem( 'nome', nome )
 
 const button = document.getElementsByTagName("button")
-function limpaDados (){
-    localStorage.removeItem("nome")
-    //localStorage.clear()
-    meuH2.innerText = "Nome Vazio"
-    alert("Item removido.");
+const meuH3 = document.getElementById('numeroDeClick')
+var count = 0
+sessionStorage.setItem(count)
+
+function contaClicks (){
+    count +=1
+    sessionStorage.setItem(count)
+    meuH3.innerText = "Numero de Clicks: " + count
+    if (count < 5){
+        localStorage.removeItem("nome")
+        meuH2.innerText = "Nome Vazio"
+        alert("Item removido.");
+    }
 }
