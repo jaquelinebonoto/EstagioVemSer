@@ -18,20 +18,18 @@ if ( nomeArmazenado ) {
 }
 
 const meuH3 = document.getElementById('numeroClicks')
-const button = document.getElementsByTagName('button')
+const btn = document.getElementById('btn')
 var count = 0
 
-sessionStorage(count)
-meuH3.innerText = "Numero de Clicks" + count
-function contaClick(){
+
+btn.onclick = function() {
     count++
-    meuH3.innerText = "Numero de Clicks" + count
+    meuH3.innerText = "Numero de Clicks " + count
     if (count<5){
       localStorage.removeItem('nome')
       meuH2.innerText = "Nome Removido"
       alert("Item removido")
     }
-    sessionStorage(count)
 }
 
 function apagaMesmo(){
