@@ -6,7 +6,7 @@
          meuH1.innerText = new Date().toLocaleTimeString()
       }
       this.parar = function(){
-        clearInterval(this.idInterval)
+        clearInterval(idInterval)
         btnReiniciar.disabled = true
       }
     }
