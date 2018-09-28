@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokédex</title>
+  </head>
+  <body>
+    <input type="text" pattern="[0-9]" placeholder="ex: 103" id="txtNumero"><!--recebe o código do usuário-->
+    <div id="dadosPokemon">
+      <h1>Carregando...</h1>
+      <img id="thumb">
+    </div>
+    <!-- Nesse arquivo definimos uma classe Pokémon, para centralizar a lógica de exibição dos bichinhos -->
+    <script src="pokemon.js"></script>
+    <!-- Nesse arquivo definimos uma classe para centralizar a lógica de COMUNICAÇÃO COM O SERVIDOR -->
+    <script src="pokeApi.js"></script>
+    <!-- Nesse arquivo definimos a lógica da tela da pokédex em si, notem que há uma separação de responsabilidades entre os arquivos -->
+    <script src="pokedex.js"></script>
+  </body>
+</html>
