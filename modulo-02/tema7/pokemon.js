@@ -23,10 +23,10 @@ class Pokemon { //classe usada para trabalhar os dados recebidos e ja parseados
         return this._altura * 10
       }
 
-      /*get peso(){
+      get peso(){
           return this._peso / 1000
       }
-      get id(){
+      get idPraImprimir(){
         return this.id
-      }*/
+      }
     }

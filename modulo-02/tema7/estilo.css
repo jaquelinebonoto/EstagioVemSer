@@ -8,6 +8,11 @@ body {
     background-origin: initial;
     background-clip: initial;
     background-color: initial;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.42);
 }
 
 div {
@@ -19,16 +24,11 @@ div {
     background: transparent;
 }
 h1 {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
     text-transform: uppercase;
-    font-weight: 500;
-    color: #ffffff;
-    text-shadow: 2px 3px rgba(0, 0, 0, 0.42);
 }
-div img .thumb {
+img {
     margin: 0 auto;
-    width: 100%;
+    width: 20%;
 }
 
 input {

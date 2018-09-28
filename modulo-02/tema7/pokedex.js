@@ -3,7 +3,9 @@ function rodarPrograma() {
       // obtém elementos da tela para trabalhar com eles
       const $dadosPokemon = document.getElementById( 'dadosPokemon' ) //está chamando a div
       const $h1 = $dadosPokemon.querySelector( '#nome' ) //chamando o que está dentro da div, associando a ela
-      const $h1a = $dadosPokemon.querySelector( '#altura' )
+      const $h2 = $dadosPokemon.querySelector( '#altura' )
+      const $h2a = $dadosPokemon.querySelector( '#peso' )
+      const $h3 = $dadosPokemon.querySelector( '#id' )
       const $img = $dadosPokemon.querySelector( '#thumb' ) //tb dentro da div. está usando id pois pode haver mais de uma imagem
       const $txtIdPokemon = document.getElementById( 'txtNumero' ) //a id do pokemon, que é recebida do usuário, está sendo chamada pelo id
       // instanciando objeto de API que criamos para facilitar a comunicação
@@ -36,7 +38,9 @@ function rodarPrograma() {
  //nos elementos do html para mostrar ao usuário
  function renderizarPokemonNaTela( pokemon ) { 
     $h1.innerText = "Nome: " + pokemon.nome //colocando o nome do poke no h1
-    $h1a.innerText = "Altura: " + (pokemon.altura)
+    $h2.innerText = "Altura: " + (pokemon.altura)
+    $h2a.innerText = "Peso: " + (pokemon.peso)
+    $h3.innerText = "ID: " + (pokemon.idPraImprimir)
     $img.src = pokemon.thumbUrl //pokemon.alguma coisa poderia chamar qualquer das variáveis contidas no JSON
   }
 
