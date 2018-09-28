@@ -8,6 +8,7 @@ function rodarPrograma() {
       const $h3 = $dadosPokemon.querySelector( '#id' )
       const $img = $dadosPokemon.querySelector( '#thumb' ) //tb dentro da div. está usando id pois pode haver mais de uma imagem
       const $txtIdPokemon = document.getElementById( 'txtNumero' ) //a id do pokemon, que é recebida do usuário, está sendo chamada pelo id
+      const $btnAleatorio = $dadosPokemon.querySelector('#escolheAleatorio')
       // instanciando objeto de API que criamos para facilitar a comunicação
       const url = 'https://pokeapi.co/api/v2/pokemon' //declaração da url que contém a api
       const pokeApi = new PokeApi( url ) //instaniando o objeto que lida com a api
@@ -40,8 +41,17 @@ function rodarPrograma() {
     $h1.innerText = "Nome: " + pokemon.nome //colocando o nome do poke no h1
     $h2.innerText = "Altura: " + (pokemon.altura)
     $h2a.innerText = "Peso: " + (pokemon.peso)
-    $h3.innerText = "ID: " + (pokemon.idPraImprimir)
+    $h3.innerText = "ID: " + pokemon.id 
     $img.src = pokemon.thumbUrl //pokemon.alguma coisa poderia chamar qualquer das variáveis contidas no JSON
+  }
+
+  $btnAleatorio.onclick = idAleatorio
+  function idAleatorio (){
+    for (i = 1; i <= 120; i++){
+        valor = Math.round(Math.random()*100);
+        $txtIdPokemon = (valor);
+        $txtIdPokemon.onblur
+    }
   }
 
 }
