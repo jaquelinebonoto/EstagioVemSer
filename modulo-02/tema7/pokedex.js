@@ -16,23 +16,25 @@ function rodarPrograma() {
     
       // registrar evento de onblur
       //neste caso dentro  do onblur foi colocado a função de busca, para que ela aconteça quando clicar for do input sem usar botão
-      $txtIdPokemon.onblur = function() { //onblur para quando vc clica fora da área de digitacao. chamando no input
-        const idDigitado = $txtIdPokemon.value //variável recebida sendo colocar em uma const
-        if (isNumber(idDigitado) == true){
-        pokeApi.buscar( idDigitado ) //função de busca sendo chamada do arquivo que fala com o servidor. sendo passada o parametro de busca que foi digitado
-            .then( res => res.json() ) //segura a fetch que está voltando em string e passando para JSON
-            .then( dadosJson => { //segura os dados JSON e coloca parâmetros que irao tratar dele
-            const pokemon = new Pokemon( dadosJson ) //instanciando objeto do tipo JSON e já alimentando com os dados do objeto filtrado
-            renderizarPokemonNaTela( pokemon ) //função que imprime o pokemon criado com JSON
-            })
-        }
-        if (isNumber(idDigitado) == false ) alert ("Digite um id Válido")
-        }
-     
+          
+      
 
-    function isNumber(idDigitado) {
-        return !isNaN(parseFloat(idDigitado)) && isFinite(idDigitado);
-    }
+      function buscarPorId(idDigitado){
+          pokeApi.buscar( idDigitado) //função de busca sendo chamada do arquivo que fala com o servidor. sendo passada o parametro de busca que foi digitado
+          .then( res => res.json() ) //segura a fetch que está voltando em string e passando para JSON
+          .then( dadosJson => { //segura os dados JSON e coloca parâmetros que irao tratar dele
+          const pokemon = new Pokemon( dadosJson ) //instanciando objeto do tipo JSON e já alimentando com os dados do objeto filtrado
+          renderizarPokemonNaTela( pokemon ) //função que imprime o pokemon criado com JSON
+          })
+      }
+        
+     $txtIdPokemon.onblur = isNumber  //onblur para quando vc clica fora da área de digitacao. chamando no input
+    
+    function isNumber() {
+        const idDigitado = $txtIdPokemon.value //variável recebida sendo colocar em uma const
+        if (!isNaN(parseFloat(idDigitado)) && isFinite(idDigitado)) buscarPorId(idDigitado)
+        else alert ("Digite um id Válido")
+      }
 
  //primeiro eu achei que essa função seria boa de estar na pokemon.js porque lida com os dados em JSON. 
  //trabalha estes dados. mas na verdade ela está aqui porque o objetivo principal dela é colocar estes dados 
@@ -47,13 +49,9 @@ function rodarPrograma() {
 
   $btnAleatorio.onclick = idAleatorio
   function idAleatorio (){
-    for (i = 1; i <= 120; i++){
-        valor = Math.round(Math.random()*100);
-        $txtIdPokemon = (valor);
-        $txtIdPokemon.onblur
+      let valor = Math.floor(Math.random() * (820 - 1 + 1))
+      buscarPorId(valor)
     }
-  }
-
-}
-
-rodarPrograma()
+ 
+ 
+  } rodarPrograma()
