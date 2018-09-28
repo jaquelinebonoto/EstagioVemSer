@@ -1,0 +1,53 @@
+body {
+    background-color: linear-gradient(to right, #5c4bea, #0fdeff);
+    background-image: linear-gradient(to right, rgb(92, 75, 234), rgb(15, 222, 255));
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+}
+
+div {
+    width: 40%;
+    height: 90%;
+    padding: 1.8em 1.7em 1.8em;
+    margin: 0 auto;
+    box-shadow: -2px 7px 37px 8px rgba(0,0,0,0.52);
+    background: transparent;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 2px 3px rgba(0, 0, 0, 0.42);
+}
+div img .thumb {
+    margin: 0 auto;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    color: #000;
+    outline: none;
+    font-size: 14px;
+    padding: .6em .7em;
+    margin: 0px 0px 23px;
+    border: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    background: rgb(255, 255, 255);
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    box-sizing: border-box;
+}
+
+

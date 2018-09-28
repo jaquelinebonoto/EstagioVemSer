@@ -2,12 +2,14 @@ function rodarPrograma() {
     
       // obtém elementos da tela para trabalhar com eles
       const $dadosPokemon = document.getElementById( 'dadosPokemon' ) //está chamando a div
-      const $h1 = $dadosPokemon.querySelector( 'h1' ) //chamando o que está dentro da div, associando a ela
+      const $h1 = $dadosPokemon.querySelector( '#nome' ) //chamando o que está dentro da div, associando a ela
+      const $h1a = $dadosPokemon.querySelector( '#altura' )
       const $img = $dadosPokemon.querySelector( '#thumb' ) //tb dentro da div. está usando id pois pode haver mais de uma imagem
       const $txtIdPokemon = document.getElementById( 'txtNumero' ) //a id do pokemon, que é recebida do usuário, está sendo chamada pelo id
       // instanciando objeto de API que criamos para facilitar a comunicação
       const url = 'https://pokeapi.co/api/v2/pokemon' //declaração da url que contém a api
       const pokeApi = new PokeApi( url ) //instaniando o objeto que lida com a api
+
     
       // registrar evento de onblur
       //neste caso dentro  do onblur foi colocado a função de busca, para que ela aconteça quando clicar for do input sem usar botão
@@ -33,7 +35,8 @@ function rodarPrograma() {
  //trabalha estes dados. mas na verdade ela está aqui porque o objetivo principal dela é colocar estes dados 
  //nos elementos do html para mostrar ao usuário
  function renderizarPokemonNaTela( pokemon ) { 
-    $h1.innerText = pokemon.nome //colocando o nome do poke no h1
+    $h1.innerText = "Nome: " + pokemon.nome //colocando o nome do poke no h1
+    $h1a.innerText = "Altura: " + (pokemon.altura)
     $img.src = pokemon.thumbUrl //pokemon.alguma coisa poderia chamar qualquer das variáveis contidas no JSON
   }
 

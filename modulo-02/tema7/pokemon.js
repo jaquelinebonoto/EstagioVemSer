@@ -4,6 +4,7 @@ class Pokemon { //classe usada para trabalhar os dados recebidos e ja parseados
         this.id = jsonVindoDaApi.id 
         this.thumbUrl = jsonVindoDaApi.sprites.front_default
         this._altura = jsonVindoDaApi.height
+        this._peso = jsonVindoDaApi.weight
         // A função map faz o MAPEAMENTO / transformação de um array de objetos em uma determinada estrutura para outra
         // exemplo: traduzir campos, adicionar campos, remover campos (poderia ter sido usado no exemplo do formatarElfos)
         // no exemplo abaixo, estamos pegando um objeto complexo e projetando um objeto mais simples de saída
@@ -16,8 +17,16 @@ class Pokemon { //classe usada para trabalhar os dados recebidos e ja parseados
         // TODO: pegar outros campos do JSON
       }
     
+
       // como a altura vem em dezenas de cm, estamos aplicando um cálculo para traduzir para cm
       get altura() {
         return this._altura * 10
       }
+
+      /*get peso(){
+          return this._peso / 1000
+      }
+      get id(){
+        return this.id
+      }*/
     }
