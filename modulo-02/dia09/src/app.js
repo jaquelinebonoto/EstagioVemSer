@@ -12,6 +12,13 @@ let app = new Vue ({
       this.pokemon = await pokeApi.buscar(this.idParaBuscar)
     }
         
+
+  
+}
+})
+
+
+
     //buscar(){
       //console.log(this.idParaBuscar)
       // PokeApi.buscar(this.idParaBuscar)
@@ -19,7 +26,3 @@ let app = new Vue ({
       //   .then( p => {
       //       this.pokemon = new Pokemon( p )
       //   })
-  
-}
-})
-
