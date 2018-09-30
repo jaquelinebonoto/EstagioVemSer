@@ -107,3 +107,13 @@ button {
 ul {
     list-style: none;
 }
+
+#left {
+    text-align: left;
+    margin: 0px;
+}
+
+#right {
+    text-align: right;
+    margin: 0px;
+}
