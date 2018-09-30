@@ -15,21 +15,27 @@
       <input type="text" v-model="idParaBuscar" v-on:blur="buscar()" placeholder="Digite o ID do Pokemón">
       <button id="escolheAleatorio">Ou gere um ID aqui!</button>
     </div>
-    <div id="lateralEsquerda">
-      <h2 v-if="idParaBuscar.length>0">Texto Digitado: {{idParaBuscar}}</h2>
-      <h1>{{pokemon.nome}}</h1>
-      <img v-bind:src="pokemon.thumbUrl" v-bind:alt="pokemon.nome">
-      <ul>
-        <li class="red" v-for="tipo in pokemon.tipos">{{tipo}}</li>
-      </ul>
-    </div>
-    <div id="lateralDireita">
-        <h2 v-if="idParaBuscar.length>0">Texto Digitado: {{idParaBuscar}}</h2>
-        <h1>{{pokemon.nome}}</h1>
-        <img v-bind:src="pokemon.thumbUrl" v-bind:alt="pokemon.nome">
-        <ul>
-          <li class="red" v-for="tipo in pokemon.tipos">{{tipo}}</li>
-        </ul>
+    <div id="container">
+      <div id="lateralEsquerda">
+          <h2 v-if="idParaBuscar.length>0">ID do Pokemón: {{idParaBuscar}}</h2>
+          <h1 id="nome">Nome: {{pokemon.nome}}</h1>
+          <h1 id="peso">Peso: {{pokemon.peso}} kg</h1>
+          <h1 id="altura">Altura: {{pokemon.altura}} cm</h1>
+          <h4>Confira em que tipos seu poke está enquadrado:</h4>
+          <ul>
+              <li v-for="tipo in pokemon.tipos">{{tipo}}</li>
+          </ul>
+      </div>
+      <div id="centro">
+        <img v-bind:src="pokemon.thumbUrl" v-bind:alt="pokemon.nome">   
+      </div>
+      <div id="lateralDireita">
+          <h2 v-if="idParaBuscar.length>0">Texto Digitado: {{idParaBuscar}}</h2>
+          <h1>{{pokemon.nome}}</h1>
+          <ul>
+            <li v-for="tipo in pokemon.tipos">{{tipo}}</li>
+          </ul>
+      </div>
     </div>
   </section>
   <script src="src/pokeApi.js"></script>
