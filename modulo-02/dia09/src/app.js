@@ -1,28 +1,18 @@
 const urlApi= 'https://pokeapi.co/api/v2/pokemon/'
 const pokeApi = new PokeApi( urlApi )
 
+
+
 let app = new Vue ({
   el: '#meuPrimeiroApp',
   data: {
-    idParaBuscar: '',
+    idParaBuscar:'',
     pokemon: {}
   },
   methods: {
     async buscar(){
-      this.pokemon = await pokeApi.buscar(this.idParaBuscar)
+      if (!isNaN(parseFloat(this.idParaBuscar)) && isFinite(this.idParaBuscar)) this.pokemon = await pokeApi.buscar(this.idParaBuscar)
+      else alert ("Digite um id Válido")   
     }
-        
-
-  
 }
 })
-
-
-
-    //buscar(){
-      //console.log(this.idParaBuscar)
-      // PokeApi.buscar(this.idParaBuscar)
-      //   .then( j => j.json())
-      //   .then( p => {
-      //       this.pokemon = new Pokemon( p )
-      //   })
