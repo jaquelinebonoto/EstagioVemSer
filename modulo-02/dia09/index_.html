@@ -12,7 +12,7 @@
   <section id="meuPrimeiroApp">
     <div id="topo">
       <h1 id="textoTopo">POKEMÓN: "Temos que pegar!"</h1>
-      <input type="text" v-model="idParaBuscar" v-on:blur="buscar()" placeholder="Digite o ID do Pokemón">
+      <input type="text" v-model="idParaBuscar" v-on:blur="validaId(idParaBuscar)" placeholder="Digite o ID do Pokemón">
       <button v-on:click="idAleatorio()" id="escolheAleatorio">Ou gere um ID aqui!</button>
     </div>
     <div id="container">
