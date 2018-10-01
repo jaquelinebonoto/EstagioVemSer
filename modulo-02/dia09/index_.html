@@ -36,9 +36,9 @@
                   <th>Habilidade</th>
                   <th>Percentual</th>
                 </tr>
-                <tr v-for="nome in pokemon.estatis" v-for="base_stats in pokemon.valorEstatis">
+                <tr v-for="nome in pokemon.estatis">
                   <td id="left" >{{nome}}</td>                  
-                  <td id="right" >{{base_stats}}</td> 
+                  <td id="right" v-for="(base_stat, i) in pokemon.valorEstatis">{{base_stat}}</td> 
                 </tr>
             </table>
       </div>
