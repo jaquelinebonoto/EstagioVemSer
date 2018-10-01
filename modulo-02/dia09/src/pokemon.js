@@ -6,7 +6,8 @@ class Pokemon { //classe usada para trabalhar os dados recebidos e ja parseados
         this._altura = jsonVindoDaApi.height
         this._peso = jsonVindoDaApi.weight
         this.tipos = jsonVindoDaApi.types.map( t => t.type.name )
-        this.estatis = jsonVindoDaApi.stats.map (n => n.stat.name + "  " + n.base_stat)
+        this.estatis = jsonVindoDaApi.stats.map (n => n.stat.name)
+        this.valorEstatis = jsonVindoDaApi.stats.map (j => j.base_stat)
       }
     
 

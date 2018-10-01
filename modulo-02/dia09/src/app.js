@@ -14,5 +14,6 @@ let app = new Vue ({
       if (!isNaN(parseFloat(this.idParaBuscar)) && isFinite(this.idParaBuscar)) this.pokemon = await pokeApi.buscar(this.idParaBuscar)
       else alert ("Digite um id Válido")   
     }
+
 }
 })

@@ -13,7 +13,7 @@
     <div id="topo">
       <h1 id="textoTopo">POKEMÓN: "Temos que pegar!"</h1>
       <input type="text" v-model="idParaBuscar" v-on:blur="buscar()" placeholder="Digite o ID do Pokemón">
-      <button id="escolheAleatorio">Ou gere um ID aqui!</button>
+      <button v-on:click="idAleatorio()" id="escolheAleatorio">Ou gere um ID aqui!</button>
     </div>
     <div id="container">
       <div id="lateralEsquerda">
@@ -29,20 +29,19 @@
       <div id="centro">
         <img v-bind:src="pokemon.thumbUrl" v-bind:alt="pokemon.nome">   
       </div>
-      <div id="lateralDireita">
+      <div  id="lateralDireita">
           <h2>Estatísticas de {{pokemon.nome}}</h2>
-          <table>
-                <tr>
-                  <th>Habilidade</th>
-                  <th>Percentual</th>
-                </tr>
-                <tr v-for="nome in pokemon.estatis">
-                  <td id="left" >{{nome}}</td>                  
-                  <td id="right" v-for="(base_stat, i) in pokemon.valorEstatis">{{base_stat}}</td> 
-                </tr>
-            </table>
+          <div id="status">
+            <div class="item">
+              <h4>Habillidade</h4>
+              <p v-for="nome of pokemon.estatis">{{nome}}</p>
+            </div>
+            <div class="item2">
+              <h4>Percentual</h4>
+              <p v-for="base_stat of pokemon.valorEstatis">{{base_stat}}</p>
+            </div>
+          </div>
       </div>
-    </div>
   </section>
   <script src="src/pokeApi.js"></script>
   <script src="src/pokemon.js"></script>
