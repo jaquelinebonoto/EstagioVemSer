@@ -10,9 +10,18 @@ let app = new Vue ({
     pokemon: {}
   },
   methods: {
-    async buscar(){
-      if (!isNaN(parseFloat(this.idParaBuscar)) && isFinite(this.idParaBuscar)) this.pokemon = await pokeApi.buscar(this.idParaBuscar)
-      else alert ("Digite um id Válido")   
+    async buscar(idParaBuscar){
+      this.pokemon = await pokeApi.buscar(idParaBuscar)
+    },
+    
+    validaId () {
+       if (!isNaN(parseFloat(this.idParaBuscar)) && isFinite(this.idParaBuscar)) this.buscar(this.idParaBuscar)    
+       else alert ("Digite um id Válido")
+    },
+
+    idAleatorio (){
+      let idParaBuscar = Math.floor(Math.random() * (820 - 1 + 1)) 
+      this.buscar(idParaBuscar)
     }
 
 }
