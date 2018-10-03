@@ -12,10 +12,22 @@
       </option>
     </select>
     <h3 v-show="opcaoSelecionada.texto">Selecionado: {{ opcaoSelecionada.texto }}</h3>
-    <ul>
-    Lista
-        <li v-for="pokemon in result" v-bind:result="result">{{result.pokemon2}}</li>
-    </ul>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+           <th scope="col">ID</th>
+           <th scope="col">Nome Pokemon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="pokemon in result" v-bind:key="pokemon.id">
+          <!--<th scope="row">1</th>-->
+          <td>{{ pokemon.id }}</td>
+          <td>{{ pokemon.nome }}</td>
+          <!--<td  v-bind:value="pokemon"  >{{pokemon.nome}}>Mark</td>-->
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
@@ -38,12 +50,11 @@ export default {
         {qt: 10, texto: '10'},
         {qt: 15, texto: '15'},
       ],
-       resultadosPorPag: {},
+      resultadosPorPag: {},
+      result: []
     }
   },
-  props: {
-      result: []
-  },
+
   methods: {
     async onChange() {
       console.log( `${ this.opcaoSelecionada.id } - ${ this.opcaoSelecionada.texto }` ) 
@@ -52,7 +63,8 @@ export default {
       const pokemon2 = await pokeApi.buscarPorUrl( 'https://pokeapi.co/api/v2/pokemon/118/' )
       console.log( `pokemon: ${ pokemon.id } - ${ pokemon.nome }` )
       console.log( `pokemon: ${ pokemon2.id } - ${ pokemon2.nome }` )
-      await pokeApi.listarPorTipo( this.opcaoSelecionada.id , this.resultadosPorPag.qt)
+      this.result = await pokeApi.listarPorTipo( this.opcaoSelecionada.id , this.resultadosPorPag.qt)
+      console.log(this.result)
     },
     onChangePag(){
         console.log( `${ this.resultadosPorPag.qt } - ${ this.resultadosPorPag.texto }` ) 

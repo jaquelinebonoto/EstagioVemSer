@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import Login from './components/screens/Login.vue'
-
 import Home from './components/screens/Home.vue'
 
 Vue.config.productionTip = false

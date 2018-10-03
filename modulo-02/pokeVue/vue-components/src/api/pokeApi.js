@@ -7,15 +7,18 @@ export default class PokeApi {
 
 async listarPorTipo( idTipo, resultadosPorPagina ) {
     const urlTipo = `https://pokeapi.co/api/v2/type/${ idTipo }/`
-    fetch( urlTipo )
+    return new Promise( resolve => {
+      fetch( urlTipo )
       .then( j => j.json() )
       .then( t => {
         const pokemons = t.pokemon.slice( 0, resultadosPorPagina )
         const promisesPkm = pokemons.map( p => this.buscarPorUrl( p.pokemon.url ) )
         Promise.all( promisesPkm ).then( resultadoFinal => {
-           this.listItems(resultadoFinal, 0, resultadosPorPagina)
+          resolve( resultadoFinal )
+           //resolve( this.listItems(resultadoFinal, 0, resultadosPorPagina) )
         } )
       } )
+    } )
   }
 
   listItems(resultadoFinal, pageActual, resultadosPorPagina){

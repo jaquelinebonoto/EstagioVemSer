@@ -2,7 +2,6 @@
   <button class="btn btn-primary">{{ texto }}</button>
 </template>
 
-
 <script>
 export default {
   name: 'Button',
@@ -26,5 +25,4 @@ button{
     cursor: pointer;
 
 }
-
 </style>
