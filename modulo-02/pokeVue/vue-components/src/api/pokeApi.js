@@ -19,10 +19,10 @@ export default class PokeApi {
   }
 
   listItems(resultadoFinal, pageActual, resultadosPorPagina){
-    let result = []
-    let totalPage = Math.ceil( resultadoFinal.length / resultadosPorPagina )
-    let count = ( pageActual * resultadosPorPagina ) - resultadosPorPagina
-    let delimiter = count + resultadosPorPagina
+    const result = []
+    const totalPage = Math.ceil( resultadoFinal.length / resultadosPorPagina )
+    const count = ( pageActual * resultadosPorPagina ) - resultadosPorPagina
+    const delimiter = count + resultadosPorPagina
     
     if(pageActual <= totalPage){
         for(let i=count; i<delimiter; i++){
