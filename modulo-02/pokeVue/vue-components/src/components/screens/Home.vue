@@ -1,15 +1,16 @@
 <template>
   <section>
     <h1>{{ usuario }}, seja bem vindx!</h1>
-    
-    
-    
     <select v-model="opcaoSelecionada" v-on:change="onChange">
       <option v-for="opcao in opcoes" v-bind:key="opcao.id" v-bind:value="opcao">
         {{ opcao.texto }}
       </option>
     </select>
     <h3 v-show="opcaoSelecionada.texto">Selecionado: {{ opcaoSelecionada.texto }}</h3>
+    <ul>
+    Lista
+        <li v-for="pokemon in result" v-bind:result="result">{{result.pokemon2}}</li>
+    </ul>
   </section>
 </template>
 
@@ -22,12 +23,15 @@ export default {
     return {
       usuario: '',
       opcoes: [
-        { id: 1, texto: 'Normal' },
-        { id: 2, texto: 'Lutador' },
-        { id: 3, texto: 'Voador' },
+        { id: 1, texto: 'flying' },
+        { id: 2, texto: 'bug' },
+        { id: 3, texto: 'electric' },
       ],
       opcaoSelecionada: {}
     }
+  },
+  props: {
+      result: []
   },
   methods: {
     async onChange() {
@@ -37,7 +41,7 @@ export default {
       const pokemon2 = await pokeApi.buscarPorUrl( 'https://pokeapi.co/api/v2/pokemon/118/' )
       console.log( `pokemon: ${ pokemon.id } - ${ pokemon.nome }` )
       console.log( `pokemon: ${ pokemon2.id } - ${ pokemon2.nome }` )
-      await pokeApi.listarPorTipo( 1 )
+      await pokeApi.listarPorTipo( 1 , 5)
     }
   },
   created() {

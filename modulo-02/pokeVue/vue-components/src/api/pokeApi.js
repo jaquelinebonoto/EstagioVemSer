@@ -5,18 +5,35 @@ export default class PokeApi {
     this.url = url
   }
 
-  async listarPorTipo( idTipo ) {
+    async listarPorTipo( idTipo, resultadosPorPagina ) {
     const urlTipo = `https://pokeapi.co/api/v2/type/${ idTipo }/`
     fetch( urlTipo )
       .then( j => j.json() )
       .then( t => {
-        const pokemons = t.pokemon.slice( 0, 5 )
+        const pokemons = t.pokemon.slice( 0, resultadosPorPagina )
         const promisesPkm = pokemons.map( p => this.buscarPorUrl( p.pokemon.url ) )
         Promise.all( promisesPkm ).then( resultadoFinal => {
-          console.log( `resultadoFinal: ${ JSON.stringify( resultadoFinal ) }` )
+           this.listItems(resultadoFinal, 0, resultadosPorPagina)
         } )
       } )
   }
+
+  listItems(resultadoFinal, pageActual, resultadosPorPagina){
+    let result = []
+    let totalPage = Math.ceil( resultadoFinal.length / resultadosPorPagina )
+    let count = ( pageActual * resultadosPorPagina ) - resultadosPorPagina
+    let delimiter = count + resultadosPorPagina
+    
+    if(pageActual <= totalPage){
+        for(let i=count; i<delimiter; i++){
+            if(resultadoFinal[i] != null){
+                result.push(resultadoFinal[i])
+            }
+            count++
+        }
+    }
+    return result
+}
 
   async buscarPorUrl( urlPokemon ) {
     return new Promise( resolve => {
