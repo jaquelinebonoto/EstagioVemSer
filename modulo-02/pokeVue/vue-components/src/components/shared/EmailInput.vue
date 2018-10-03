@@ -1,7 +1,8 @@
 <template>
   <div class="form-group">
     <label for="exampleInputEmail1"></label>
-    <input type="email" v-bind:name="nome" v-model="valor" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="usuario@email.com">
+    <input type="text" v-validate=" 'required|email' " v-bind:name="nome" v-model="valor" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="usuario@email.com">
+    <span>{{errors.first( this.nome )}}</span>
   </div>
 </template>
 <script>
