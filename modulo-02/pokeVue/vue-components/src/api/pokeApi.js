@@ -5,7 +5,7 @@ export default class PokeApi {
     this.url = url
   }
 
-    async listarPorTipo( idTipo, resultadosPorPagina ) {
+async listarPorTipo( idTipo, resultadosPorPagina ) {
     const urlTipo = `https://pokeapi.co/api/v2/type/${ idTipo }/`
     fetch( urlTipo )
       .then( j => j.json() )
@@ -21,7 +21,7 @@ export default class PokeApi {
   listItems(resultadoFinal, pageActual, resultadosPorPagina){
     const result = []
     const totalPage = Math.ceil( resultadoFinal.length / resultadosPorPagina )
-    const count = ( pageActual * resultadosPorPagina ) - resultadosPorPagina
+    let count = ( pageActual * resultadosPorPagina ) - resultadosPorPagina
     const delimiter = count + resultadosPorPagina
     
     if(pageActual <= totalPage){
