@@ -1,8 +1,7 @@
 <template>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
+    <label for="exampleInputEmail1"></label>
     <input type="email" v-bind:name="nome" v-model="valor" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="usuario@email.com">
-    <small id="emailHelp" class="form-text text-muted">Não vamos compartilhar seu email com ninguém.</small>
   </div>
 </template>
 <script>
@@ -18,3 +17,15 @@ export default {
   }
 }
 </script>
+
+<style>
+input, select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+</style>
