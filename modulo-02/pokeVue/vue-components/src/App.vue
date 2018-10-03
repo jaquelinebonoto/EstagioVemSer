@@ -1,10 +1,13 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <router-view></router-view>
-  </div>
+    <div id="app" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 mx-auto">
+          <img alt="Vue logo" src="./assets/logo.png">
+          <router-view></router-view>
+        </div>  
+      </div>
+    </div>
 </template>
-
 <script>
 import Login from './components/screens/Login.vue'
 

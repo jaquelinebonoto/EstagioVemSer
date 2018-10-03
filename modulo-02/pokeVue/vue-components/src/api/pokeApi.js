@@ -15,7 +15,6 @@ async listarPorTipo( idTipo, resultadosPorPagina ) {
         const promisesPkm = pokemons.map( p => this.buscarPorUrl( p.pokemon.url ) )
         Promise.all( promisesPkm ).then( resultadoFinal => {
           resolve( resultadoFinal )
-           //resolve( this.listItems(resultadoFinal, 0, resultadosPorPagina) )
         } )
       } )
     } )

@@ -12,30 +12,20 @@
       </option>
     </select>
     <h3 v-show="opcaoSelecionada.texto">Selecionado: {{ opcaoSelecionada.texto }}</h3>
-    <table class="table table-dark">
-      <thead>
-        <tr>
-           <th scope="col">ID</th>
-           <th scope="col">Nome Pokemon</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="pokemon in result" v-bind:key="pokemon.id">
-          <!--<th scope="row">1</th>-->
-          <td>{{ pokemon.id }}</td>
-          <td>{{ pokemon.nome }}</td>
-          <!--<td  v-bind:value="pokemon"  >{{pokemon.nome}}>Mark</td>-->
-        </tr>
-      </tbody>
-    </table>
+    <TabelaPokemon :pokemons="result"/>
   </section>
 </template>
 
 <script>
 import PokeApi from '../../api/pokeApi.js'
+import PokemonLinha from '../shared/PokemonLinha.vue'
+import TabelaPokemon from '../shared/TabelaPokemon.vue'
 
 export default {
   name: 'Home',
+  components: {
+    PokemonLinha, TabelaPokemon
+  },
   data: () => {
     return {
       usuario: '',

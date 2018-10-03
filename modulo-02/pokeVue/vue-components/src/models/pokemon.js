@@ -4,6 +4,7 @@ export default class Pokemon {
       this.id = jsonVindoDaApi.id
       this.thumbUrl = jsonVindoDaApi.sprites.front_default
       this._altura = jsonVindoDaApi.height
+      this._peso = jsonVindoDaApi.weight
       this.tipos = jsonVindoDaApi.types.map( t => t.type.name )
     }
   
@@ -11,5 +12,9 @@ export default class Pokemon {
     get altura() {
       return this._altura * 10
     }
+
+    get peso(){
+      return this._peso / 10
+  }
   }
   
