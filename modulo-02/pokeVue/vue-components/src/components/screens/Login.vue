@@ -2,7 +2,7 @@
   <form v-on:submit.prevent="onSubmit">
     <EmailInput nome="usuario" ref="usuarioRef" />
     <PasswordInput nome="senha" ref="senhaRef" />
-    <Button v-bind:texto="textoBotao" type="submit" />
+    <Button v-bind:texto="textoBotao" v-bind:onClick="noop" type="submit" />
   </form>
 </template>
 
@@ -22,6 +22,7 @@ export default {
     }
   },
   methods: {
+    noop() {},
     onSubmit() {
       // acesso ao valor do campo usuario
       console.log( `usuário: ${ this.$refs.usuarioRef.valor }` )

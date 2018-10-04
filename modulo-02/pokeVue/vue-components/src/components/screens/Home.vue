@@ -6,13 +6,13 @@
         {{ opcao.texto }}
       </option>
     </select><br>
-    <select v-model="resultadosPorPag" v-on:change="onChangePag">
+    <select v-model="resultadosPorPag">
       <option v-for="page in pokePorPag" v-bind:key="page.id" v-bind:value="page">
         {{ page.texto }}
       </option>
     </select>
     <h3 v-show="opcaoSelecionada.texto">Selecionado: {{ opcaoSelecionada.texto }}</h3>
-    <TabelaPokemon :pokemons="result"/>
+    <TabelaPokemon :pokemons="result" v-bind:onNextPage="onNextPage"/>
   </section>
 </template>
 
@@ -20,11 +20,12 @@
 import PokeApi from '../../api/pokeApi.js'
 import PokemonLinha from '../shared/PokemonLinha.vue'
 import TabelaPokemon from '../shared/TabelaPokemon.vue'
+import Button from '../shared/Button.vue'
 
 export default {
   name: 'Home',
   components: {
-    PokemonLinha, TabelaPokemon
+    PokemonLinha, TabelaPokemon, Button
   },
   data: () => {
     return {
@@ -41,7 +42,8 @@ export default {
         {qt: 15, texto: '15'},
       ],
       resultadosPorPag: {},
-      result: []
+      result: [],
+      paginaAtual: 1
     }
   },
 
@@ -53,12 +55,13 @@ export default {
       const pokemon2 = await pokeApi.buscarPorUrl( 'https://pokeapi.co/api/v2/pokemon/118/' )
       console.log( `pokemon: ${ pokemon.id } - ${ pokemon.nome }` )
       console.log( `pokemon: ${ pokemon2.id } - ${ pokemon2.nome }` )
-      this.result = await pokeApi.listarPorTipo( this.opcaoSelecionada.id , this.resultadosPorPag.qt)
+      this.result = await pokeApi.listarPorTipo( this.opcaoSelecionada.id , this.resultadosPorPag.qt, this.paginaAtual)
       console.log(this.result)
     },
-    onChangePag(){
-        console.log( `${ this.resultadosPorPag.qt } - ${ this.resultadosPorPag.texto }` ) 
-        return this.resultadosPorPag.qt
+    async onNextPage() {
+      const pokeApi = new PokeApi( 'https://pokeapi.co/api/v2/pokemon' )
+      this.result = await pokeApi.listarPorTipo( this.opcaoSelecionada.id, this.resultadosPorPag.qt, ++this.paginaAtual )
+      console.log("iaiai")
     }
   },
 
