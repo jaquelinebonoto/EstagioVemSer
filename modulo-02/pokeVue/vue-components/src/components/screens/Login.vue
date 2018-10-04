@@ -32,7 +32,7 @@ export default {
       
       // jamais façam isso na vida real
       // é apenas uma simulação de login
-      const podeLogar = usuario === 'admin@admin.com' && senha === 'admin'
+      const podeLogar = usuario === 'admin@dbccompany.com.br' && senha === 'admin'
       if ( podeLogar ) {
         this.textoBotao = 'Aguarde...'
         setTimeout( () => {

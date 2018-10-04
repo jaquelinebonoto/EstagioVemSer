@@ -27,29 +27,14 @@ const router = new VueRouter( {
 
 const regraEmail = {
   getMessage(nome, args) {
-      return `The ${nome} must be either a valid phone number or e-mail`;
+      return `${nome}: Este teste está bonito. Valide com seu email DBC.`;
   },
   validate(valor, args) {
-    var validator = require('validator');
-    validator.isEmail('foo@dbccompany.com.br'); //=> true
-    const emailRule = @dbccompany.com.br;
-    return emailRule.test(valor);
+  const emailRule = /@dbccompany.com.br/;
+     return emailRule.test(valor);
   }
 };
-
-const phoneOrEmailRule = {
-  getMessage(field, args) {
-    return `The ${field} must be either a valid phone number or e-mail`;
-  },
-  validate(value, args) {
-
-    // Custom regex for a phone number 
-    const MOBILEREG = /^((1[3578][0-9])+\d{8})$/;
-
-    // Check for either of these to return true
-    return VeeValidate.Rules.email(value) || MOBILEREG.test(value);
-  }
-};
+VeeValidate.Validator.extend('regraEmail', regraEmail);
 
 new Vue( {
   router,
