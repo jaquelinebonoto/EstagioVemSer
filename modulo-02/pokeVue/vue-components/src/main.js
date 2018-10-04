@@ -26,10 +26,10 @@ const router = new VueRouter( {
 } )
 
 const regraEmail = {
-  getMessage(nome, args) {
+  getMessage(nome) {
       return `${nome}: Este teste está bonito. Valide com seu email DBC.`;
   },
-  validate(valor, args) {
+  validate(valor) {
   const emailRule = /@dbccompany.com.br/;
      return emailRule.test(valor);
   }

@@ -2,7 +2,6 @@
   <form v-on:submit.prevent="onSubmit">
     <EmailInput nome="usuario" ref="usuarioRef" />
     <PasswordInput nome="senha" ref="senhaRef" />
-
     <Button v-bind:texto="textoBotao" type="submit" />
   </form>
 </template>
