@@ -30,7 +30,9 @@ export default {
 </script>
 
 <style>
-
+.table-dark {
+    width: 100%;
+}
 </style>
 
 
