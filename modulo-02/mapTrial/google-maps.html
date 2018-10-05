@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>VEM VER - PORTO ALEGRE</title>
+		<meta charset="UTF-8">
+        <meta name="description" content="Quiz de perguntas sobre a cidade de Porto Alegre. Projeto da primeira turma do programa Vem Ser - DBC.">
+		<meta name="author" content="Douglas Marques e Jaqueline Paz">
+		<meta name="keywords" content="Jogos, Porto Alegre, Quiz, Didática, Educação, Viagem">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		
+		<link rel="shorcut icon" href="#"> <!-- Inserir link do ícone -->
+		
+		<!-- Incorporando CSS Próprio: -->
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<script language="javascript" src="mapa.js"></script>
+		
+		<!-- Código jquery para scroll deslizante
+		PARA FUNCIONAR É PRECISO COLOCAR A CLASSE scroll NOS LINKS
+		<script type="text/javascript">
+			jQuery(document).ready(function($) { 
+				$(".scroll").click(function(event){        
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top}, 800);
+			   });
+			});
+		</script> -->
+
+	</head>
+	<body>
+	
+		<header>
+			<h1></h1>
+		</header>
+		
+		<nav>
+			<ul>
+                <!--
+				<li><a href="#empresa" class="scroll"> Empresa </a></li>
+				<li><a href="#produto" class="scroll"> Produto </a></li>
+				<li><a href="#galeria" class="scroll"> Galeria </a></li>
+                <li><a href="#contato" class="scroll"> Contato </a></li>
+                -->
+			</ul>
+		</nav>
+		<section>
+			<div>
+			</div> <!--Fim DIV 1-->			
+			<div>
+            </div> <!--Fim DIV 2-->
+		</section>
+		<h3>VEM VER - PORTO ALEGRE</h3>
+		<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+    <div id="type-selector" class="controls">
+     	<input type="radio" name="type" id="changetype-all" checked="checked"><label for="changetype-all">All</label>
+        <input type="radio" name="type" id="changetype-establishment"><label for="changetype-establishment">Establishments</label>
+		<input type="radio" name="type" id="changetype-address"><label for="changetype-address">Addresses</label>
+    </div>
+		<div id="map"></div>
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdoHBXjM3TNh6_WKG8So-VSvv913Q9F4&callback=initMap">
+		</script> <!--O script carrega o API pela URL identifcada-->
+		<footer>
+            <small>Copyright &copy; 2018 - Todos os Direitos Reservados.</small>
+            <small>Desenvolvedor Douglas Marques e Jaqueline Paz.</small>
+        </footer>
+	</body>
+</html>
+		
