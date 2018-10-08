@@ -1,0 +1,38 @@
+
+
+entity Banco {
+	idBanco Number required
+    nomeBanco String
+}
+
+entity Cliente {
+	idCliente Number required
+    nomeCliente String
+}
+
+entity Conta {
+	idBanco Number required
+    idCliente Number required
+    tipoConta String
+}
+
+entity Lancamento {
+	idConta Number required
+	idLancamento Number required
+	tipoLancamento String
+    valorLancamento Number
+}
+
+relationship ManyToMany {
+	Banco to Cliente
+}
+
+relationship ManyToMany {
+	Cliente to Conta
+}
+
+relationship ManyToOne {
+	Conta to Lancamento
+}
+
+

@@ -1,0 +1,36 @@
+
+entity Pais {
+	idPais Number required
+	paisName String required
+    paisSigla String
+}
+
+entity Estado {
+	idEstado Number required
+	estadoName String required
+    estadoSigla String
+}
+
+entity Cidade {
+	idEstado Number required
+	cidadeName String required
+    cidadeSigla String
+}
+
+relationship ManyToOne {
+	Estado to Pais
+}
+
+relationship ManyToOne {
+	Cidado to Estado 
+}
+
+relationship ManyToOne {
+	Cidade to Pais
+}
+
+
+
+
+
+
