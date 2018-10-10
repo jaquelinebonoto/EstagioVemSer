@@ -28,8 +28,8 @@ public class PaisService {
     
     public List<Pais> buscarPaisPorNome (String nome){
         return getEm()
-                .createQuery("select p from Pais where p.nome like :nome", Pais.class)
-                .setParameter("nome", nome)
+                .createQuery("select p from Pais p where lower(p.nomepais) like :nome", Pais.class)
+                .setParameter("nome", nome.toLowerCase())
                 .getResultList();
     }
     

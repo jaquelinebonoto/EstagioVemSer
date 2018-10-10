@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Pais.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PaisCidade</a> &gt; <a href="index.source.html" class="el_package">br.com.br.dbc.paiscidade.paiscidade.entity</a> &gt; <span class="el_source">Pais.java</span></div><h1>Pais.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.br.dbc.paiscidade.paiscidade.entity;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+/**
+ *
+ * @author jaqueline.bonoto
+ */
+@Entity
+@Table(name = &quot;PAIS&quot;)
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = &quot;Pais.findAll&quot;, query = &quot;SELECT p FROM Pais p&quot;)
+    , @NamedQuery(name = &quot;Pais.findByIdpais&quot;, query = &quot;SELECT p FROM Pais p WHERE p.idpais = :idpais&quot;)
+    , @NamedQuery(name = &quot;Pais.findByNomepais&quot;, query = &quot;SELECT p FROM Pais p WHERE p.nomepais = :nomepais&quot;)
+    , @NamedQuery(name = &quot;Pais.findBySiglapais&quot;, query = &quot;SELECT p FROM Pais p WHERE p.siglapais = :siglapais&quot;)})
+public class Pais implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Id
+    @Basic(optional = false)
+    @Column(name = &quot;IDPAIS&quot;)
+    @SequenceGenerator(name = &quot;PAIS_SEQ&quot;, sequenceName = &quot;PAIS_SEQ&quot;)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;PAIS_SEQ&quot;)
+    private BigDecimal idpais;
+    @Basic(optional = false)
+    @Column(name = &quot;NOMEPAIS&quot;)
+    private String nomepais;
+    @Column(name = &quot;SIGLAPAIS&quot;)
+    private String siglapais;
+    @OneToMany(mappedBy = &quot;fkIdpais&quot;)
+    private Collection&lt;Estado&gt; estadoCollection;
+
+<span class="fc" id="L55">    public Pais() {</span>
+<span class="fc" id="L56">    }</span>
+
+<span class="nc" id="L58">    public Pais(BigDecimal idpais) {</span>
+<span class="nc" id="L59">        this.idpais = idpais;</span>
+<span class="nc" id="L60">    }</span>
+
+<span class="nc" id="L62">    public Pais(BigDecimal idpais, String nomepais) {</span>
+<span class="nc" id="L63">        this.idpais = idpais;</span>
+<span class="nc" id="L64">        this.nomepais = nomepais;</span>
+<span class="nc" id="L65">    }</span>
+
+    public BigDecimal getIdpais() {
+<span class="nc" id="L68">        return idpais;</span>
+    }
+
+    public void setIdpais(BigDecimal idpais) {
+<span class="nc" id="L72">        this.idpais = idpais;</span>
+<span class="nc" id="L73">    }</span>
+
+    public String getNomepais() {
+<span class="fc" id="L76">        return nomepais;</span>
+    }
+
+    public void setNomepais(String nomepais) {
+<span class="nc" id="L80">        this.nomepais = nomepais;</span>
+<span class="nc" id="L81">    }</span>
+
+    public String getSiglapais() {
+<span class="nc" id="L84">        return siglapais;</span>
+    }
+
+    public void setSiglapais(String siglapais) {
+<span class="nc" id="L88">        this.siglapais = siglapais;</span>
+<span class="nc" id="L89">    }</span>
+
+    @XmlTransient
+    public Collection&lt;Estado&gt; getEstadoCollection() {
+<span class="nc" id="L93">        return estadoCollection;</span>
+    }
+
+    public void setEstadoCollection(Collection&lt;Estado&gt; estadoCollection) {
+<span class="nc" id="L97">        this.estadoCollection = estadoCollection;</span>
+<span class="nc" id="L98">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L102">        int hash = 0;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        hash += (idpais != null ? idpais.hashCode() : 0);</span>
+<span class="nc" id="L104">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (!(object instanceof Pais)) {</span>
+<span class="nc" id="L111">            return false;</span>
+        }
+<span class="nc" id="L113">        Pais other = (Pais) object;</span>
+<span class="nc bnc" id="L114" title="All 8 branches missed.">        if ((this.idpais == null &amp;&amp; other.idpais != null) || (this.idpais != null &amp;&amp; !this.idpais.equals(other.idpais))) {</span>
+<span class="nc" id="L115">            return false;</span>
+        }
+<span class="nc" id="L117">        return true;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L122">        return &quot;br.com.br.dbc.paiscidade.paiscidade.entity.Pais[ idpais=&quot; + idpais + &quot; ]&quot;;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

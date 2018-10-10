@@ -31,26 +31,13 @@ public class PaisServiceTest {
     }
 
     @org.junit.Test
-    public void testGetInstance() {
-        System.out.println("getInstance");
-        PaisService expResult = null;
-        PaisService result = PaisService.getInstance();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of buscarPaisPorNome method, of class PaisService.
-     */
-    @org.junit.Test
     public void testBuscarPaisPorNome() {
         System.out.println("buscarPaisPorNome");
-        String nome = "%razi%";
+        String nome = "%rasi%";
         PaisService instance = PaisService.getInstance();
         String expResult = "Brasil";
         List<Pais> result = instance.buscarPaisPorNome(nome);
-        assertEquals(expResult, result.get(0).getNomepais());
+        assertTrue(expResult.equalsIgnoreCase(result.get(0).getNomepais()));
     }
     
 }
