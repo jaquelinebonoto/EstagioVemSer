@@ -43,7 +43,7 @@ public class Pais implements Serializable {
     @Column(name = "IDPAIS")
     @SequenceGenerator(name = "PAIS_SEQ", sequenceName = "PAIS_SEQ")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PAIS_SEQ")
-    private BigDecimal idpais;
+    private Long idpais;
     @Basic(optional = false)
     @Column(name = "NOMEPAIS")
     private String nomepais;
@@ -55,20 +55,20 @@ public class Pais implements Serializable {
     public Pais() {
     }
 
-    public Pais(BigDecimal idpais) {
+    public Pais(Long idpais) {
         this.idpais = idpais;
     }
 
-    public Pais(BigDecimal idpais, String nomepais) {
+    public Pais(Long idpais, String nomepais) {
         this.idpais = idpais;
         this.nomepais = nomepais;
     }
 
-    public BigDecimal getIdpais() {
+    public Long getIdpais() {
         return idpais;
     }
 
-    public void setIdpais(BigDecimal idpais) {
+    public void setIdpais(Long idpais) {
         this.idpais = idpais;
     }
 

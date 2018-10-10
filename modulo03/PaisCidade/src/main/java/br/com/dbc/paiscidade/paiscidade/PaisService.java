@@ -33,4 +33,19 @@ public class PaisService {
                 .getResultList();
     }
     
+    public List<Pais> buscarPaisPorSigla (String sigla){
+        return getEm()
+                .createQuery("select p from Pais p where p.siglapais like :sigla", Pais.class)
+                .setParameter("sigla", sigla)
+                .getResultList();
+    }
+    
+    public List<Pais> buscarPaisPorId (Long Id){
+        return getEm()
+                .createQuery("select p from Pais p where p.idpais like :Id", Pais.class)
+                .setParameter("Id", Id)
+                .getResultList();
+    }   
+    
+    
 }

@@ -43,7 +43,7 @@ public class Pais implements Serializable {
     @Column(name = &quot;IDPAIS&quot;)
     @SequenceGenerator(name = &quot;PAIS_SEQ&quot;, sequenceName = &quot;PAIS_SEQ&quot;)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;PAIS_SEQ&quot;)
-    private BigDecimal idpais;
+    private Long idpais;
     @Basic(optional = false)
     @Column(name = &quot;NOMEPAIS&quot;)
     private String nomepais;
@@ -55,20 +55,20 @@ public class Pais implements Serializable {
 <span class="fc" id="L55">    public Pais() {</span>
 <span class="fc" id="L56">    }</span>
 
-<span class="nc" id="L58">    public Pais(BigDecimal idpais) {</span>
+<span class="nc" id="L58">    public Pais(Long idpais) {</span>
 <span class="nc" id="L59">        this.idpais = idpais;</span>
 <span class="nc" id="L60">    }</span>
 
-<span class="nc" id="L62">    public Pais(BigDecimal idpais, String nomepais) {</span>
+<span class="nc" id="L62">    public Pais(Long idpais, String nomepais) {</span>
 <span class="nc" id="L63">        this.idpais = idpais;</span>
 <span class="nc" id="L64">        this.nomepais = nomepais;</span>
 <span class="nc" id="L65">    }</span>
 
-    public BigDecimal getIdpais() {
-<span class="nc" id="L68">        return idpais;</span>
+    public Long getIdpais() {
+<span class="fc" id="L68">        return idpais;</span>
     }
 
-    public void setIdpais(BigDecimal idpais) {
+    public void setIdpais(Long idpais) {
 <span class="nc" id="L72">        this.idpais = idpais;</span>
 <span class="nc" id="L73">    }</span>
 
@@ -81,7 +81,7 @@ public class Pais implements Serializable {
 <span class="nc" id="L81">    }</span>
 
     public String getSiglapais() {
-<span class="nc" id="L84">        return siglapais;</span>
+<span class="fc" id="L84">        return siglapais;</span>
     }
 
     public void setSiglapais(String siglapais) {

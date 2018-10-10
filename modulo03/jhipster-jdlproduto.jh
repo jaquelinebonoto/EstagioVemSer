@@ -14,17 +14,13 @@ entity Nota {
 }
 
 entity ItemNota {
-	idNota Number required
-	idProduto Number required
+	id Long required
     quantidade Number required
 }
 
 relationship ManyToOne {
-	ItemNota to Nota 
-}
-
-relationship OneToOne {
-	ItemNota to Produto
+	ItemNota(itemNota) to Nota,
+	ItemNota(produto) to Produto
 }
 
 relationship ManyToOne {

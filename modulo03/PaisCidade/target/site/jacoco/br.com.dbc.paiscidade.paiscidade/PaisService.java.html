@@ -16,7 +16,7 @@ public class PaisService {
     }
     
     private static EntityManager getEm(){
-<span class="pc bpc" id="L19" title="1 of 2 branches missed.">        if(em ==  null){</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if(em ==  null){</span>
 <span class="fc" id="L20">            EntityManagerFactory emf = Persistence</span>
 <span class="fc" id="L21">                    .createEntityManagerFactory(&quot;paiscidade&quot;);</span>
 <span class="fc" id="L22">            em = emf.createEntityManager();</span>
@@ -31,6 +31,20 @@ public class PaisService {
 <span class="fc" id="L31">                .createQuery(&quot;select p from Pais p where lower(p.nomepais) like :nome&quot;, Pais.class)</span>
 <span class="fc" id="L32">                .setParameter(&quot;nome&quot;, nome.toLowerCase())</span>
 <span class="fc" id="L33">                .getResultList();</span>
+    }
+    
+    public List&lt;Pais&gt; buscarPaisPorSigla (String sigla){
+<span class="fc" id="L37">        return getEm()</span>
+<span class="fc" id="L38">                .createQuery(&quot;select p from Pais p where p.siglapais like :sigla&quot;, Pais.class)</span>
+<span class="fc" id="L39">                .setParameter(&quot;sigla&quot;, sigla)</span>
+<span class="fc" id="L40">                .getResultList();</span>
+    }
+    
+    public List&lt;Pais&gt; buscarPaisPorId (Long Id){
+<span class="fc" id="L44">        return getEm()</span>
+<span class="fc" id="L45">                .createQuery(&quot;select p from Pais p where p.idpais like :Id&quot;, Pais.class)</span>
+<span class="fc" id="L46">                .setParameter(&quot;Id&quot;, Id)</span>
+<span class="fc" id="L47">                .getResultList();</span>
     }
     
 }
