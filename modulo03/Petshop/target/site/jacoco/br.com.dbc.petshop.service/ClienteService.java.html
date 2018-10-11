@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ClienteService.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Petshop</a> &gt; <a href="index.source.html" class="el_package">br.com.dbc.petshop.service</a> &gt; <span class="el_source">ClienteService.java</span></div><h1>ClienteService.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.dbc.petshop.service;
+
+import br.com.dbc.petshop.entity.Cliente;
+import br.com.dbc.petshop.entity.HibernateUtil;
+import br.com.dbc.petshop.entity.PersistenceUtils;
+import br.com.dbc.petshop.entity.SexoType;
+import java.sql.SQLException;
+import java.util.List;
+import javax.persistence.EntityManager;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
+/**
+ *
+ * @author jaqueline.bonoto
+ */
+public class ClienteService {
+
+    private static ClienteService instance;
+
+    public static ClienteService getInstance() {
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        return instance == null ? new ClienteService() : instance;</span>
+    }
+
+<span class="fc" id="L31">    private ClienteService() {</span>
+<span class="fc" id="L32">    }</span>
+
+    public void adiciona10() throws SQLException { //adicionando 10 elementos com o Persistence
+<span class="fc" id="L35">        EntityManager em1 = PersistenceUtils.getEm();</span>
+<span class="fc" id="L36">        em1.getTransaction().begin(); //abrir a transação</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="fc" id="L38">            Cliente c = new Cliente (null, &quot;Joao&quot;+i , SexoType.M, &quot;reporter&quot;+i);</span>
+<span class="fc" id="L39">            em1.persist(c);</span>
+            //String sql = &quot;INSERT INTO CLIENTE (ID, NOME, SEXO, PROFISSAO)&quot; + &quot;values (cliente_seq.nextval, 'Joao' + i, 'M', 'Reporter' +i)&quot;;
+        }
+<span class="fc" id="L42">        em1.getTransaction().commit();//encerrar a transação</span>
+<span class="fc" id="L43">    }</span>
+    
+    public List&lt;Cliente&gt; buscarClientePorNomeCriteria(String nome) {//
+<span class="fc" id="L46">        Session session = null;</span>
+        try {
+<span class="fc" id="L48">            session = HibernateUtil.getSessionFactory().openSession();</span>
+<span class="fc" id="L49">            return session.createCriteria(Cliente.class)</span>
+<span class="fc" id="L50">                    .add(Restrictions.ilike(&quot;nome&quot;, nome))</span>
+<span class="fc" id="L51">                    .list();</span>
+        } finally {
+<span class="pc bpc" id="L53" title="3 of 4 branches missed.">            if (session != null) {</span>
+<span class="pc" id="L54">                session.close();</span>
+            }
+<span class="nc" id="L56">        }</span>
+    }
+    
+    public void adiciona10Hibernate() throws SQLException { //adicionando 10 elementos com o Persistence
+<span class="fc" id="L60">        Session sess = HibernateUtil.getSessionFactory().openSession();</span>
+<span class="fc" id="L61">        sess.getTransaction().begin();</span>
+        
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="fc" id="L64">            Cliente c = new Cliente (null, &quot;Joao&quot;+i , SexoType.M, &quot;reporter&quot;+i);</span>
+<span class="fc" id="L65">            sess.save(c);           </span>
+        }
+<span class="fc" id="L67">        sess.getTransaction().commit(); </span>
+<span class="fc" id="L68">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>
