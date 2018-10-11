@@ -37,7 +37,7 @@ public class ClienteService {
         for (int i = 0; i < 10; i++) {
             Cliente c = new Cliente (null, "Joao"+i , SexoType.M, "reporter"+i);
             em1.persist(c);
-            //String sql = "INSERT INTO CLIENTE (ID, NOME, SEXO, PROFISSAO)" + "values (cliente_seq.nextval, 'Joao' + i, 'M', 'Reporter' +i)";
+            AnimalService.getInstance().adiciona10Animais(c);
         }
         em1.getTransaction().commit();//encerrar a transação
     }

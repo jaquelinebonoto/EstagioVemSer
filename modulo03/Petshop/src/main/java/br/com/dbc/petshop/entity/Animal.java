@@ -64,8 +64,9 @@ public class Animal implements Serializable {
         this.sexo = sexo;
     }
 
-    public Animal(Object object, String string, SexoType sexoType, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Animal(Long id, String nome, SexoType sexo, Cliente cliente) {
+        this(id, nome, sexo);
+        this.idCliente = cliente;
     }
 
     public Long getId() {
