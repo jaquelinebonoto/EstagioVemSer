@@ -1,0 +1,28 @@
+
+entity Produto {
+	idProduto Number required
+	descricaoProdutos String
+}
+
+enum UnidadeDeMedida {
+	KG, M, M2, G
+}
+
+entity Nota {
+	idNota Number required
+	descricaoNota String
+}
+
+entity ItemNota {
+	id Long required
+    quantidade Number required
+}
+
+relationship ManyToOne {
+	ItemNota(itemNota) to Nota,
+	ItemNota(produto) to Produto
+}
+
+relationship ManyToOne {
+	Produto to UnidadeDeMedida
+}
