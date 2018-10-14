@@ -8,3 +8,7 @@ doc
 *.TXT
 /modulo03/mavenComApache/target/
 /modulo03/ProdutosVenda/target/
+/modulo03/ProgWeb1_Aula1/ProgWeb1_Aula1/build/
+/modulo03/Lista3/nbproject/private/
+/modulo03/JavaApplication3/nbproject/private/
+/modulo03/Lista3/build/
