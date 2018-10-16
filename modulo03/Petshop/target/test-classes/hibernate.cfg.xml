@@ -7,7 +7,7 @@
     <property name="hibernate.connection.username"></property>
     <property name="hibernate.connection.password"></property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="br.com.dbc.petshop.entity.Cliente"/>
-    <mapping class="br.com.dbc.petshop.entity.Animal"/>
+    <mapping class="br.com.dbc.petshophibernate.entity.Cliente"/>
+    <mapping class="br.com.dbc.petshophibernate.entity.Animal"/>
   </session-factory>
 </hibernate-configuration>

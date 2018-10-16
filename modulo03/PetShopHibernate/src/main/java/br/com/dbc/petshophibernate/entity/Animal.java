@@ -6,35 +6,26 @@
 package br.com.dbc.petshophibernate.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 @Entity
 @Table(name = "ANIMAL")
 @NamedQueries({
 @NamedQuery(name = "Animal.findAll", query = "SELECT a FROM Animal a")})
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Animal implements Serializable {
+
+public class Animal extends AbstractEntity<Long> implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -47,7 +38,8 @@ public class Animal implements Serializable {
     @Basic(optional = false)
     @Column(name = "NOME")
     private String nome;
-    @ManyToMany(mappedBy = "animalList")
+    @ManyToMany(mappedBy = "animalList", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Cliente> clienteList;
 
     

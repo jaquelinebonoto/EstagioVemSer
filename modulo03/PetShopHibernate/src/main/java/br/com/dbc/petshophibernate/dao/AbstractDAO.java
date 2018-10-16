@@ -5,10 +5,10 @@
  */
 package br.com.dbc.petshophibernate.dao;
 
-import br.com.dbc.petshophibernate.entity.Cliente;
-import java.io.PrintStream;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
@@ -16,35 +16,84 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author jaqueline.bonoto
  */
-public abstract class AbstractDAO<ENTITY>{
-    private Class<ENTITY> entityClass;
+public abstract class AbstractDAO<ENTITY, ID>{
+    protected abstract Class<ENTITY> getEntityClass();
+    protected abstract String getIdProperty();
+    private static final Logger LOG = Logger.getLogger(AbstractDAO.class.getName());
     
-    public AbstractDAO (Class entityClass){
-        this.entityClass = entityClass;
-    }
+ 
     
-    public ENTITY findById(Long id){
-                return entityClass
-                    .cast(HibernateUtil.getSessionFactory()
-                    .openSession()
-                    .createCriteria(entityClass)
-                    .add(Restrictions.eq("id", id))
-                .uniqueResult());
+    public AbstractDAO (){ }
+       
+    public ENTITY findById(ID id){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+                return (ENTITY)session
+                        .createCriteria(getEntityClass())
+                        .add(Restrictions.eq(getIdProperty(), id))
+                        .uniqueResult();
+            }catch (Exception ex){
+                LOG.log(Level.SEVERE, ex.getMessage(), ex);
+                throw ex;
+            }finally{
+                if (session!=null){
+                    session.close();
+                }
+        }
     }
 
     public void createOrUpdate (ENTITY e){
         Session session = null;
-        try{
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction  = session.beginTransaction();
-        session.saveOrUpdate(e);
-        transaction.commit();
-        } catch(Exception ex){
-            ex.printStackTrace();
-            throw ex;
-        }finally {
-            if(session != null)
-                session.close();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.saveOrUpdate(e);
+            transaction.commit();
+            }catch (Exception ex){
+                LOG.log(Level.SEVERE, ex.getMessage(), ex);
+                throw ex;
+            }finally{
+                if (session!=null){
+                    session.close();
+                }
+            }
         }
-    }
+    
+        public void delete (ENTITY e){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.delete(e);
+            transaction.commit();
+            }catch (Exception ex){
+                LOG.log(Level.SEVERE, ex.getMessage(), ex);
+                throw ex;
+            }finally{
+                if (session!=null){
+                    session.close();
+                }
+            }
+        }
+        
+        public List<ENTITY> findAll (){
+        Session session = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            return session.createCriteria(getEntityClass()).list();
+            }catch (Exception ex){
+                LOG.log(Level.SEVERE, ex.getMessage(), ex);
+                throw ex;
+            }finally{
+                if (session!=null){
+                    session.close();
+                }
+            }
+        }
+    
+    
+    
 }
+    
+

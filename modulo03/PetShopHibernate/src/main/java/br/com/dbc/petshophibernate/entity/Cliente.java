@@ -4,6 +4,7 @@ package br.com.dbc.petshophibernate.entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,9 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 @Entity
@@ -30,22 +33,23 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cliente implements Serializable {
+public class Cliente extends AbstractEntity<Long> implements Serializable {
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
-    private Long id;
     @SequenceGenerator(name= "CLIENTE_SEQ", sequenceName = "CLIENTE_SEQ", allocationSize=1)
     @GeneratedValue(generator = "CLIENTE_SEQ", strategy = GenerationType.SEQUENCE)
+    private Long id;
     
     @Column(name = "NOME")
     private String nome;
     @JoinTable(name = "CLIENTE_ANIMAL", joinColumns = {
         @JoinColumn(name = "ID_CLIENTE", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "ID_ANIMAL", referencedColumnName = "ID")})
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Animal> animalList;
 
    
