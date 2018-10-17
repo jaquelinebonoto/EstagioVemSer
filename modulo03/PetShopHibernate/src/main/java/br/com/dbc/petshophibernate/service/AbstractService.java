@@ -11,8 +11,8 @@ import javassist.NotFoundException;
  * @author jaqueline.bonoto
  */
 public abstract class AbstractService< ENTITY extends AbstractEntity<ID>, 
-                                           ID,
-                                           DAO extends AbstractDAO<ENTITY,ID > > {
+                                       ID,
+                                       DAO extends AbstractDAO<ENTITY,ID > > {
     
     protected abstract DAO getDao();
     

@@ -27,7 +27,5 @@ public class AnimalDAO extends AbstractDAO<Animal, Long> {
     protected String getIdProperty() {
         return "id";
     }
-    
-    
-    
+        
 }
