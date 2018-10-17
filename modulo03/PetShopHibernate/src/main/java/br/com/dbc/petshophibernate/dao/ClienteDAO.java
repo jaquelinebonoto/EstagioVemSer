@@ -13,9 +13,7 @@ public class ClienteDAO extends AbstractDAO<Cliente, Long>{
     public static ClienteDAO getInstance() {
         return instance;
     }
-
-    private ClienteDAO() { }
-    
+   
     
     @Override
     protected Class<Cliente> getEntityClass() {

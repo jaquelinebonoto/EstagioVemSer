@@ -16,6 +16,7 @@ entity Nota {
 entity ItemNota {
 	id Long required
     quantidade Number required
+	um UnidadeDeMedida required
 }
 
 relationship ManyToOne {

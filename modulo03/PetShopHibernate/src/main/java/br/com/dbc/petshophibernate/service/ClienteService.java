@@ -19,10 +19,7 @@ public class ClienteService extends AbstractService< Cliente, Long, ClienteDAO >
     public static ClienteService getInstance(){
         return instance;
     }
-    
-    
-    private ClienteService () {}
-    
+       
 
     @Override
     protected ClienteDAO getDao() {
