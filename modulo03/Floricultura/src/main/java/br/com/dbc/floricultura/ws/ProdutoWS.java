@@ -5,7 +5,7 @@
  */
 package br.com.dbc.floricultura.ws;
 
-import br.com.dbc.floricultura.bean.ProdutoFacade;
+import br.com.dbc.floricultura.bean.ProdutoDAO;
 import br.com.dbc.floricultura.entity.Produto;
 import java.util.List;
 import javax.ejb.EJB;
@@ -19,52 +19,55 @@ import javax.jws.WebParam;
  *
  * @author tiago
  */
-@Stateless() //nao é obrigatório sse o webservice for spring ou usar a bilbioteca do  produtows
+@Stateless()
 @WebService(serviceName = "ProdutoWS")
 public class ProdutoWS {
 
-    @EJB  //vai procurar este produto facade
-    private ProdutoFacade ejbRef; //vai encontrar essa instancia
+    @EJB
+    private ProdutoDAO produtoDao;
 
     @WebMethod(operationName = "create")
     @Oneway
     public void create(@WebParam(name = "entity") Produto entity) {
-        ejbRef.create(entity);
+        produtoDao.create(entity);
     }
 
     @WebMethod(operationName = "edit")
     @Oneway
     public void edit(@WebParam(name = "entity") Produto entity) {
-        ejbRef.edit(entity);
+        produtoDao.edit(entity);
     }
 
     @WebMethod(operationName = "count")
     public int count() {
-        return ejbRef.count();
+        return produtoDao.count();
     }
 
     @WebMethod(operationName = "find")
-    public Produto find(@WebParam(name = "id") Object id) {
-        return ejbRef.find(id);
+    public Produto find(@WebParam(name = "id") Long id) {
+        return produtoDao.find(id);
     }
 
     @WebMethod(operationName = "findAll")
     public List<Produto> findAll() {
-        return ejbRef.findAll();
+        return produtoDao.findAll();
     }
 
     @WebMethod(operationName = "findRange")
     public List<Produto> findRange(@WebParam(name = "range") int[] range) {
-        return ejbRef.findRange(range);
+        return produtoDao.findRange(range);
     }
 
     @WebMethod(operationName = "remove")
     @Oneway
     public void remove(@WebParam(name = "entity") Produto entity) {
-        ejbRef.remove(entity);
+        produtoDao.remove(entity);
     }
 
-    public void setEjbRef(ProdutoFacade ejbRef) {
-        this.ejbRef = ejbRef; //para teste unitario
-    }    
+    public void setProdutoDao(ProdutoDAO produtoDao) {
+        this.produtoDao = produtoDao;
+    }
+    
+    
+    
 }

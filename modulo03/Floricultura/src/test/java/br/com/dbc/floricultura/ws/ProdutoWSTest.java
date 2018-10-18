@@ -5,7 +5,7 @@
  */
 package br.com.dbc.floricultura.ws;
 
-import br.com.dbc.floricultura.bean.ProdutoFacade;
+import br.com.dbc.floricultura.bean.ProdutoDAO;
 import br.com.dbc.floricultura.entity.Produto;
 import br.com.dbc.floricultura.type.UnidadeMedidaType;
 import java.math.BigDecimal;
@@ -44,8 +44,8 @@ public class ProdutoWSTest {
     @Before
     public void setUp() {
         produtoWS = new ProdutoWS();
-        ProdutoFacade produtoFacade = Mockito.mock(ProdutoFacade.class);
-        produtoWS.setEjbRef(produtoFacade);
+        ProdutoDAO produtoFacade = Mockito.mock(ProdutoDAO.class);
+        produtoWS.setProdutoDao(produtoFacade);
         List<Produto> produtos = new ArrayList<Produto>();
         produtos.add(produto);
         Mockito.when(produtoFacade.findAll()).thenReturn(produtos);

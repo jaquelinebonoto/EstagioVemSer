@@ -8,8 +8,6 @@ package br.com.dbc.floricultura.entity;
 import br.com.dbc.floricultura.type.UnidadeMedidaType;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,13 +17,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -56,9 +52,6 @@ public class Produto implements Serializable {
     @NotNull
     @Column(name = "VALOR", nullable = false, precision = 10, scale = 2)
     private BigDecimal valor;
-    @XmlTransient
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProduto")
-    private List<Venda> vendaList;
 
     public Produto() {
     }
@@ -109,15 +102,6 @@ public class Produto implements Serializable {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
-    }
-
-    @XmlTransient
-    public List<Venda> getVendaList() {
-        return vendaList;
-    }
-
-    public void setVendaList(List<Venda> vendaList) {
-        this.vendaList = vendaList;
     }
 
     @Override

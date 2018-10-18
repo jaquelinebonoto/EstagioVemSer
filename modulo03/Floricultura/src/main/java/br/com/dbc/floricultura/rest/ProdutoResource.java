@@ -5,21 +5,22 @@
  */
 package br.com.dbc.floricultura.rest;
 
-import br.com.dbc.floricultura.bean.ProdutoFacade;
+import br.com.dbc.floricultura.bean.ProdutoDAO;
 import br.com.dbc.floricultura.entity.Produto;
-import java.math.BigDecimal;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -31,7 +32,7 @@ import javax.ws.rs.core.MediaType;
 public class ProdutoResource {
 
     @Inject
-    private ProdutoFacade ejbRef;
+    private ProdutoDAO produtoDao;
 
     /**
      * Creates a new instance of ProdutoResource
@@ -40,48 +41,48 @@ public class ProdutoResource {
     }
 
     @POST
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
     public void create(Produto entity) {
-        ejbRef.create(entity);
+        produtoDao.create(entity);
     }
 
     @PUT
     @Path("{id}")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") BigDecimal id, Produto entity) {
-        ejbRef.edit(entity);
+    @Consumes({MediaType.APPLICATION_JSON})
+    public void edit(@PathParam("id") Long id, Produto entity) {
+        produtoDao.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") BigDecimal id) {
-        ejbRef.remove(ejbRef.find(id));
+    public void remove(@PathParam("id") Long id) {
+        produtoDao.remove(produtoDao.find(id));
     }
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Produto find(@PathParam("id") BigDecimal id) {
-        return ejbRef.find(id);
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response find(@PathParam("id") Long id) {
+        return Response.ok(produtoDao.find(id)).build();
     }
 
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Produto> findAll() {
-        return ejbRef.findAll();
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response findAll(@DefaultValue("0")@QueryParam("ini") int ini, @DefaultValue("20")@QueryParam("fim") int fim) {
+        return Response.ok(produtoDao.findRange(new int[]{ini, fim})).build();
     }
 
     @GET
     @Path("{from}/{to}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Produto> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
-        return ejbRef.findRange(new int[]{from, to});
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        return Response.ok(produtoDao.findRange(new int[]{from, to})).build();
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
     public String countREST() {
-        return String.valueOf(ejbRef.count());
+        return String.valueOf(produtoDao.count());
     }
 }
