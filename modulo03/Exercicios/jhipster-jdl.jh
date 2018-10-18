@@ -32,7 +32,7 @@ relationship ManyToMany {
 }
 
 relationship ManyToOne {
-	Conta to Lancamento
+	Lancamento to Conta
 }
 
 
