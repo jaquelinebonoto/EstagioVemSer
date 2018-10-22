@@ -15,8 +15,8 @@ public abstract class AbstractCrudService <E, ID, DAO extends AbstractDAO<E, ID>
         return getDAO().findAll();
     }
     
-    public void findOne(ID id) {
-       getDAO().findOne(id);
+    public E findOne(ID id) {
+        return getDAO().findOne(id);
     }
     
     public void create(E e){

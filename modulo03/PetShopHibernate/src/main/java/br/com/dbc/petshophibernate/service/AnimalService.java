@@ -9,7 +9,7 @@ import br.com.dbc.petshophibernate.entity.Animal;
  * @author jaqueline.bonoto
  */
 public class AnimalService extends AbstractService< Animal, Long, AnimalDAO >{
-    private static AnimalService instance;
+    private static final AnimalService instance;
     
     static {
         instance = new AnimalService();
