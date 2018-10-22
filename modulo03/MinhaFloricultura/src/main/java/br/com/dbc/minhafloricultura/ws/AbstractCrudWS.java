@@ -6,6 +6,7 @@ import java.util.List;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.validation.Valid;
 
 
 /**
@@ -19,13 +20,13 @@ public abstract class AbstractCrudWS<DAO extends AbstractDAO<E>, E> {
 
     @WebMethod(operationName = "create")
     @Oneway
-    public void create(@WebParam(name = "entity") E entity) {
+    public void create(@Valid @WebParam(name = "entity") E entity) {
         getDAO().create(entity);
     }
 
     @WebMethod(operationName = "edit")
     @Oneway
-    public void edit(@WebParam(name = "entity") E entity) {
+    public void edit(@Valid @WebParam(name = "entity") E entity) {
         getDAO().edit(entity);
     }
 

@@ -6,6 +6,7 @@
 package br.com.dbc.minhafloricultura.entidade.dao;
 
 import br.com.dbc.minhafloricultura.entidade.Produto;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,13 @@ public class ProdutoDAO extends AbstractDAO<Produto> {
 
     public ProdutoDAO() {
         super(Produto.class);
+    }
+    
+    public List<Produto> buscarProdutoPelaDescricao(String descricao){
+        return em
+                .createQuery("select p from Produto p where lower(p.descricao) like lower(:descricao)")
+                .setParameter("descricao", descricao)
+                .getResultList();
     }
     
 }
