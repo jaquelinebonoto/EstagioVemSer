@@ -7,20 +7,17 @@ package br.com.dbc.minhafloricultura.rest;
 
 import br.com.dbc.minhafloricultura.entidade.Produto;
 import br.com.dbc.minhafloricultura.entidade.dao.ProdutoDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 
 /**
  *
@@ -38,5 +35,18 @@ public class ProdutoFacadeREST extends AbstractCrudRest<Produto, ProdutoDAO> {
     protected ProdutoDAO getDAO() {
         return produtoDAO;
     }
+
+   
+    @GET
+    @Path("find/{descricao}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response findAll(@PathParam("descricao") String descricao) {
+        return Response.ok(produtoDAO.buscarProdutoPelaDescricao(descricao)).build();
+    }
     
+     List<Produto> buscarProdutoPelaDescricao(String descricao) {
+        List<Produto> list = new ArrayList();
+        list = getDAO().buscarProdutoPelaDescricao(descricao);
+        return list;
+    }
 }

@@ -7,11 +7,11 @@ package br.com.dbc.minhafloricultura.ws;
 
 import br.com.dbc.minhafloricultura.entidade.Produto;
 import br.com.dbc.minhafloricultura.entidade.dao.ProdutoDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
-//import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
@@ -32,11 +32,10 @@ public class ProdutoWS extends AbstractCrudWS<ProdutoDAO, Produto> {
         return produtoDAO;
     }   
     
-    /*@WebMethod
-    public List<Produto> buscarProdutoPelaDescricao(String descricao){
-        return produtoDAO.findAll().
-                .createQuery("select p from Produto p where lower(p.nome) like lower(:nome)")
-                .setParameter("nome", nome)
-                .getResultList();
-    }*/
+    @WebMethod(operationName = "bsucarProdutoPelaDescricao")
+    List<Produto> buscarProdutoPelaDescricao(String descricao) {
+        List<Produto> list = new ArrayList();
+        list = getDAO().buscarProdutoPelaDescricao(descricao);
+        return list;
+    }
 }
