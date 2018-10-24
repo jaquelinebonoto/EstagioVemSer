@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Lista de Apólices</h2>
+        <div th:unless="${#lists.isEmpty(apolices)}">
+            <div th:each="cliente : ${apolices}">
+                <fieldset>
+                    <div>ID: <span th:text="${apolices.id}">ID</span></div>
+                    <div>Nome: <span th:text="${apolices.descricao}">Descrição</span></div>
+                    <div>Nome: <span th:text="${apolices.inicioVigencia}">Inicio Vigência</span></div>
+                    <div>Nome: <span th:text="${apolices.finalVigencia}">Final Vigência</span></div>                  
+                </fieldset>
+            </div>
+        </div>
+        <div th:if="${#lists.isEmpty(livros)}">
+            <p>Nenhuma Apólice Cadastrada</p>
+        </div>
+        <hr />
+        <h3>Adicione uma nova apólice</h3>
+        <form method="POST">
+            <fieldset>
+                <legend>Apólice:</legend>
+                Nome: <input type="text" name="nome" maxlength="100"><br><br>
+                Descrição: <input type="text" name="descricao" maxlength="100"><br><br>
+                Inicio: <input type="date" name="inicioVigencia" maxlength="100"><br><br>
+                Fim: <input type="date" name="fimVigencia" maxlength="100"><br><br>
+                <input type="submit" value="salvar"/>
+            </fieldset>
+        </form>
+    </body>
+</html>

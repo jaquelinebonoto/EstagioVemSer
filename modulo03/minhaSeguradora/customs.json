@@ -1,0 +1,12 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:text": {
+            "context": "span"
+        },
+        "th:if": {},
+        "th:unless": {},
+        "th:each": {},
+        "th:href": {}
+    }
+}
