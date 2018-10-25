@@ -1,0 +1,60 @@
+entity Filme {
+	id Long required
+    titulo String required
+    lancamento LocalDate
+    categoria Categoria
+}
+
+entity Midia {
+	id Long required
+    tipoDeMidia TipoDeMidia
+    quantidade Integer
+}
+
+entity ValorMidia{    
+	id Long required
+    valor Double required
+    inicioVigencia LocalDate
+    finalVigencia LocalDate
+}
+
+entity Aluguel {
+	id Long
+	dataSaida LocalDate
+    dataPrevista LocalDate
+    dataRetorno LocalDate
+    multa Double
+}
+
+entity Cliente {
+	id Long
+	nome String required
+    telefone Long
+    endereco String
+}
+
+
+enum Categoria {
+    ACAO, AVENTURA, ANIMACAO
+}
+
+enum TipoDeMidia {
+    VHS, DVD, BLUERAY
+}
+
+
+
+relationship ManyToOne {
+	Midia{filme} to Filme
+    Midia{aluguel} to Aluguel
+}
+
+relationship ManyToOne {
+	ValorMidia{mida} to Midia
+}
+
+relationship ManyToOne {
+	Aluguel{cliente} to Cliente
+}
+
+
