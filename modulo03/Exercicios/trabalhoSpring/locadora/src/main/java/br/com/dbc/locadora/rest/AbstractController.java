@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  *
  * @author jaqueline.bonoto
  */
-@RestController
-@RequestMapping("/url")
-@Transactional(readOnly = true)
-public abstract class AbstractController <ENTIDADE extends AbstractEntity> {
+public abstract class AbstractController <ENTIDADE> {
     protected abstract AbstractCRUDService<ENTIDADE> getService();
     
 
@@ -37,11 +34,6 @@ public abstract class AbstractController <ENTIDADE extends AbstractEntity> {
         return getService().findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
     
-    @PutMapping("/{id}")
-    public ResponseEntity<?> put(@PathVariable String id, @RequestBody Object input) {
-        return null;
-    }
-
     
     @PutMapping("/{id}")
     public ResponseEntity<?> put(@PathVariable Long id, @RequestBody ENTIDADE input) {
