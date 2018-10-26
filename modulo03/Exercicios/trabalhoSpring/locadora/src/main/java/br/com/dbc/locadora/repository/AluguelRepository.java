@@ -17,7 +17,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface AluguelRepository extends JpaRepository<Aluguel, Long> {
     
-    @Query("select a from Aluguel a where a.filtro = :filtro")
-    public List<Aluguel> alugueis (@Param("filtro") String filtro);
+    /*@Query("select a from Aluguel a where a.filtro = :filtro")
+    public List<Aluguel> alugueis (@Param("filtro") String filtro);*/
     
 }
