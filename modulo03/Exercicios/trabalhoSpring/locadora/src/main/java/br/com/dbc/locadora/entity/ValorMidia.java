@@ -37,10 +37,12 @@ public class ValorMidia extends AbstractEntity<Long> implements Serializable {
 
     private double valor;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING) 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate inicioVigencia;
     
-    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fimVigencia;
     
     @JoinColumn(name = "ID_MIDIA", referencedColumnName = "ID")

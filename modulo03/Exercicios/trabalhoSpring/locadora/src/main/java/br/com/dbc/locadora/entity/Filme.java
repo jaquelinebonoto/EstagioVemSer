@@ -40,14 +40,14 @@ public class Filme extends AbstractEntity<Long> implements Serializable {
 
     private String titulo;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate lancamento;
     
-    private String categoria;
+    private Categoria categoria;
     
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "filme")
-    private List<Midia> midiaList;
+    private List<Midia> midia;
 
     @Override
     public Long getId() {
