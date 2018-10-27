@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author jaqueline.bonoto
  */
 @RestController
-@RequestMapping("/valormidia")
+@RequestMapping("api/valormidia")
 public class ValorMidiaRestController extends AbstractController<ValorMidia> {
     @Autowired
     private ValorMidiaService service;

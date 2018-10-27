@@ -4,6 +4,7 @@ package br.com.dbc.locadora.service;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.MidiaDTO;
+import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import java.time.LocalDate;
@@ -30,10 +31,14 @@ public class MidiaService extends AbstractCRUDService<Midia>{
 
     public void salvarMidiaDTO(MidiaDTO dto, Filme filme){
         for(int i = 0; i < dto.getQuantidade(); i++){
-            Midia midia = midiaRepository.save(dto.DtotoMidia(filme));
+            Midia midiaList = midiaRepository.save(dto.DtotoMidia(filme));
             
-            ValorMidia valor = ValorMidia.builder().valor(dto.getValor()).midia(midia).inicioVigencia(LocalDate.now()).build();
+            ValorMidia valor = ValorMidia.builder().valor(dto.getValor()).midia(midiaList).inicioVigencia(LocalDate.now()).fimVigencia(null).build();
             valorMidiaService.save(valor); 
         }
+    }
+    
+    public Long countByTipo(Tipo tipo){
+        return midiaRepository.countByTipo(tipo);
     }
 }

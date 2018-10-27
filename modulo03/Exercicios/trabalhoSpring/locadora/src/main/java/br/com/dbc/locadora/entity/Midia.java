@@ -40,8 +40,8 @@ public class Midia extends AbstractEntity<Long> implements Serializable {
     
     private Tipo tipo;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "midia")
-    private List<ValorMidia> valorMidia;
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "midia")
+    //private List<ValorMidia> valorMidiaList;
     @JoinColumn(name = "ID_ALUGUEL", referencedColumnName = "ID")
     @ManyToOne
     private Aluguel aluguel;
@@ -53,10 +53,6 @@ public class Midia extends AbstractEntity<Long> implements Serializable {
     public Long getId() {
         return id;
     }
-
-
-    
-
  
     
 }

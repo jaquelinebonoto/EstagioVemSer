@@ -46,8 +46,8 @@ public class Filme extends AbstractEntity<Long> implements Serializable {
     private Categoria categoria;
     
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "filme")
-    private List<Midia> midia;
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "filme")
+    //private List<Midia> midia;
 
     @Override
     public Long getId() {

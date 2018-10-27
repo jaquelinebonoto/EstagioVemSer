@@ -5,12 +5,17 @@
  */
 package br.com.dbc.locadora.service;
 
+import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
 import br.com.dbc.locadora.entity.MidiaDTO;
 import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.repository.FilmeRepository;
+import java.time.LocalDate;
+import javax.xml.ws.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +32,8 @@ public class FilmeService extends AbstractCRUDService<Filme>{
     
     @Autowired
     private MidiaService midiaService;
+    
+    
 
     @Override
     protected JpaRepository<Filme, Long> getRepository() {
@@ -42,6 +49,17 @@ public class FilmeService extends AbstractCRUDService<Filme>{
         return filme;
     }
     
+    public Page<Filme> findByTituloOrCategoriaOrLancamento(
+                Pageable pageable,
+                String titulo, 
+                Categoria categoria,
+                LocalDate lancamento){
+       return filmeRepository.findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento);
+   }
+    
+    /*public Long countByTipo (Long id, Tipo tipo){
+        return midiaService.findById(id).
+    }*/
 }
 
 
