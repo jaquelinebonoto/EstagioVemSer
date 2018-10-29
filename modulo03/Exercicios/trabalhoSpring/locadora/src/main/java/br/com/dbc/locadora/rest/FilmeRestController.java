@@ -56,8 +56,4 @@ public class FilmeRestController extends AbstractController<Filme> {
             ); 
     }
     
-    /*@RequestMapping("/count/{id}/{tipo}")
-    private ResponseEntity<?> countbyTipo(@PathVariable Long id,@PathVariable Tipo tipo) {
-        return ResponseEntity.ok( getService().countByTipo(id,tipo) );
-    }*/
 }

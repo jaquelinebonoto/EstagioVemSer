@@ -67,6 +67,12 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	 <dependency>
+	  <groupId>org.apache.tomcat.embed</groupId>
+	  <artifactId>tomcat-embed-el</artifactId>
+	  <version>8.5.34</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
