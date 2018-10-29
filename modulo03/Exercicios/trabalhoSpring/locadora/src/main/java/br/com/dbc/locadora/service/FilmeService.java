@@ -8,11 +8,15 @@ package br.com.dbc.locadora.service;
 import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
+import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.MidiaDTO;
 import br.com.dbc.locadora.repository.FilmeRepository;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -55,6 +59,18 @@ public class FilmeService extends AbstractCRUDService<Filme>{
        return filmeRepository.findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento);
    }
     
+    public Page<Filme> findByAluguelPrevisao(
+                Pageable pageable,
+                LocalDate previsao){
+       List<Midia> midias = midiaService.findByAluguelPrevisao(pageable, previsao).getContent();
+       
+       List<Filme> filmes = new ArrayList<>();
+       midias.forEach(m->{
+           filmes.add(m.getFilme());
+       });
+       Page<Filme> page = new PageImpl<>(filmes);
+       return page;
+   }
 }
 
 

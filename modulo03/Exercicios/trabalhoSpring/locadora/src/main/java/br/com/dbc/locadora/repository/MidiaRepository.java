@@ -5,8 +5,12 @@
  */
 package br.com.dbc.locadora.repository;
 
+import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.Tipo;
+import java.time.LocalDate;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -15,4 +19,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface MidiaRepository extends JpaRepository<Midia, Long> {
     public Long countByTipo(Tipo tipo);
+    public Page<Midia> findByAluguelPrevisao(Pageable pageable, LocalDate previsao);
+
 }

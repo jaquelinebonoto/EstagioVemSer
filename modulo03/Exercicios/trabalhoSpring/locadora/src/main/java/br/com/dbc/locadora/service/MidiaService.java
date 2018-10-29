@@ -9,6 +9,8 @@ import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -41,4 +43,10 @@ public class MidiaService extends AbstractCRUDService<Midia>{
     public Long countByTipo(Tipo tipo){
         return midiaRepository.countByTipo(tipo);
     }
+    
+    public Page<Midia> findByAluguelPrevisao(
+                Pageable pageable,
+                LocalDate previsao){
+       return midiaRepository.findByAluguelPrevisao(pageable, previsao);
+   }
 }

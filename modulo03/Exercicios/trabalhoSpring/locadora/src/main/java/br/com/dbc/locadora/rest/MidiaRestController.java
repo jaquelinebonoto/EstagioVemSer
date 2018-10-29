@@ -34,4 +34,5 @@ public class MidiaRestController extends AbstractController<Midia> {
     public ResponseEntity<Long> countByTipo(@PathVariable Tipo tipo){
         return ResponseEntity.ok(service.countByTipo(tipo));
     }
+    
 }

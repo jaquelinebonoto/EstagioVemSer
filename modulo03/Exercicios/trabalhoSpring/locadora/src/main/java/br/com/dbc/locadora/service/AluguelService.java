@@ -3,14 +3,12 @@ package br.com.dbc.locadora.service;
 import br.com.dbc.locadora.entity.Aluguel;
 import br.com.dbc.locadora.entity.AluguelDTO;
 import br.com.dbc.locadora.entity.Cliente;
-import br.com.dbc.locadora.entity.Midia;
+import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.repository.AluguelRepository;
-import br.com.dbc.locadora.repository.MidiaRepository;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import jdk.nashorn.internal.objects.NativeArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +26,8 @@ public class AluguelService extends AbstractCRUDService<Aluguel>{
     @Autowired
     private MidiaService midiaService;
     
+    @Autowired
+    FilmeService filmeService;
     @Autowired
     private ClienteService clienteService;
     
@@ -55,6 +55,11 @@ public class AluguelService extends AbstractCRUDService<Aluguel>{
             .build();
     }
     
+public Page<Filme> findByAluguelPrevisao(
+                Pageable pageable,
+                LocalDate previsao){
+    return filmeService.findByAluguelPrevisao(pageable, previsao);
+}
     
     
 }
