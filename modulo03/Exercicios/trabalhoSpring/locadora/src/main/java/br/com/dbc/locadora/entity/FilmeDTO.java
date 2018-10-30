@@ -13,7 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
 public class FilmeDTO {
-    
+    private Long id;
     private String titulo;
     //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     @DateTimeFormat(pattern = "yyyy-MM-dd")

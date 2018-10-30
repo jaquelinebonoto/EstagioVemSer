@@ -28,49 +28,61 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author jaqueline.bonoto
  */
 @Service
-public class FilmeService extends AbstractCRUDService<Filme>{
+public class FilmeService extends AbstractCRUDService<Filme> {
+
     @Autowired
     private FilmeRepository filmeRepository;
     
     @Autowired
     private MidiaService midiaService;
     
-    
-
     @Override
     protected JpaRepository<Filme, Long> getRepository() {
         return filmeRepository;
     }
- 
+    
     @Transactional(readOnly = false, rollbackFor = Exception.class)
-    public Filme salvarComMidia(@RequestBody FilmeDTO dto){ //
+    public Filme salvarComMidia(@RequestBody FilmeDTO dto) { //
         Filme filme = getRepository().save(dto.DtotoFilme());
-        for(MidiaDTO midiaDTO: dto.getMidia()){
-          midiaService.salvarMidiaDTO(midiaDTO, filme);          
+        for (MidiaDTO midiaDTO : dto.getMidia()) {
+            midiaService.salvarMidiaDTO(midiaDTO, filme);            
         }
         return filme;
     }
     
     public Page<Filme> findByTituloOrCategoriaOrLancamento(
-                Pageable pageable,
-                String titulo, 
-                Categoria categoria,
-                LocalDate lancamento){
-       return filmeRepository.findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento);
-   }
+            Pageable pageable,
+            String titulo,
+            Categoria categoria,
+            LocalDate lancamento) {
+        return filmeRepository.findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento);
+    }
     
     public Page<Filme> findByAluguelPrevisao(
-                Pageable pageable,
-                LocalDate previsao){
-       List<Midia> midias = midiaService.findByAluguelPrevisao(pageable, previsao).getContent();
-       
-       List<Filme> filmes = new ArrayList<>();
-       midias.forEach(m->{
-           filmes.add(m.getFilme());
-       });
-       Page<Filme> page = new PageImpl<>(filmes);
-       return page;
-   }
+            Pageable pageable,
+            LocalDate previsao) {
+        List<Midia> midias = midiaService.findByAluguelPrevisao(pageable, previsao).getContent();
+        
+        List<Filme> filmes = new ArrayList<>();
+        midias.forEach(m -> {
+            filmes.add(m.getFilme());
+        });
+        Page<Filme> page = new PageImpl<>(filmes);
+        return page;
+    }
+    
+    @Transactional(readOnly = false, rollbackFor = Exception.class)
+    public Filme updateFilme(Long id, FilmeDTO dto) {
+        Filme filme = filmeRepository.findById(id).get();
+        filme.setTitulo(dto.getTitulo());
+        filme.setCategoria(dto.getCategoria());
+        filme.setLancamento(dto.getLancamento());
+        filmeRepository.save(filme);
+
+        //List<Midia> midiaSistema = midiaService.pegarMidiasDoFilme(id);
+        for (MidiaDTO midiaDTO : dto.getMidia()) {
+            midiaService.updateMidiaDTO(midiaDTO, filme);
+        }
+        return filme;//        return Filme.builder().build();        
+    }
 }
-
-

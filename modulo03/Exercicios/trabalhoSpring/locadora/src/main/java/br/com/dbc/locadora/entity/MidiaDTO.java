@@ -2,6 +2,7 @@
 package br.com.dbc.locadora.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
@@ -9,6 +10,7 @@ import lombok.Getter;
  */
 //@Data
 @Getter
+@Setter
 public class MidiaDTO {
     private Tipo tipo;
     private int quantidade;

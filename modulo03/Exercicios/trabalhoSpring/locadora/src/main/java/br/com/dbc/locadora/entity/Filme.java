@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,7 +33,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Filme extends AbstractEntity<Long> implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name= "S_FILME", sequenceName = "S_FILME", allocationSize=1)
+    @GeneratedValue(generator = "S_FILME", strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String titulo;
@@ -41,8 +43,8 @@ public class Filme extends AbstractEntity<Long> implements Serializable {
     private LocalDate lancamento;
     
     private Categoria categoria;
-    
-    
+
+
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "filme")
     //private List<Midia> midia;
 

@@ -39,6 +39,11 @@ public class AluguelRestController extends AbstractController<Aluguel> {
         return ResponseEntity.ok(getService().cadastrarRetirada(dto));
     }
     
+    @PostMapping("/devolucao") 
+    public ResponseEntity<?> cadastrarDevolucao (@RequestBody AluguelDTO dto) {
+        return ResponseEntity.ok(getService().cadastrarDevolucao(dto));
+    }
+    
     @RequestMapping(value="/devolucao", method = RequestMethod.GET)
     public ResponseEntity<Page<Filme>> findByAluguelPrevisao(
                 Pageable pageable,
@@ -47,5 +52,7 @@ public class AluguelRestController extends AbstractController<Aluguel> {
                 aluguelService.findByAluguelPrevisao(pageable, previsao)
             );  
     }
+    
+    
 
 }
