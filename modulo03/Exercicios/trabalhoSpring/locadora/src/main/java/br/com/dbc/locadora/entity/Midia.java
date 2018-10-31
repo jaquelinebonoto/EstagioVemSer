@@ -50,7 +50,7 @@ public class Midia extends AbstractEntity<Long> implements Serializable {
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "midia")
     //private List<ValorMidia> valorMidiaList;
     @JoinColumn(name = "ID_ALUGUEL", referencedColumnName = "ID")
-    @ManyToOne
+    @ManyToOne(optional = true)
     private Aluguel aluguel;
     @JoinColumn(name = "ID_FILME", referencedColumnName = "ID")
     @ManyToOne(optional = false)

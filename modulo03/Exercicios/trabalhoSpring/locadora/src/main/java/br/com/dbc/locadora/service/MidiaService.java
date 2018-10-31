@@ -10,7 +10,6 @@ import br.com.dbc.locadora.repository.MidiaRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,7 +34,9 @@ public class MidiaService extends AbstractCRUDService<Midia>{
         return midiaRepository;
     }
 
-    public void salvarMidiaDTO(MidiaDTO dto, Filme filme){
+    @Transactional(readOnly = false, rollbackFor = Exception.class)
+    public List<Midia> salvarMidiaDTO(MidiaDTO dto, Filme filme){
+        List<Midia> midia = new ArrayList<>();
         for(int i = 0; i < dto.getQuantidade(); i++){
             Midia midiaList = midiaRepository.save(dto.DtotoMidia(filme));
             
@@ -47,6 +48,7 @@ public class MidiaService extends AbstractCRUDService<Midia>{
                     .build();
             valorMidiaService.save(valor); 
         }
+        return midia;
     }
     
     public Long countByTipo(Tipo tipo){
@@ -97,4 +99,6 @@ public class MidiaService extends AbstractCRUDService<Midia>{
     public void updateAluguelToNullByIdMidias(List<Long> midias) {
         midiaRepository.updateAluguelToNullByIdMidias(midias);
     }
+
+
 }
