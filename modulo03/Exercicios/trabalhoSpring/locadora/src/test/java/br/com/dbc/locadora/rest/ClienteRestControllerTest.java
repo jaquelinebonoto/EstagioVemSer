@@ -63,5 +63,17 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
         Assert.assertEquals(c.getTelefone(), clientes.get(0).getTelefone());
     }
     
-
+    @Test
+    public void clienteDeleteTest() throws Exception {
+        Cliente c = Cliente.builder().nome("nome").endereco("endereco").telefone(999999999l).build();
+        clienteRepository.save(c);
+        restMockMvc.perform(MockMvcRequestBuilders.delete("/api/cliente/{id}", c.getId())
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(c)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").doesNotExist());
+                
+        List<Cliente> clientes = clienteRepository.findAll();
+        Assert.assertEquals(0, clientes.size());
+    }
 }

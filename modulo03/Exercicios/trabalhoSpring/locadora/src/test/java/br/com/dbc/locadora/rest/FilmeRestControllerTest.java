@@ -103,7 +103,7 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
     }*/
 
 
-    @Test
+    /*@Test
     public void testFindByTituloOrCategoriaOrLancamento() throws Exception {
                 FilmeDTO filme = FilmeDTO.builder()
                         .titulo("O filme")
@@ -119,7 +119,7 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
         
         restMockMvc.perform(MockMvcRequestBuilders.get("/api/filme/search")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsBytes(filmeNormal)))
+                .content(objectMapper.writeValueAsBytes(filme)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
@@ -129,7 +129,7 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
         int expResult = 2;
         List<Filme> resultado = filmeRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
-    }
+    }*/
 
      /*
     @Test
