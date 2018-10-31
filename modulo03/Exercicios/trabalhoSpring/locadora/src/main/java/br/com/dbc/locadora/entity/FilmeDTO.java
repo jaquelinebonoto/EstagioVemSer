@@ -3,6 +3,7 @@ package br.com.dbc.locadora.entity;
 
 import java.time.LocalDate;
 import java.util.List;
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 
 @Getter
+@Builder
 public class FilmeDTO {
     private Long id;
     private String titulo;
