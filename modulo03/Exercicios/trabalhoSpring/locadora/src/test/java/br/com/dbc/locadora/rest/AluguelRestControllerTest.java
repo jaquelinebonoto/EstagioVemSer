@@ -10,7 +10,6 @@ import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
 import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.MidiaDTO;
-import br.com.dbc.locadora.entity.Tipo;
 import static br.com.dbc.locadora.entity.Tipo.VHS;
 import br.com.dbc.locadora.repository.AluguelRepository;
 import br.com.dbc.locadora.repository.FilmeRepository;
@@ -98,12 +97,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
     
     @Test
     public void testCadastrarRetirada() throws Exception {
-        /*MidiaDTO m1 = MidiaDTO.builder().tipo(Tipo.VHS).quantidade(2).valor(2.0).build();;
-        MidiaDTO m2 = MidiaDTO.builder().tipo(Tipo.VHS).quantidade(4).valor(4.0).build();
-        List<MidiaDTO> midias = new ArrayList<>();
-        midias.add(m1);
-        midias.add(m2);*/
-                        
+                       
         FilmeDTO filme = FilmeDTO.builder()
                         .titulo("O filme")
                         .lancamento(LocalDate.now())
