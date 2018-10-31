@@ -1,9 +1,14 @@
 
 package br.com.dbc.locadora.rest;
 
+import br.com.dbc.locadora.LocadoraApplicationTests;
+import br.com.dbc.locadora.entity.Aluguel;
 import br.com.dbc.locadora.entity.Categoria;
+import static br.com.dbc.locadora.entity.Categoria.ACAO;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
+import br.com.dbc.locadora.entity.MidiaDTO;
+import static br.com.dbc.locadora.entity.Tipo.VHS;
 import br.com.dbc.locadora.repository.AluguelRepository;
 import br.com.dbc.locadora.repository.FilmeRepository;
 import br.com.dbc.locadora.repository.MidiaRepository;
@@ -13,8 +18,11 @@ import br.com.dbc.locadora.service.ClienteService;
 import br.com.dbc.locadora.service.FilmeService;
 import br.com.dbc.locadora.service.MidiaService;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,13 +30,16 @@ import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 /**
  *
  * @author jaqueline.bonoto
  */
-public class FilmeRestControllerTest {
+public class FilmeRestControllerTest extends LocadoraApplicationTests {
     
     @Autowired
     private FilmeRestController filmeRestController;
@@ -91,27 +102,36 @@ public class FilmeRestControllerTest {
         fail("The test case is a prototype.");
     }*/
 
-    /**
-     * Test of findByTituloOrCategoriaOrLancamento method, of class FilmeRestController.
-     */
+
     @Test
-    public void testFindByTituloOrCategoriaOrLancamento() {
-        System.out.println("findByTituloOrCategoriaOrLancamento");
-        Pageable pageable = null;
-        String titulo = "";
-        Categoria categoria = null;
-        LocalDate lancamento = null;
-        FilmeRestController instance = new FilmeRestController();
-        ResponseEntity<Page<Filme>> expResult = null;
-        ResponseEntity<Page<Filme>> result = instance.findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testFindByTituloOrCategoriaOrLancamento() throws Exception {
+                FilmeDTO filme = FilmeDTO.builder()
+                        .titulo("O filme")
+                        .lancamento(LocalDate.now())
+                        .categoria(ACAO)
+                        .midia(Arrays.asList(
+                            MidiaDTO.builder().tipo(VHS).quantidade(2).valor(2.0).build(), 
+                            MidiaDTO.builder().tipo(VHS).quantidade(4).valor(4.0).build()) 
+                    )
+                        .build();
+    
+        Filme filmeNormal = filmeService.salvarComMidia(filme);
+        
+        restMockMvc.perform(MockMvcRequestBuilders.get("/api/filme/search")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(filmeNormal)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.lancamento").value("2018-10-31"));
+                
+                       
+        int expResult = 2;
+        List<Filme> resultado = filmeRepository.findAll();
+        Assert.assertEquals(expResult, resultado.size());
     }
 
-    /**
-     * Test of put method, of class FilmeRestController.
-     */
+     /*
     @Test
     public void testPut() {
         System.out.println("put");
@@ -123,6 +143,6 @@ public class FilmeRestControllerTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }
