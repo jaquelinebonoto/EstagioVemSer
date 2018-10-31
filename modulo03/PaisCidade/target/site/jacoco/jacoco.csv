@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-PaisCidade,br.com.br.dbc.paiscidade.paiscidade.entity,Estado,104,3,12,0,32,2,21,1,15,1
-PaisCidade,br.com.br.dbc.paiscidade.paiscidade.entity,Pais,88,12,12,0,26,5,16,4,10,4
-PaisCidade,br.com.br.dbc.paiscidade.paiscidade.entity,Cidade,100,0,12,0,31,0,20,0,14,0
-PaisCidade,br.com.dbc.paiscidade.paiscidade,Main,10,0,0,0,4,0,2,0,2,0
-PaisCidade,br.com.dbc.paiscidade.paiscidade,PaisService,1,48,1,3,0,19,1,7,0,6

@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "e74ed6a1-ab5d-40e0-9d21-90a5ae7bf1b9",
+		"name": "Locadora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente.findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente?page=0&size=10&sort=id,desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "id,desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente.findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente.create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"João\",\n\t\"telefone\": 5199999999,\n\t\"endereco\": \"Av. Andaraí, 531\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente.update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"nome\": \"João\",\n\t\"telefone\": 5199999999,\n\t\"endereco\": \"Av. Andaraí, 531\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/filme?page=0&size=10&sort=id,desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "id,desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"titulo\": \"João e o Feijão\",\n\t\"lancamento\": \"10/10/2018\",\n\t\"categoria\": \"AVENTURA\",\n\t\"midia\":[{\n\t\t\t\t\"tipo\": \"VHS\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 1.9\n\t\t\t}, {\n\t\t\t\t\"tipo\": \"DVD\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 2.9\n\t\t\t}, {\n\t\t\t\t\"tipo\": \"BLUE_RAY\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 3.9\n\t\t\t}]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/midia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"midia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"titulo\": \"João e o Feijão\",\n\t\"lancamento\": \"10/10/2018\",\n\t\"categoria\": \"AVENTURA\",\n\t\"midia\":[{\n\t\t\t\t\"tipo\": \"VHS\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 1.9\n\t\t\t}, {\n\t\t\t\t\"tipo\": \"DVD\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 2.9\n\t\t\t}, {\n\t\t\t\t\"tipo\": \"BLUE_RAY\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 3.9\n\t\t\t}]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/1/midia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"1",
+						"midia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.precos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"titulo\": \"João e o Feijão\",\n\t\"lancamento\": \"10/10/2018\",\n\t\"categoria\": \"AVENTURA\",\n\t\"midia\":[{\n\t\t\t\t\"tipo\": \"VHS\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 1.9\n\t\t\t}, {\n\t\t\t\t\"tipo\": \"DVD\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 2.9\n\t\t\t}, {\n\t\t\t\t\"tipo\": \"BLUE_RAY\",\n\t\t\t\t\"quantidade\": 10,\n\t\t\t\t\"valor\": 3.9\n\t\t\t}]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/precos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"precos",
+						"1"
+					]
+				},
+				"description": "Esta api deve retornar as revisões de preço do filme passado:\n\"midias\": [\n\t{\n\t\t\"id\": \"1\",\n\t\t\"tipo\": \"VHS\",\n\t\t\"valor\": 1.9,\n\t\t\"inicioVigencia\": \"20/10/2018 08:00:00\",\n\t\t\"finalVigencia\": \"21/10/2018 09:00:00\"\n\t},\n\t{\n\t\t\"id\": \"2\",\n\t\t\"tipo\": \"VHS\",\n\t\t\"valor\": 1.8,\n\t\t\"inicioVigencia\": \"21/10/2018 09:00:00\",\n\t\t\"finalVigencia\": \"null\"\n\t},\n\t{\n\t\t\"id\": \"3\",\n\t\t\"tipo\": \"DVD\",\n\t\t\"valor\": 1.7,\n\t\t\"inicioVigencia\": \"20/10/2018 08:00:00\",\n\t\t\"finalVigencia\": \"21/10/2018 09:00:00\"\n\t},\n\t{\n\t\t\"id\": \"4\",\n\t\t\"tipo\": \"DVD\",\n\t\t\"valor\": 1.6,\n\t\t\"inicioVigencia\": \"21/10/2018 09:00:00\",\n\t\t\"finalVigencia\": \"null\"\n\t},\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/search?page=0&size=10&sort=id,desc&categoria=AVENTURA&titulo=jOãO&lancamentoIni=10/10/2018&lancamentoFim=11/10/2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"search"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "id,desc"
+						},
+						{
+							"key": "categoria",
+							"value": "AVENTURA"
+						},
+						{
+							"key": "titulo",
+							"value": "jOãO"
+						},
+						{
+							"key": "lancamentoIni",
+							"value": "10/10/2018"
+						},
+						{
+							"key": "lancamentoFim",
+							"value": "11/10/2018"
+						}
+					]
+				},
+				"description": "Todos os parâmetros são opcionais, a query deve ser montada conforme o que for passado."
+			},
+			"response": []
+		},
+		{
+			"name": "Filme.countByTipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/count/1/DVD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"count",
+						"1",
+						"DVD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Midia.findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/midia/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"midia",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Midia.search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/search?page=0&size=10&sort=id,desc&categoria=AVENTURA&titulo=jOãO&lancamentoIni=10/10/2018&lancamentoFim=11/10/2018",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"search"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "id,desc"
+						},
+						{
+							"key": "categoria",
+							"value": "AVENTURA"
+						},
+						{
+							"key": "titulo",
+							"value": "jOãO"
+						},
+						{
+							"key": "lancamentoIni",
+							"value": "10/10/2018"
+						},
+						{
+							"key": "lancamentoFim",
+							"value": "11/10/2018"
+						}
+					]
+				},
+				"description": "Todos os parâmetros são opcionais, a query deve ser montada conforme o que for passado.\nO retorno desse método é:\n{\n\t\"content\": [{\n\t\t\"id\": 1,\n\t\t\"tipo\": \"DVD\",\n\t\t\"valor\": 1.9,\n\t\t\"filme\": {\n\t\t\t\"id\": 1,\n\t\t\t\"titulo\": \"João e o Feijão\",\n\t\t\t\"categoria\": \"AVENTURA\",\n\t\t\t\"lancamento\": \"20/10/2018\"\n\t\t}\n\t},{\n\t\t\"id\": 2,\n\t\t\"tipo\": \"DVD\",\n\t\t\"valor\": 1.8,\n\t\t\"filme\": {\n\t\t\t\"id\": 1,\n\t\t\t\"titulo\": \"João e o Feijão\",\n\t\t\t\"categoria\": \"AVENTURA\",\n\t\t\t\"lancamento\": \"20/10/2018\"\n\t\t}\n\t}]\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Midia.countByTipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/midia/count/DVD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"midia",
+						"count",
+						"DVD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aluguel.retirada",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idCliente\": 1,\n\t\"midias\": [1,2,3]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/aluguel/retirada",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aluguel",
+						"retirada"
+					]
+				},
+				"description": "A resposta desta api deve ser:\n{\n\t\"id\": 1,\n\t\"retirada\": \"10/10/2018\",\n\t\"previsao\": \"13/10/2018\",\n\t\"devolucao\": null,\n\t\"multa\": null\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Aluguel.devolucao",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"midias\": [1,2,3]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/aluguel/devolucao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aluguel",
+						"devolucao"
+					]
+				},
+				"description": "A resposta desta api deve ser:\n{\n\t\"id\": 1,\n\t\"retirada\": \"10/10/2018\",\n\t\"previsao\": \"13/10/2018\",\n\t\"devolucao\": \"10/10/2018 09:00:00\",\n\t\"multa\": 0.0\n}\n\nValidar se foram devolvidas todas midias"
+			},
+			"response": []
+		},
+		{
+			"name": "Aluguel.devolucaoHoje",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"midias\": [1,2,3]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/aluguel/devolucao?page=0&size=10&sort=id,desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aluguel",
+						"devolucao"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "id,desc"
+						}
+					]
+				},
+				"description": "A resposta desta api deve uma lista de Filmes"
+			},
+			"response": []
+		}
+	]
+}
