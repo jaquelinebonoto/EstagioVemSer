@@ -45,7 +45,7 @@ public class Cliente extends AbstractEntity<Long> implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     private List<Aluguel> aluguelList;
 
- @Override
+    @Override
     public Long getId() {
         return id;
     }

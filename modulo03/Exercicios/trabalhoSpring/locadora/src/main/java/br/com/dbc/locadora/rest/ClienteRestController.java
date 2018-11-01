@@ -5,9 +5,15 @@
  */
 package br.com.dbc.locadora.rest;
 
+import br.com.dbc.locadora.config.SoapConnector;
 import br.com.dbc.locadora.entity.Cliente;
 import br.com.dbc.locadora.service.ClienteService;
+import br.com.dbc.locadora.ws.ConsultaCEP;
+import br.com.dbc.locadora.ws.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,4 +32,16 @@ public class ClienteRestController extends AbstractController<Cliente> {
         return service;
     }
     
+    @Autowired SoapConnector soapConnector;
+    @Autowired ObjectFactory objectFactory;
+    
+    @GetMapping("/cep/{cep}")
+    public ResponseEntity<?> cep(@PathVariable("cep") String cep) {
+        ConsultaCEP consulta = objectFactory.createConsultaCEP();
+        consulta.setCep(cep);
+        return ResponseEntity.ok(soapConnector
+                .callWebService(
+                "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente", 
+                        objectFactory.createConsultaCEP(consulta)));
+    }
 }

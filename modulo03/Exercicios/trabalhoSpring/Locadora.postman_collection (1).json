@@ -6,10 +6,78 @@
 	},
 	"item": [
 		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec4dc845-05d3-41b3-82da-4740af9b7431",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).access_token);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dGVzdGp3dGNsaWVudGlkOlhZN2ttem9OemwxMDA="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "john.doe",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "jwtpass",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Cliente.findAll",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/cliente?page=0&size=10&sort=id,desc",
@@ -44,7 +112,12 @@
 			"name": "Cliente.findById",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/cliente/1",
@@ -70,11 +143,15 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"João\",\n\t\"telefone\": 5199999999,\n\t\"endereco\": \"Av. Andaraí, 531\"\n}"
+					"raw": "{\n\t\"nome\": \"João\",\n\t\"telefone\": 5199999999,\n\t\"rua\": {{rua}},\n\t\"numero\": 531,\n\t\"bairro\": {{bairro}},\n\t\"cidade\": {{cidade}},\n\t\"estado\": {{estado}}\n\t\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/api/cliente",
@@ -92,6 +169,73 @@
 			"response": []
 		},
 		{
+			"name": "User.create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"João\",\n\t\"lastName\": \"Doe\",\n\t\"username\": \"joaodoe\",\n\t\"password\": \"123joao\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User.changePassword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"joaodoe\",\n\t\"password\": \"123joao\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Cliente.update",
 			"request": {
 				"method": "PUT",
@@ -99,6 +243,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
@@ -122,10 +270,68 @@
 			"response": []
 		},
 		{
+			"name": "Cliente.consultaCep",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74acc569-5bea-4bb1-94e4-84653f1fb043",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"",
+							"postman.setEnvironmentVariable(\"rua\", JSON.parse(responseBody).rua);",
+							"postman.setEnvironmentVariable(\"bairro\", JSON.parse(responseBody).bairro);",
+							"postman.setEnvironmentVariable(\"cidade\", JSON.parse(responseBody).cidade);",
+							"postman.setEnvironmentVariable(\"estado\", JSON.parse(responseBody).estado);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"nome\": \"João\",\n\t\"telefone\": 5199999999,\n\t\"endereco\": \"Av. Andaraí, 531\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/cep/90230070",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"cep",
+						"90230070"
+					]
+				},
+				"description": "Deve retornar rua, bairro, cidade, estado"
+			},
+			"response": []
+		},
+		{
 			"name": "Filme.findAll",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/filme?page=0&size=10&sort=id,desc",
@@ -160,7 +366,12 @@
 			"name": "Filme.findById",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/filme/1",
@@ -186,6 +397,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
@@ -216,6 +431,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
@@ -247,6 +466,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
@@ -275,7 +498,12 @@
 			"name": "Filme.search",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/filme/search?page=0&size=10&sort=id,desc&categoria=AVENTURA&titulo=jOãO&lancamentoIni=10/10/2018&lancamentoFim=11/10/2018",
@@ -325,10 +553,51 @@
 			"response": []
 		},
 		{
+			"name": "Filme.searchCatalogo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"titulo\": \"oão\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/filme/search/catalogo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"filme",
+						"search",
+						"catalogo"
+					]
+				},
+				"description": "Retorno paginado,\ndeve retornar o titulo do filme, a categoria do filme, o ano de lançamento, quais os tipos de midia disponíveis e os seus preços, se não estiver disponível a mídia, quando será a data que a midia estará disponível."
+			},
+			"response": []
+		},
+		{
 			"name": "Filme.countByTipo",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/filme/count/1/DVD",
@@ -352,7 +621,12 @@
 			"name": "Midia.findById",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/midia/1",
@@ -374,10 +648,15 @@
 			"name": "Midia.search",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:8080/api/filme/search?page=0&size=10&sort=id,desc&categoria=AVENTURA&titulo=jOãO&lancamentoIni=10/10/2018&lancamentoFim=11/10/2018",
+					"raw": "http://localhost:8080/api/midia/search?page=0&size=10&sort=id,desc&categoria=AVENTURA&titulo=jOãO&lancamentoIni=10/10/2018&lancamentoFim=11/10/2018",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -385,7 +664,7 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"filme",
+						"midia",
 						"search"
 					],
 					"query": [
@@ -427,7 +706,12 @@
 			"name": "Midia.countByTipo",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "http://localhost:8080/api/midia/count/DVD",
@@ -454,6 +738,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
@@ -485,6 +773,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
 					}
 				],
 				"body": {
@@ -512,7 +804,12 @@
 			"name": "Aluguel.devolucaoHoje",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"midias\": [1,2,3]\n}"

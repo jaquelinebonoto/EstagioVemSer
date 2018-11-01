@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "8c4cd3bb-a2bc-4642-9fb7-61af22ddd52e",
+		"name": "Auth-JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec4dc845-05d3-41b3-82da-4740af9b7431",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).access_token);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dGVzdGp3dGNsaWVudGlkOlhZN2ttem9OemwxMDA="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "john.doe",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "jwtpass",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cities",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/springjwt/cities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"springjwt",
+						"cities"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
