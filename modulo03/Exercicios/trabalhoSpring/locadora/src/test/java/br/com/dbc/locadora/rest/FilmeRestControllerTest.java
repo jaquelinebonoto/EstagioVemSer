@@ -75,18 +75,6 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
     }
 
 
-    /*@Test
-    public void testSalvarComMidia() {
-        System.out.println("salvarComMidia");
-        FilmeDTO dto = null;
-        FilmeRestController instance = new FilmeRestController();
-        ResponseEntity expResult = null;
-        ResponseEntity result = instance.salvarComMidia(dto);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
-
 
     @Test
     public void testFindByTituloOrCategoriaOrLancamento() throws Exception {
@@ -108,25 +96,12 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].lancamento").value("2018-10-31"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].lancamento").value("2018-11-01"));
           
         int expResult = 1;
         List<Filme> resultado = filmeRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
     }
 
-     /*
-    @Test
-    public void testPut() {
-        System.out.println("put");
-        Long id = null;
-        FilmeDTO input = null;
-        FilmeRestController instance = new FilmeRestController();
-        ResponseEntity expResult = null;
-        ResponseEntity result = instance.put(id, input);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
     
 }

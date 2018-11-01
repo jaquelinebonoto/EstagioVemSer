@@ -78,19 +78,6 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
     @After
     public void tearDown() {
     }
-
-/*
-    @Test
-    public void testGetService() {
-        System.out.println("getService");
-        AluguelRestController instance = new AluguelRestController();
-        AluguelService expResult = null;
-        AluguelService result = instance.getService();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-*/
     
     @Test
     public void testCadastrarRetirada() throws Exception {
@@ -128,7 +115,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.retirada").value("2018-10-31"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.retirada").value("2018-11-01"));
                 
                        
         int expResult = 2;
@@ -158,13 +145,15 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         midiasId.add(midiasEnt.get(1).getId());        
         
         Cliente cliente = new Cliente();
+        cliente.setNome("aaaa");
+        cliente.setEndereco("rua onze");
+        cliente.setTelefone(999l);
         clienteService.save(cliente);
         AluguelDTO dto = AluguelDTO.builder()
                 .idCliente(cliente.getId())
                 .midias(midiasId)
                 .build();
         Aluguel aluguelSaida = aluguelService.cadastrarRetirada(dto);
-        aluguelService.cadastrarDevolucao(dto);
                
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/aluguel/devolucao")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -172,26 +161,15 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.retirada").value("2018-10-31"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.idCliente").value(cliente.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.valor").value(4.0))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.multa").value(0.0))
+                ;
                 
                        
-        int expResult = 2;
+        int expResult = 1;
         List<Aluguel> resultado = aluguelRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
     }
-
-/*
-    @Test
-    public void testFindByAluguelPrevisao() {
-        System.out.println("findByAluguelPrevisao");
-        Pageable pageable = null;
-        LocalDate previsao = null;
-        AluguelRestController instance = new AluguelRestController();
-        ResponseEntity<Page<Filme>> expResult = null;
-        ResponseEntity<Page<Filme>> result = instance.findByAluguelPrevisao(pageable, previsao);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
     
 }

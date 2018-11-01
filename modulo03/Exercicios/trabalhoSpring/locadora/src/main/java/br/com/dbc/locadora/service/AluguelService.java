@@ -87,6 +87,7 @@ public class AluguelService extends AbstractCRUDService<Aluguel> {
         }
         aluguel.setMulta(multa);
         save(aluguel);
+        dto.setId(aluguel.getId());
         dto.setMulta(multa);
         dto.setValor(valor + multa);
         dto.setMidias(dto.getMidias());
