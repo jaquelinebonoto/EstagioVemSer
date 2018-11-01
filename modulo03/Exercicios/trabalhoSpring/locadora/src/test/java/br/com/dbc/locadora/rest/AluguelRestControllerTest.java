@@ -58,10 +58,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
     
     @Autowired
     private FilmeService filmeService;
-    
-    @Autowired
-    private MidiaService midiaService;
-    
+       
     @Autowired
     private ClienteService clienteService;
         
@@ -140,20 +137,50 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         
     }
 
-/*
+
     @Test
-    public void testCadastrarDevolucao() {
-        System.out.println("cadastrarDevolucao");
-        AluguelDTO dto = null;
-        AluguelRestController instance = new AluguelRestController();
-        ResponseEntity expResult = null;
-        ResponseEntity result = instance.cadastrarDevolucao(dto);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testCadastrarDevolucao() throws Exception {
+                FilmeDTO filme = FilmeDTO.builder()
+                        .titulo("O filme")
+                        .lancamento(LocalDate.now())
+                        .categoria(ACAO)
+                        .midia(Arrays.asList(
+                            MidiaDTO.builder().tipo(VHS).quantidade(2).valor(2.0).build(), 
+                            MidiaDTO.builder().tipo(VHS).quantidade(4).valor(4.0).build()) 
+                    )
+                        .build();
+    
+        Filme filmeNormal = filmeService.salvarComMidia(filme);
+        List<Midia> midiasEnt = midiaRepository.findByFilmeId(filmeNormal.getId());
+        
+        List<Long> midiasId = new ArrayList<>();
+        midiasId.add(midiasEnt.get(0).getId());
+        midiasId.add(midiasEnt.get(1).getId());        
+        
+        Cliente cliente = new Cliente();
+        clienteService.save(cliente);
+        AluguelDTO dto = AluguelDTO.builder()
+                .idCliente(cliente.getId())
+                .midias(midiasId)
+                .build();
+        Aluguel aluguelSaida = aluguelService.cadastrarRetirada(dto);
+        AluguelDTO aluguel = aluguelService.cadastrarDevolucao(dto);
+               
+        restMockMvc.perform(MockMvcRequestBuilders.post("/api/aluguel/devolucao")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(aluguelSaida)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.retirada").value("2018-10-31"));
+                
+                       
+        int expResult = 2;
+        List<Aluguel> resultado = aluguelRepository.findAll();
+        Assert.assertEquals(expResult, resultado.size());
     }
 
-
+/*
     @Test
     public void testFindByAluguelPrevisao() {
         System.out.println("findByAluguelPrevisao");

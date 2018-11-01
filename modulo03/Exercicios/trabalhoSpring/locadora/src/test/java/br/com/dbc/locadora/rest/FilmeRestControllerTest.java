@@ -44,31 +44,19 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
     @Autowired
     private FilmeRestController filmeRestController;
 
-    @Autowired
-    private AluguelRepository aluguelRepository;
     
     @Autowired
     private FilmeRepository filmeRepository;
     
-    @Autowired
-    private MidiaRepository midiaRepository;
-    
-    @Autowired
-    private ValorMidiaRepository valorMidiaRepository;
 
-    @Autowired
-    private AluguelService aluguelService;
     
     @Autowired
     private FilmeService filmeService;
     
-    @Autowired
-    private MidiaService midiaService;
-    
-    @Autowired
-    private ClienteService clienteService;
+
         
     
+    @Override
     protected AbstractController getController() {
         return filmeRestController;
     }
@@ -81,9 +69,6 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
     public static void tearDownClass() {
     }
     
-    @Before
-    public void setUp() {
-    }
     
     @After
     public void tearDown() {
@@ -103,7 +88,7 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
     }*/
 
 
-    /*@Test
+    @Test
     public void testFindByTituloOrCategoriaOrLancamento() throws Exception {
                 FilmeDTO filme = FilmeDTO.builder()
                         .titulo("O filme")
@@ -117,19 +102,18 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
     
         Filme filmeNormal = filmeService.salvarComMidia(filme);
         
-        restMockMvc.perform(MockMvcRequestBuilders.get("/api/filme/search")
+        restMockMvc.perform(MockMvcRequestBuilders.get("/api/filme/search?categoria=ACAO")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(filme)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.lancamento").value("2018-10-31"));
-                
-                       
-        int expResult = 2;
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].lancamento").value("2018-10-31"));
+          
+        int expResult = 1;
         List<Filme> resultado = filmeRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
-    }*/
+    }
 
      /*
     @Test

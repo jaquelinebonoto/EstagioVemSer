@@ -53,6 +53,4 @@ public class AluguelRestController extends AbstractController<Aluguel> {
             );  
     }
     
-    
-
 }
