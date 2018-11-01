@@ -164,11 +164,11 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .midias(midiasId)
                 .build();
         Aluguel aluguelSaida = aluguelService.cadastrarRetirada(dto);
-        AluguelDTO aluguel = aluguelService.cadastrarDevolucao(dto);
+        aluguelService.cadastrarDevolucao(dto);
                
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/aluguel/devolucao")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsBytes(aluguelSaida)))
+                .content(objectMapper.writeValueAsBytes(dto)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
