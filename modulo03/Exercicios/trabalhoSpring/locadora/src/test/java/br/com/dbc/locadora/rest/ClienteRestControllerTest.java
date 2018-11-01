@@ -7,6 +7,7 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.entity.Cliente;
+import br.com.dbc.locadora.entity.Endereco;
 import br.com.dbc.locadora.repository.ClienteRepository;
 import java.util.List;
 import org.junit.After;
@@ -46,7 +47,8 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
 
     @Test
     public void clienteCreateTest() throws Exception {
-        Cliente c = Cliente.builder().nome("nome").endereco("endereco").telefone(999999999l).build();
+        Endereco e = new Endereco();
+        Cliente c = Cliente.builder().nome("nome").endereco(e).telefone(999999999l).build();
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/cliente")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(c)))
@@ -54,18 +56,17 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.nome").value(c.getNome()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.telefone").value(c.getTelefone()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.endereco").value(c.getEndereco()));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.telefone").value(c.getTelefone()));
         List<Cliente> clientes = clienteRepository.findAll();
         Assert.assertEquals(1, clientes.size());
         Assert.assertEquals(c.getNome(), clientes.get(0).getNome());
-        Assert.assertEquals(c.getEndereco(), clientes.get(0).getEndereco());
         Assert.assertEquals(c.getTelefone(), clientes.get(0).getTelefone());
     }
     
     @Test
     public void clienteDeleteTest() throws Exception {
-        Cliente c = Cliente.builder().nome("nome").endereco("endereco").telefone(999999999l).build();
+        Endereco e = new Endereco();
+        Cliente c = Cliente.builder().nome("nome").endereco(e).telefone(999999999l).build();
         clienteRepository.save(c);
         restMockMvc.perform(MockMvcRequestBuilders.delete("/api/cliente/{id}", c.getId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)

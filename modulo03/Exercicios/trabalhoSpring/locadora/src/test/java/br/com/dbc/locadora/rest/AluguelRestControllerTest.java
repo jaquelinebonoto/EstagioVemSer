@@ -1,4 +1,3 @@
-
 package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
@@ -6,6 +5,7 @@ import br.com.dbc.locadora.entity.Aluguel;
 import br.com.dbc.locadora.entity.AluguelDTO;
 import static br.com.dbc.locadora.entity.Categoria.ACAO;
 import br.com.dbc.locadora.entity.Cliente;
+import br.com.dbc.locadora.entity.Endereco;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
 import br.com.dbc.locadora.entity.Midia;
@@ -37,36 +37,36 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  * @author jaqueline.bonoto
  */
 public class AluguelRestControllerTest extends LocadoraApplicationTests {
-    
+
     @Autowired
     private AluguelRestController aluguelRestController;
 
     @Autowired
     private AluguelRepository aluguelRepository;
-    
+
     @Autowired
     private FilmeRepository filmeRepository;
-    
+
     @Autowired
     private MidiaRepository midiaRepository;
-    
+
     @Autowired
     private ValorMidiaRepository valorMidiaRepository;
 
     @Autowired
     private AluguelService aluguelService;
-    
+
     @Autowired
     private FilmeService filmeService;
-       
+
     @Autowired
     private ClienteService clienteService;
-        
+
     @Override
     protected AbstractController getController() {
         return aluguelRestController;
     }
-    
+
     @Before
     public void beforeTest() {
         valorMidiaRepository.deleteAll();
@@ -74,31 +74,31 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         filmeRepository.deleteAll();
         aluguelRepository.deleteAll();
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void testCadastrarRetirada() throws Exception {
-                       
+
         FilmeDTO filme = FilmeDTO.builder()
-                        .titulo("O filme")
-                        .lancamento(LocalDate.now())
-                        .categoria(ACAO)
-                        .midia(Arrays.asList(
-                            MidiaDTO.builder().tipo(VHS).quantidade(2).valor(2.0).build(), 
-                            MidiaDTO.builder().tipo(VHS).quantidade(4).valor(4.0).build()) 
-                    )
-                        .build();
-    
+                .titulo("O filme")
+                .lancamento(LocalDate.now())
+                .categoria(ACAO)
+                .midia(Arrays.asList(
+                        MidiaDTO.builder().tipo(VHS).quantidade(2).valor(2.0).build(),
+                        MidiaDTO.builder().tipo(VHS).quantidade(4).valor(4.0).build())
+                )
+                .build();
+
         Filme filmeNormal = filmeService.salvarComMidia(filme);
         List<Midia> midiasEnt = midiaRepository.findByFilmeId(filmeNormal.getId());
-        
+
         List<Long> midiasId = new ArrayList<>();
         midiasId.add(midiasEnt.get(0).getId());
-        midiasId.add(midiasEnt.get(1).getId());        
-        
+        midiasId.add(midiasEnt.get(1).getId());
+
         Cliente cliente = new Cliente();
         clienteService.save(cliente);
         AluguelDTO dto = AluguelDTO.builder()
@@ -106,9 +106,9 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .idCliente(cliente.getId())
                 .midias(midiasId)
                 .build();
-        
+
         Aluguel aluguel = aluguelService.cadastrarRetirada(dto);
-               
+
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/aluguel/retirada")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(dto)))
@@ -116,37 +116,35 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.retirada").value("2018-11-01"));
-                
-                       
+
         int expResult = 2;
         List<Aluguel> resultado = aluguelRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
-        
-    }
 
+    }
 
     @Test
     public void testCadastrarDevolucao() throws Exception {
-                FilmeDTO filme = FilmeDTO.builder()
-                        .titulo("O filme")
-                        .lancamento(LocalDate.now())
-                        .categoria(ACAO)
-                        .midia(Arrays.asList(
-                            MidiaDTO.builder().tipo(VHS).quantidade(2).valor(2.0).build(), 
-                            MidiaDTO.builder().tipo(VHS).quantidade(4).valor(4.0).build()) 
-                    )
-                        .build();
-    
+        FilmeDTO filme = FilmeDTO.builder()
+                .titulo("O filme")
+                .lancamento(LocalDate.now())
+                .categoria(ACAO)
+                .midia(Arrays.asList(
+                        MidiaDTO.builder().tipo(VHS).quantidade(2).valor(2.0).build(),
+                        MidiaDTO.builder().tipo(VHS).quantidade(4).valor(4.0).build())
+                )
+                .build();
+
         Filme filmeNormal = filmeService.salvarComMidia(filme);
         List<Midia> midiasEnt = midiaRepository.findByFilmeId(filmeNormal.getId());
-        
+
         List<Long> midiasId = new ArrayList<>();
         midiasId.add(midiasEnt.get(0).getId());
-        midiasId.add(midiasEnt.get(1).getId());        
-        
+        midiasId.add(midiasEnt.get(1).getId());
+        Endereco e = new Endereco();
         Cliente cliente = new Cliente();
         cliente.setNome("aaaa");
-        cliente.setEndereco("rua onze");
+        cliente.setEndereco(e);
         cliente.setTelefone(999l);
         clienteService.save(cliente);
         AluguelDTO dto = AluguelDTO.builder()
@@ -154,7 +152,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .midias(midiasId)
                 .build();
         Aluguel aluguelSaida = aluguelService.cadastrarRetirada(dto);
-               
+
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/aluguel/devolucao")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(dto)))
@@ -163,13 +161,11 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.idCliente").value(cliente.getId()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.valor").value(4.0))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.multa").value(0.0))
-                ;
-                
-                       
+                .andExpect(MockMvcResultMatchers.jsonPath("$.multa").value(0.0));
+
         int expResult = 1;
         List<Aluguel> resultado = aluguelRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
     }
-    
+
 }

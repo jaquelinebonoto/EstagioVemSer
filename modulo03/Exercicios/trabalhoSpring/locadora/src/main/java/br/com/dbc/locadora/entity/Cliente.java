@@ -8,9 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -40,8 +39,6 @@ public class Cliente extends AbstractEntity<Long> implements Serializable {
 
     private Long telefone;
 
-    private String endereco;
-    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     private List<Aluguel> aluguelList;
 

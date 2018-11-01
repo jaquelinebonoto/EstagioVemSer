@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.dbc.locadora;
-
+/*
 import br.com.dbc.locadora.entity.Role;
 import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.repository.RoleRepository;
@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author henrique.laporta
- */
+ 
 @Component
 public class AppRunner implements CommandLineRunner{
 
@@ -47,4 +47,4 @@ public class AppRunner implements CommandLineRunner{
         System.out.println("salvou roles");
     }
     
-}
+}*/

@@ -1,5 +1,5 @@
 package br.com.dbc.locadora.impl;
-
+/*
 import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * Created by nydiarra on 06/05/17.
  */
+/*
 @Component
 public class AppUserDetailsService implements UserDetailsService {
     @Autowired
@@ -39,4 +40,4 @@ public class AppUserDetailsService implements UserDetailsService {
 
         return userDetails;
     }
-}
+}*/
