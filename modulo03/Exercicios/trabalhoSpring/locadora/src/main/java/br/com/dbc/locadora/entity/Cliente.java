@@ -36,8 +36,16 @@ public class Cliente extends AbstractEntity<Long> implements Serializable {
     private Long id;
 
     private String nome;
-
+    
     private Long telefone;
+
+    private String rua;
+    
+    private String bairro;
+    
+    private String cidade;
+    
+    private String estado;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     private List<Aluguel> aluguelList;

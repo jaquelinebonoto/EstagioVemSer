@@ -95,12 +95,13 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
                 .content(objectMapper.writeValueAsBytes(filme)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].lancamento").value("2018-11-01"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].id").isNumber());
+             
           
         int expResult = 1;
         List<Filme> resultado = filmeRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
+        Assert.assertTrue(LocalDate.now().getYear() == filmeNormal.getLancamento().getYear());
     }
 
     

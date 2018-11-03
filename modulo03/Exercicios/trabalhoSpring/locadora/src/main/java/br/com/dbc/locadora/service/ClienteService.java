@@ -36,24 +36,5 @@ public class ClienteService extends AbstractCRUDService<Cliente>{
     }
     */
     
-    
-    /*
-    public Cliente DtotoCliente(ClienteDTO dto){
-        ResponseEntity<?> endereco = clienteRestController.cep(dto.getCep());
-        return Cliente.builder()
-                .nome(dto.getNome())
-                .telefone(dto.getTelefone())
-                .endereco(Endereco.builder()
-                        .rua(endereco.get)
-                        .rua(dto.con)
-                
-                .titulo(this.titulo)
-                .lancamento(lancamento)
-                .categoria(this.categoria)
-                .build();
-    }
-    
-    public Endereco cep()(
-         return clienteRestController
-    }*/
+
 }

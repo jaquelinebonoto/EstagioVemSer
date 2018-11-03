@@ -5,7 +5,6 @@ import br.com.dbc.locadora.entity.Aluguel;
 import br.com.dbc.locadora.entity.AluguelDTO;
 import static br.com.dbc.locadora.entity.Categoria.ACAO;
 import br.com.dbc.locadora.entity.Cliente;
-import br.com.dbc.locadora.entity.Endereco;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
 import br.com.dbc.locadora.entity.Midia;
@@ -18,7 +17,6 @@ import br.com.dbc.locadora.repository.ValorMidiaRepository;
 import br.com.dbc.locadora.service.AluguelService;
 import br.com.dbc.locadora.service.ClienteService;
 import br.com.dbc.locadora.service.FilmeService;
-import br.com.dbc.locadora.service.MidiaService;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -114,12 +112,13 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .content(objectMapper.writeValueAsBytes(dto)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.retirada").value("2018-11-01"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber());
+               
 
         int expResult = 2;
         List<Aluguel> resultado = aluguelRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
+        Assert.assertTrue(LocalDate.now().getDayOfYear() == filmeNormal.getLancamento().getDayOfYear());
 
     }
 
@@ -141,11 +140,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         List<Long> midiasId = new ArrayList<>();
         midiasId.add(midiasEnt.get(0).getId());
         midiasId.add(midiasEnt.get(1).getId());
-        Endereco e = new Endereco();
         Cliente cliente = new Cliente();
-        cliente.setNome("aaaa");
-        cliente.setEndereco(e);
-        cliente.setTelefone(999l);
         clienteService.save(cliente);
         AluguelDTO dto = AluguelDTO.builder()
                 .idCliente(cliente.getId())
@@ -166,6 +161,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         int expResult = 1;
         List<Aluguel> resultado = aluguelRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
+        
     }
 
 }

@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.entity.Cliente;
-import br.com.dbc.locadora.entity.Endereco;
 import br.com.dbc.locadora.repository.ClienteRepository;
 import java.util.List;
 import org.junit.After;
@@ -47,8 +42,7 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
 
     @Test
     public void clienteCreateTest() throws Exception {
-        Endereco e = new Endereco();
-        Cliente c = Cliente.builder().nome("nome").endereco(e).telefone(999999999l).build();
+        Cliente c = Cliente.builder().nome("nome").telefone(999999999l).rua("").bairro("").cidade("").estado("").build();
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/cliente")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(c)))
@@ -65,8 +59,7 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
     
     @Test
     public void clienteDeleteTest() throws Exception {
-        Endereco e = new Endereco();
-        Cliente c = Cliente.builder().nome("nome").endereco(e).telefone(999999999l).build();
+        Cliente c = Cliente.builder().nome("nome").telefone(999999999l).rua("").bairro("").cidade("").estado("").build();
         clienteRepository.save(c);
         restMockMvc.perform(MockMvcRequestBuilders.delete("/api/cliente/{id}", c.getId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
