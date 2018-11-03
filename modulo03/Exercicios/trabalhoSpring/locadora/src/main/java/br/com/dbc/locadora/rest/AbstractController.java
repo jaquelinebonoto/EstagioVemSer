@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 /**
  *
  * @author jaqueline.bonoto
+ * @param <ENTIDADE>
  */
 public abstract class AbstractController <ENTIDADE> {
     protected abstract AbstractCRUDService<ENTIDADE> getService();

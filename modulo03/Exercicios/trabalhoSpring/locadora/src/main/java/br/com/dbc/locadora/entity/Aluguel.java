@@ -31,7 +31,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Aluguel extends AbstractEntity<Long> implements Serializable {
    
     @Id
-    @SequenceGenerator(name= "S_ALUGUEL", sequenceName = "ANIMAL_SEQ", allocationSize=1)
+    @SequenceGenerator(name= "S_ALUGUEL", sequenceName = "S_ALUGUEL", allocationSize=1)
     @GeneratedValue(generator = "S_ALUGUEL", strategy = GenerationType.SEQUENCE)
     private Long id;
 

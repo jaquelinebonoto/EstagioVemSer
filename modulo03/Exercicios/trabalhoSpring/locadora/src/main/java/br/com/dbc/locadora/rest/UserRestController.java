@@ -5,6 +5,7 @@
  */
 package br.com.dbc.locadora.rest;
 
+import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.service.AppUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,13 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("/api/user")
-public class UserRestController {
+public class UserRestController extends AbstractController<User> {
 
     @Autowired
     private AppUserDetailsService userService;
 
-    /*@GetMapping()
-    public  ResponseEntity<List<User>> getUsers(){
-        return  ResponseEntity.ok(userService.findAll());
-    } */  
+    @Override
+    protected AppUserDetailsService getService() {
+        return userService;
+    }
+    
+
+ 
 }
