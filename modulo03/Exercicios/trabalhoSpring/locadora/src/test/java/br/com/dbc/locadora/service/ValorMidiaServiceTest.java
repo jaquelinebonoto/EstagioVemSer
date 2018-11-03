@@ -1,23 +1,10 @@
 package br.com.dbc.locadora.service;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
-import static br.com.dbc.locadora.entity.Categoria.ACAO;
-import br.com.dbc.locadora.entity.Filme;
-import br.com.dbc.locadora.entity.FilmeDTO;
-import br.com.dbc.locadora.entity.MidiaDTO;
-import static br.com.dbc.locadora.entity.Tipo.VHS;
 import br.com.dbc.locadora.rest.AbstractController;
 import br.com.dbc.locadora.rest.ValorMidiaRestController;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
 import org.junit.After;
-import org.junit.Assert;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 /**
  *

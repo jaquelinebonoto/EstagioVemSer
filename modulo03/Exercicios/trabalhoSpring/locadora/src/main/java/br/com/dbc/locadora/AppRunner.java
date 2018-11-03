@@ -1,27 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.dbc.locadora;
-/*
-import br.com.dbc.locadora.entity.Role;
-import br.com.dbc.locadora.entity.User;
-import br.com.dbc.locadora.repository.RoleRepository;
-import br.com.dbc.locadora.repository.UserRepository;
-import java.util.Arrays;
-import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author henrique.laporta
  
 @Component
 public class AppRunner implements CommandLineRunner{
@@ -47,4 +32,4 @@ public class AppRunner implements CommandLineRunner{
         System.out.println("salvou roles");
     }
     
-}*/
+}

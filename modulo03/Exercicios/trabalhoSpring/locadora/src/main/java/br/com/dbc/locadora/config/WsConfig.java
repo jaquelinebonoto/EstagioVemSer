@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.dbc.locadora.config;
 
 import br.com.dbc.locadora.ws.ObjectFactory;
@@ -28,7 +24,7 @@ public class WsConfig {
     @Bean
     public SoapConnector soapConnector(Jaxb2Marshaller marshaller) {
         SoapConnector client = new SoapConnector();
-        client.setDefaultUri("https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente");
+        client.setDefaultUri("https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;

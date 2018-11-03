@@ -1,5 +1,5 @@
 package br.com.dbc.locadora.impl;
-/*
+
 import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +9,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by nydiarra on 06/05/17.
  */
-/*
+
 @Component
 public class AppUserDetailsService implements UserDetailsService {
     @Autowired
@@ -40,4 +39,4 @@ public class AppUserDetailsService implements UserDetailsService {
 
         return userDetails;
     }
-}*/
+}
