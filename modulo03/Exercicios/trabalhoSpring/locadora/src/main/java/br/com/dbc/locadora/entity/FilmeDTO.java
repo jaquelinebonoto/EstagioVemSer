@@ -1,20 +1,26 @@
 
 package br.com.dbc.locadora.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
  * @author jaqueline.bonoto
  */
-
-@Getter
 @Builder
-public class FilmeDTO {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class FilmeDTO implements Serializable {
     private Long id;
     private String titulo;
     //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)

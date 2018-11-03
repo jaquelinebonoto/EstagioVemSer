@@ -10,7 +10,7 @@
         </goals>
         <properties>
             <spring-boot.run.jvmArguments>-noverify -XX:TieredStopAtLevel=1</spring-boot.run.jvmArguments>
-            <spring-boot.run.mainClass>br.com.dbc.locadora.LocadoraApplication</spring-boot.run.mainClass>
+            <spring-boot.run.mainClass>br.com.dbc.locadora.LocaadoraApplication</spring-boot.run.mainClass>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
         </properties>
     </action>
@@ -44,32 +44,10 @@
         </properties>
     </action>
     <action>
-            <actionName>CUSTOM-clean install skip test</actionName>
-            <displayName>clean install skip test</displayName>
-            <goals>
-                <goal>clean</goal>
-                <goal>install</goal>
-            </goals>
-            <properties>
-                <skipTests>true</skipTests>
-            </properties>
-        </action>
-    <action>
             <actionName>CUSTOM-spring-boot:run</actionName>
             <displayName>spring-boot:run</displayName>
             <goals>
                 <goal>spring-boot:run</goal>
             </goals>
-        </action>
-    <action>
-            <actionName>CUSTOM-clean install</actionName>
-            <displayName>clean install</displayName>
-            <goals>
-                <goal>clean</goal>
-                <goal>install</goal>
-            </goals>
-            <properties>
-                <skipTests>true</skipTests>
-            </properties>
         </action>
 </actions>

@@ -12,7 +12,6 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
  */
 @Configuration
 public class WsConfig {
-    
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();

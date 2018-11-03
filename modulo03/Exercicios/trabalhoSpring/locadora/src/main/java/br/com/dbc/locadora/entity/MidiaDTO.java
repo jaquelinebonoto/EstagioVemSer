@@ -1,8 +1,10 @@
 
 package br.com.dbc.locadora.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -13,6 +15,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class MidiaDTO {
     private Tipo tipo;
     private int quantidade;

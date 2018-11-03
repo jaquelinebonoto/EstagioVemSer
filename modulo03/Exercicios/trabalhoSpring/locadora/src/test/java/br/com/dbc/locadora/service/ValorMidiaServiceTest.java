@@ -3,7 +3,6 @@ package br.com.dbc.locadora.service;
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.rest.AbstractController;
 import br.com.dbc.locadora.rest.ValorMidiaRestController;
-import org.junit.After;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -23,9 +22,7 @@ public class ValorMidiaServiceTest extends LocadoraApplicationTests {
         return valorMidiaRestController;
     }
 
-    @After
-    public void tearDown() {
-    }
+
 
     /*@Test
     public void testDeleteByIdMidia() throws Exception {
