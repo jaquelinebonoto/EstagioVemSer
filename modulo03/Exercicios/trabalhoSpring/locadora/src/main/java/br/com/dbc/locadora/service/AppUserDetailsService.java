@@ -4,6 +4,7 @@ import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -49,5 +52,22 @@ public class AppUserDetailsService extends AbstractCRUDService<User> implements 
     protected JpaRepository<User, Long> getRepository() {
         return userRepository;
     }
+    
+    public Long findByUserName (String nome){
+        User user = userRepository.findByUsername(nome);
+        Long id = user.getId();
+        return id;
+    }
+    
+    @Transactional(readOnly = false, rollbackFor = Exception.class)
+    public User updateSenha (@RequestBody Long id, @RequestBody String senha){
+        User usuario = findById(id).get();
+        usuario.setPassword(senha);
+        userRepository.save(usuario);
+        return usuario;
+    }
+    
+
+    
     
 }

@@ -10,6 +10,7 @@ import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
 import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.MidiaDTO;
+import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.FilmeRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class FilmeService extends AbstractCRUDService<Filme> {
     
     @Autowired
     private MidiaService midiaService;
+    
+    @Autowired
+    private ValorMidiaService valorMidiaService;
     
     @Override
     protected JpaRepository<Filme, Long> getRepository() {
@@ -86,4 +90,21 @@ public class FilmeService extends AbstractCRUDService<Filme> {
         return filme;//        return Filme.builder().build();        
     }
     
+    public List<ValorMidia> valoresByFilme (Long id){
+        List<Midia> midias = midiaService.findByFilmeId(id);
+        
+        List<ValorMidia> valoresDoFilme = new ArrayList<>(); //para receber todos os calores que foram cadastrados
+        List<ValorMidia> valoresValidos = new ArrayList<>(); //para receber os vigentes
+        
+        for(int i = 0; i < midias.size(); i++) {
+            valoresDoFilme = valorMidiaService.findByMidiaId(midias.get(i).getId());    
+            for(int k = 0; k < valoresDoFilme.size(); k++) {
+                if (valoresDoFilme.get(k).getFimVigencia() == null){
+                    valoresValidos.add(valoresDoFilme.get(k));
+                } 
+            }
+        }
+        return valoresValidos;
+    }
+
 }

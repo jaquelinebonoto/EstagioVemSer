@@ -3,13 +3,16 @@ package br.com.dbc.locadora.rest;
 import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
+import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.service.FilmeService;
 import java.time.LocalDate;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -54,6 +57,11 @@ public class FilmeRestController extends AbstractController<Filme> {
     @PutMapping("/{id}/midia")
     public ResponseEntity<?> put(@PathVariable Long id, @RequestBody FilmeDTO input) {
         return ResponseEntity.ok(getService().updateFilme(id, input));
+    }
+
+    @GetMapping("/precos/{id}")
+    public List<ValorMidia> findValorMidiaByIdFilme (@PathVariable Long id) {
+        return getService().valoresByFilme(id);
     }
 
 }

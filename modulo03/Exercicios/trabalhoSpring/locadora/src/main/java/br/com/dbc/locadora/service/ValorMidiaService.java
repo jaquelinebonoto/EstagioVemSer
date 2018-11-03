@@ -51,4 +51,8 @@ public class ValorMidiaService extends AbstractCRUDService<ValorMidia>{
     List<ValorMidia> findByMidiaIdIn(List<Long> midias, LocalDate retirada) {
         return valorMidiaRepository.findByMidiaIdIn(midias, retirada);
     }
+
+    public List<ValorMidia> findByMidiaId(Long id) {
+        return valorMidiaRepository.findByMidiaId(id);
+    }
 }

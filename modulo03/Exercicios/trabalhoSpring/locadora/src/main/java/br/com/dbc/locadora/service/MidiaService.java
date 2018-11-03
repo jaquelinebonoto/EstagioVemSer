@@ -92,6 +92,12 @@ public class MidiaService extends AbstractCRUDService<Midia>{
             return midiaSistema;
     }
 
+    public List<Midia> findByFilmeId (Long id){
+        List<Midia> midiasDoFilme = new ArrayList<>();
+        midiasDoFilme = midiaRepository.findByFilmeId(id);
+        return midiasDoFilme;
+    }
+    
     public List<Midia> findByIdIn(List<Long> midias) {
         return midiaRepository.findByIdIn(midias);
     }
@@ -100,5 +106,6 @@ public class MidiaService extends AbstractCRUDService<Midia>{
         midiaRepository.updateAluguelToNullByIdMidias(midias);
     }
 
+ 
 
 }
