@@ -19,8 +19,6 @@ public class ValorMidiaService extends AbstractCRUDService<ValorMidia>{
     @Autowired
     private ValorMidiaRepository valorMidiaRepository;
     
-    @Autowired
-    private MidiaService midiaService;
 
     @Override
     protected JpaRepository<ValorMidia, Long> getRepository() {

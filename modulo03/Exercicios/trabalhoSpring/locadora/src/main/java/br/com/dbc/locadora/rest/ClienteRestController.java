@@ -41,7 +41,6 @@ public class ClienteRestController extends AbstractController<Cliente> {
         consulta.setCep(cep);
         return ResponseEntity.ok(soapConnector
                 .callWebService(
-                "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente", 
-                        objectFactory.createConsultaCEP(consulta)));
+                    objectFactory.createConsultaCEP(consulta)));
     }
 }

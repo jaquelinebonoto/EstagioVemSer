@@ -12,6 +12,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
  */
 @Configuration
 public class WsConfig {
+    
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -24,7 +25,7 @@ public class WsConfig {
     @Bean
     public SoapConnector soapConnector(Jaxb2Marshaller marshaller) {
         SoapConnector client = new SoapConnector();
-        client.setDefaultUri("https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl");
+        client.setDefaultUri("https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;
