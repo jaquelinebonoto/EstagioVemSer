@@ -1,11 +1,13 @@
 package br.com.dbc.locadora.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 
 import javax.persistence.*;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,11 +20,13 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
 @Table(name = "app_user")
-public class User {
+public class User extends AbstractEntity<Long> implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name= "S_USER", sequenceName = "S_USER", allocationSize=1)
+    @GeneratedValue(generator = "S_USER", strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private Long id;
 

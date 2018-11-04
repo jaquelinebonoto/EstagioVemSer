@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  *
@@ -29,6 +30,7 @@ public class AppUserDetailsService extends AbstractCRUDService<User> implements 
     @Autowired
     private UserRepository userRepository;
     
+
     
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -62,8 +64,8 @@ public class AppUserDetailsService extends AbstractCRUDService<User> implements 
     /*@Transactional(readOnly = false, rollbackFor = Exception.class)
     public User updateSenha (@RequestBody UserDTO dto){
         User user = findByUserName(dto.getUsername());
-        user.setPassword(dto.getPassword());
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         userRepository.save(user);
         return user;
-    }  */ 
+    }*/
 }

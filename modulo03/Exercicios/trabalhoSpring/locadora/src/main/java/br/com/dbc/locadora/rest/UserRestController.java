@@ -9,10 +9,13 @@ import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.entity.UserDTO;
 import br.com.dbc.locadora.repository.UserRepository;
 import br.com.dbc.locadora.service.AppUserDetailsService;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +36,12 @@ public class UserRestController extends AbstractController<User> {
     @Autowired
     private AppUserDetailsService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+        
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+        
     @Override
     protected AppUserDetailsService getService() {
         return userService;
@@ -42,11 +51,14 @@ public class UserRestController extends AbstractController<User> {
     public User updateSenha(@RequestBody UserDTO dto) {
         return (getService().updateSenha(dto));
     }
-    
-    @PutMapping("/password")
-        public User updateSenha(@RequestBody UserDTO dto) {
-        return (getService().updateSenha(dto));
-    }*/
-    
+    */
+    @PutMapping("/{id}")
+        public User updateSenha(@PathVariable Long id, @RequestBody UserDTO dto) {
+            User user = new User();
+            user.setId(id);
+            user.setPassword(passwordEncoder.encode(dto.getPassword()));            
+        return (getService().update(id, user));
+    } 
+            
 
 }
