@@ -23,18 +23,6 @@ public class ClienteService extends AbstractCRUDService<Cliente>{
     protected JpaRepository<Cliente, Long> getRepository() {
         return clienteRepository;
     }
-    
-    /*
-    @Transactional(readOnly = false, rollbackFor = Exception.class)
-    public Cliente salvarComEndereco (ClienteDTO dto) { 
-        Cliente c = getRepository().save(DtotoCliente(dto));
-        /*Filme filme = getRepository().save(dto.DtotoFilme());
-        for (MidiaDTO midiaDTO : dto.getMidia()) {
-            midiaService.salvarMidiaDTO(midiaDTO, filme);            
-        }
-        return c;
-    }
-    */
-    
+     
 
 }

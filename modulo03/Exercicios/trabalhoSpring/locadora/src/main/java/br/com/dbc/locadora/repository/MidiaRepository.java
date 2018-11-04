@@ -5,6 +5,7 @@
  */
 package br.com.dbc.locadora.repository;
 
+import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.Tipo;
 import java.time.LocalDate;
@@ -32,6 +33,9 @@ public interface MidiaRepository extends JpaRepository<Midia, Long> {
     @Query("update Midia m set m.aluguel = null where m.id in (:midias)")
     public void updateAluguelToNullByIdMidias(@Param("midias")List<Long> midias);
 
+    //@Query("select f from Filme f where f.id in(:midias) and Midia.tipo = tipo ")
     public List<Midia> findByFilmeIdAndTipo(Long i, Tipo tipo);
+
+    public Long countByFilmeIdAndTipo(Filme filme, Tipo tipo);
 
 }

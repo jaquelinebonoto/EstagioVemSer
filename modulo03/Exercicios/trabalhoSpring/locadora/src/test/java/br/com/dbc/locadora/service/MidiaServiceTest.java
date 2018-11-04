@@ -14,7 +14,6 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import org.junit.After;
 import org.junit.Assert;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -70,7 +69,7 @@ public class MidiaServiceTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
         
 
-        assertTrue(8 == midiaRepository.countByTipo(DVD));
+        Assert.assertTrue(8 == midiaRepository.countByTipo(DVD));
     }
 
 }

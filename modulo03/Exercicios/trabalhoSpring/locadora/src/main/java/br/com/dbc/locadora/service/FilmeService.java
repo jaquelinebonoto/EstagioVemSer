@@ -90,7 +90,7 @@ public class FilmeService extends AbstractCRUDService<Filme> {
         return filme;//        return Filme.builder().build();        
     }
     
-    public List<ValorMidia> valoresByFilme (Long id){
+    /*public List<ValorMidia> valoresByFilme (Long id){
         List<Midia> midias = midiaService.findByFilmeId(id);
         
         List<ValorMidia> valoresDoFilme = new ArrayList<>(); //para receber todos os calores que foram cadastrados
@@ -105,6 +105,6 @@ public class FilmeService extends AbstractCRUDService<Filme> {
             }
         }
         return valoresValidos;
-    }
+    }*/
 
 }

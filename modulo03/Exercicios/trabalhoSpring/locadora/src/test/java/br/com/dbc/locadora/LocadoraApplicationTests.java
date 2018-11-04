@@ -30,6 +30,9 @@ public abstract class LocadoraApplicationTests {
     @Autowired
     protected ObjectMapper objectMapper;
 
+    
+    
+    
     @Autowired
     protected PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
@@ -37,6 +40,7 @@ public abstract class LocadoraApplicationTests {
 
     @Before
     public void setUp() {
+        
         MockitoAnnotations.initMocks(this);
         this.restMockMvc = MockMvcBuilders.standaloneSetup(getController())
                 .setCustomArgumentResolvers(pageableArgumentResolver)

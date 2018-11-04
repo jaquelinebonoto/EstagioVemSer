@@ -1,6 +1,7 @@
 package br.com.dbc.locadora.service;
 
 import br.com.dbc.locadora.entity.User;
+import br.com.dbc.locadora.entity.UserDTO;
 import br.com.dbc.locadora.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,21 +54,16 @@ public class AppUserDetailsService extends AbstractCRUDService<User> implements 
         return userRepository;
     }
     
-    public Long findByUserName (String nome){
-        User user = userRepository.findByUsername(nome);
-        Long id = user.getId();
-        return id;
+    public User findByUserName (String nome){
+        User user = userRepository.findByUsername(nome); //desse jeito só irá pegar o primeiro que encontrar
+        return user;
     }
     
-    @Transactional(readOnly = false, rollbackFor = Exception.class)
-    public User updateSenha (@RequestBody Long id, @RequestBody String senha){
-        User usuario = findById(id).get();
-        usuario.setPassword(senha);
-        userRepository.save(usuario);
-        return usuario;
-    }
-    
-
-    
-    
+    /*@Transactional(readOnly = false, rollbackFor = Exception.class)
+    public User updateSenha (@RequestBody UserDTO dto){
+        User user = findByUserName(dto.getUsername());
+        user.setPassword(dto.getPassword());
+        userRepository.save(user);
+        return user;
+    }  */ 
 }

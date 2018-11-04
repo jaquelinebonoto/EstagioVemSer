@@ -27,4 +27,6 @@ public interface ValorMidiaRepository extends JpaRepository<ValorMidia, Long> {
 
     public Optional<ValorMidia> findByMidiaIdAndFimVigenciaIsNull(Long id);
     
+    
+    
 }

@@ -3,7 +3,9 @@ package br.com.dbc.locadora.rest;
 import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
+import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.entity.ValorMidia;
+import br.com.dbc.locadora.repository.MidiaRepository;
 import br.com.dbc.locadora.service.FilmeService;
 import java.time.LocalDate;
 import java.util.List;
@@ -32,14 +34,17 @@ public class FilmeRestController extends AbstractController<Filme> {
     @Autowired
     private FilmeService service;
 
+    @Autowired
+    private MidiaRepository midiaRepository;
     @Override
     public FilmeService getService() {
         return service;
     }
     
+    
     @PostMapping("/midia") //para salvar o filme com as midias e o valor requisito 2
-    public ResponseEntity<?> salvarComMidia(@RequestBody FilmeDTO dto) {
-        return ResponseEntity.ok(getService().salvarComMidia(dto));
+    public Filme salvarComMidia(@RequestBody FilmeDTO dto) {
+        return (getService().salvarComMidia(dto));
     }
     
     @RequestMapping(value="/search", method = RequestMethod.GET)
@@ -59,9 +64,15 @@ public class FilmeRestController extends AbstractController<Filme> {
         return ResponseEntity.ok(getService().updateFilme(id, input));
     }
 
-    @GetMapping("/precos/{id}")
-    public List<ValorMidia> findValorMidiaByIdFilme (@PathVariable Long id) {
-        return getService().valoresByFilme(id);
-    }
-
+    //@GetMapping("/precos/{id}")
+    /*@RequestMapping(value="/precos/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> findValorMidiaByIdFilme (@PathVariable Long id) {
+        return ResponseEntity.ok(getService().valoresByFilme(id));
+    }*/
+    
+    /*
+    @PostMapping("/count/{id}/{tipo}")
+    public ResponseEntity<Long> countByTipo(@PathVariable Long id, @PathVariable Tipo tipo){
+        return ResponseEntity.ok(midiaRepository.countByIdFilmeAndTipo(id, tipo));
+    }*/
 }

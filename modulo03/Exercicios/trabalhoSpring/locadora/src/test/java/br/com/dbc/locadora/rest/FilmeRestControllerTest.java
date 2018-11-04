@@ -2,36 +2,23 @@
 package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
-import br.com.dbc.locadora.entity.Aluguel;
-import br.com.dbc.locadora.entity.Categoria;
 import static br.com.dbc.locadora.entity.Categoria.ACAO;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.FilmeDTO;
 import br.com.dbc.locadora.entity.MidiaDTO;
 import static br.com.dbc.locadora.entity.Tipo.VHS;
-import br.com.dbc.locadora.repository.AluguelRepository;
 import br.com.dbc.locadora.repository.FilmeRepository;
-import br.com.dbc.locadora.repository.MidiaRepository;
-import br.com.dbc.locadora.repository.ValorMidiaRepository;
-import br.com.dbc.locadora.service.AluguelService;
-import br.com.dbc.locadora.service.ClienteService;
 import br.com.dbc.locadora.service.FilmeService;
-import br.com.dbc.locadora.service.MidiaService;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -51,24 +38,13 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
 
     
     @Autowired
-    private FilmeService filmeService;
-    
-
-        
+    private FilmeService filmeService;      
     
     @Override
     protected AbstractController getController() {
         return filmeRestController;
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+       
     
     @After
     public void tearDown() {
@@ -101,7 +77,7 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
         int expResult = 1;
         List<Filme> resultado = filmeRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
-        Assert.assertTrue(LocalDate.now().getYear() == filmeNormal.getLancamento().getYear());
+        Assert.assertTrue(LocalDate.now().getYear()==filmeNormal.getLancamento().getYear());
     }
 
     
