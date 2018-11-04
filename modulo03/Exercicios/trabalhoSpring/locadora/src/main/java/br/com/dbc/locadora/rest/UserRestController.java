@@ -47,18 +47,21 @@ public class UserRestController extends AbstractController<User> {
         return userService;
     }
    
-    /*@RequestMapping(value = "/password", method = RequestMethod.POST)
+    @RequestMapping(value = "/change", method = RequestMethod.POST)
     public User updateSenha(@RequestBody UserDTO dto) {
-        return (getService().updateSenha(dto));
+            User user = userRepository.findByUsername(dto.getUsername());
+            Long id = user.getId();
+            user.setPassword(passwordEncoder.encode(dto.getPassword()));  
+        return (getService().update(id, user));
     }
-    */
-    @PutMapping("/{id}")
+    
+    /*@PutMapping("/{id}")
         public User updateSenha(@PathVariable Long id, @RequestBody UserDTO dto) {
             User user = new User();
             user.setId(id);
             user.setPassword(passwordEncoder.encode(dto.getPassword()));            
         return (getService().update(id, user));
-    } 
+    } */
             
 
 }
