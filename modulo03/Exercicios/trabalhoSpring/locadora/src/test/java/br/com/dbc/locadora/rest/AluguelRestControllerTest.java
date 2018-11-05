@@ -113,13 +113,14 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber());
-               
+
 
         int expResult = 2;
         List<Aluguel> resultado = aluguelRepository.findAll();
         Assert.assertEquals(expResult, resultado.size());
-        Assert.assertTrue(LocalDate.now().getDayOfYear() == filmeNormal.getLancamento().getDayOfYear());
 
+        Assert.assertTrue(LocalDate.now().getDayOfYear() == filmeNormal.getLancamento().getDayOfYear());
+        Assert.assertTrue(LocalDate.now().getYear()== filmeNormal.getLancamento().getYear());
     }
 
     @Test
