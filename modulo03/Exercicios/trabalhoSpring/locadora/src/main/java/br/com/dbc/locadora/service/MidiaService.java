@@ -104,7 +104,9 @@ public class MidiaService extends AbstractCRUDService<Midia>{
     public void updateAluguelToNullByIdMidias(List<Long> midias) {
         midiaRepository.updateAluguelToNullByIdMidias(midias);
     }
-
+    public long countByTipoAndFilme(Tipo tipo, Filme filme){
+        return midiaRepository.countByTipoAndFilme(tipo, filme);
+    }
  
 
 }

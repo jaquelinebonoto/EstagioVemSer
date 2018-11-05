@@ -36,6 +36,7 @@ public interface MidiaRepository extends JpaRepository<Midia, Long> {
     //@Query("select f from Filme f where f.id in(:midias) and Midia.tipo = tipo ")
     public List<Midia> findByFilmeIdAndTipo(Long i, Tipo tipo);
 
-    public Long countByFilmeIdAndTipo(Filme filme, Tipo tipo);
+    //public Long countByFilmeIdAndTipo(Long id, Tipo tipo);
 
+    public long countByTipoAndFilme(Tipo tipo, Filme filme);
 }

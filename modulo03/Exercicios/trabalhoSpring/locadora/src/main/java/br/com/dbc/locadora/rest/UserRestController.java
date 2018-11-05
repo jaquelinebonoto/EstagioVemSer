@@ -55,13 +55,13 @@ public class UserRestController extends AbstractController<User> {
         return (getService().update(id, user));
     }
     
-    /*@PutMapping("/{id}")
+    @PutMapping("/{id}")
         public User updateSenha(@PathVariable Long id, @RequestBody UserDTO dto) {
             User user = new User();
             user.setId(id);
             user.setPassword(passwordEncoder.encode(dto.getPassword()));            
         return (getService().update(id, user));
-    } */
+    }
             
 
 }

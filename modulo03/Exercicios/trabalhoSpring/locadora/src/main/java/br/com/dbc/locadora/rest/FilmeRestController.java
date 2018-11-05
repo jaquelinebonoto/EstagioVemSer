@@ -7,6 +7,7 @@ import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import br.com.dbc.locadora.service.FilmeService;
+import br.com.dbc.locadora.service.MidiaService;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class FilmeRestController extends AbstractController<Filme> {
     @Autowired
     private FilmeService service;
 
+    @Autowired
+    private MidiaService midiaService;
+    
     @Autowired
     private MidiaRepository midiaRepository;
     @Override
@@ -75,4 +79,10 @@ public class FilmeRestController extends AbstractController<Filme> {
     public ResponseEntity<Long> countByTipo(@PathVariable Long id, @PathVariable Tipo tipo){
         return ResponseEntity.ok(midiaRepository.countByIdFilmeAndTipo(id, tipo));
     }*/
+    
+    @GetMapping("/count/{id}/{tipo}")
+    public ResponseEntity<Long> get(@PathVariable Long id, @PathVariable Tipo tipo){
+        Filme filme = service.findById(id).orElse(null);        
+        return ResponseEntity.ok(midiaService.countByTipoAndFilme(tipo, filme));
+    }
 }
