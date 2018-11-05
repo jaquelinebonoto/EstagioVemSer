@@ -39,4 +39,6 @@ public interface MidiaRepository extends JpaRepository<Midia, Long> {
     //public Long countByFilmeIdAndTipo(Long id, Tipo tipo);
 
     public long countByTipoAndFilme(Tipo tipo, Filme filme);
+    
+    public Midia findFirstByFilmeIdAndTipoAndAluguelIsNull(Long id, Tipo tipo);
 }

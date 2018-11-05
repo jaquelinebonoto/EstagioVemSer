@@ -6,7 +6,7 @@
 package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.entity.User;
-import br.com.dbc.locadora.entity.UserDTO;
+import br.com.dbc.locadora.dto.UserDTO;
 import br.com.dbc.locadora.repository.UserRepository;
 import br.com.dbc.locadora.service.AppUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,6 +18,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface FilmeRepository extends JpaRepository<Filme, Long> {
 
-    public Page<Filme> findByTituloOrCategoriaOrLancamento(Pageable pageable, String titulo, Categoria categoria, LocalDate lancamento);
+    public Page<Filme> findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(Pageable pageable, String titulo, Categoria categoria, LocalDate lancamentoIni, LocalDate lancamentoFim);
     
 }

@@ -1,7 +1,9 @@
 package br.com.dbc.locadora.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,13 +42,13 @@ public class ValorMidia extends AbstractEntity<Long> implements Serializable {
     private Long id;
 
     private double valor;
-
-    //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING) 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate inicioVigencia;
     
-    //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+    private LocalDateTime inicioVigencia;
+    
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDate fimVigencia;
     
     @JoinColumn(name = "ID_MIDIA", referencedColumnName = "ID")

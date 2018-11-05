@@ -2,11 +2,13 @@ package br.com.dbc.locadora.service;
 
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
-import br.com.dbc.locadora.entity.MidiaDTO;
+import br.com.dbc.locadora.dto.MidiaDTO;
+import br.com.dbc.locadora.dto.MidiaDTOCatalogo;
 import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class MidiaService extends AbstractCRUDService<Midia>{
             ValorMidia valor = ValorMidia.builder()
                     .valor(dto.getValor())
                     .midia(midiaList)
-                    .inicioVigencia(LocalDate.now())
+                    .inicioVigencia(LocalDateTime.now())
                     .fimVigencia(null)
                     .build();
             valorMidiaService.save(valor); 
@@ -108,5 +110,12 @@ public class MidiaService extends AbstractCRUDService<Midia>{
         return midiaRepository.countByTipoAndFilme(tipo, filme);
     }
  
+    public MidiaDTOCatalogo midiaToCatalogo (Midia midia){
+        return MidiaDTOCatalogo.builder()
+                    .tipo(midia.getTipo())
+                    .valorVigente(valorMidiaService.findByMidiaIdWhereFimVigenciaIsNull(midia.getId()))
+                    .disponibilidade(LocalDateTime.now())
+                    .build();
+    }
 
 }

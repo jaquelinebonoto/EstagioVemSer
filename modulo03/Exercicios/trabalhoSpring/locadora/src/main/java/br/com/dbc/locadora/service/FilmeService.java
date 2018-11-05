@@ -5,13 +5,17 @@
  */
 package br.com.dbc.locadora.service;
 
+import br.com.dbc.locadora.dto.CatalogoDTO;
 import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
-import br.com.dbc.locadora.entity.FilmeDTO;
+import br.com.dbc.locadora.dto.FilmeDTO;
 import br.com.dbc.locadora.entity.Midia;
-import br.com.dbc.locadora.entity.MidiaDTO;
+import br.com.dbc.locadora.dto.MidiaDTO;
+import br.com.dbc.locadora.dto.MidiaDTOCatalogo;
+import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.FilmeRepository;
+import br.com.dbc.locadora.repository.MidiaRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +41,9 @@ public class FilmeService extends AbstractCRUDService<Filme> {
     @Autowired
     private MidiaService midiaService;
     
+        @Autowired
+    private MidiaRepository midiaRepository;
+    
     @Autowired
     private ValorMidiaService valorMidiaService;
     
@@ -54,25 +61,26 @@ public class FilmeService extends AbstractCRUDService<Filme> {
         return filme;
     }
     
-    public Page<Filme> findByTituloOrCategoriaOrLancamento(
-            Pageable pageable,
-            String titulo,
-            Categoria categoria,
-            LocalDate lancamento) {
-        return filmeRepository.findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento);
+    public Page<Filme> findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(
+            Pageable pageable, 
+            String titulo, 
+            Categoria categoria, 
+            LocalDate lancamentoIni, 
+            LocalDate lancamentoFim) {
+        return filmeRepository.findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(pageable, titulo, categoria, lancamentoIni, lancamentoFim);
     }
     
     public Page<Filme> findByAluguelPrevisao(
             Pageable pageable,
             LocalDate previsao) {
-        List<Midia> midias = midiaService.findByAluguelPrevisao(pageable, previsao).getContent();
-        
-        List<Filme> filmes = new ArrayList<>();
-        midias.forEach(m -> {
-            filmes.add(m.getFilme());
-        });
-        Page<Filme> page = new PageImpl<>(filmes);
-        return page;
+        Page<Midia> midias = midiaService.findByAluguelPrevisao(pageable, previsao);
+
+       List<Filme> filmes = new ArrayList<>();
+       midias.getContent().forEach(m -> {
+           filmes.add(m.getFilme());
+       });
+       Page<Filme> page = new PageImpl<>(filmes, pageable,midias.getTotalElements());
+       return page;
     }
     
     @Transactional(readOnly = false, rollbackFor = Exception.class)
@@ -90,10 +98,10 @@ public class FilmeService extends AbstractCRUDService<Filme> {
         return filme;//        return Filme.builder().build();        
     }
     
-    /*public List<ValorMidia> valoresByFilme (Long id){
+    public List<ValorMidia> valoresByFilme (Long id){
         List<Midia> midias = midiaService.findByFilmeId(id);
         
-        List<ValorMidia> valoresDoFilme = new ArrayList<>(); //para receber todos os calores que foram cadastrados
+        List<ValorMidia> valoresDoFilme = new ArrayList<>(); //para receber todos os valores que foram cadastrados
         List<ValorMidia> valoresValidos = new ArrayList<>(); //para receber os vigentes
         
         for(int i = 0; i < midias.size(); i++) {
@@ -105,6 +113,33 @@ public class FilmeService extends AbstractCRUDService<Filme> {
             }
         }
         return valoresValidos;
-    }*/
+    }
 
+    public Page<CatalogoDTO> createCatalogo(Pageable pageable, @RequestBody String titulo){
+        Page<Filme> filme = (findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(
+                pageable, 
+                titulo, 
+                Categoria.valueOf(titulo), 
+                LocalDate.MIN,
+                LocalDate.MAX));
+        
+        List<CatalogoDTO> catalogo = new ArrayList<>();
+        for (int i=0; i<filme.getTotalElements() ; i++){
+            List<MidiaDTOCatalogo> midiasDisponiveis = new ArrayList<>();
+            Midia midVHS = midiaRepository.findFirstByFilmeIdAndTipoAndAluguelIsNull(filme.getContent().get(0).getId(), Tipo.VHS);
+            Midia midDVD = midiaRepository.findFirstByFilmeIdAndTipoAndAluguelIsNull(filme.getContent().get(0).getId(), Tipo.DVD);
+            Midia midBR = midiaRepository.findFirstByFilmeIdAndTipoAndAluguelIsNull(filme.getContent().get(0).getId(), Tipo.BLUE_RAY);
+            
+            midiasDisponiveis.add(midiaService.midiaToCatalogo(midVHS));
+            midiasDisponiveis.add(midiaService.midiaToCatalogo(midDVD));
+            midiasDisponiveis.add(midiaService.midiaToCatalogo(midBR));
+            
+            catalogo.add(CatalogoDTO.builder()
+                 .filme(filme.getContent().get(i))
+                 .midias(midiasDisponiveis)
+                 .build());
+        }        
+        return new PageImpl<>(catalogo, pageable, filme.getTotalElements());
+    }
+    
 }

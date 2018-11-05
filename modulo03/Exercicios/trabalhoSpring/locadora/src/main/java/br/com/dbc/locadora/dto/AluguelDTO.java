@@ -1,5 +1,5 @@
 
-package br.com.dbc.locadora.entity;
+package br.com.dbc.locadora.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

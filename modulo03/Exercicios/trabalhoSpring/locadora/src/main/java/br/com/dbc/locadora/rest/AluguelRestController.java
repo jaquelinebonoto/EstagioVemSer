@@ -2,7 +2,7 @@
 package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.entity.Aluguel;
-import br.com.dbc.locadora.entity.AluguelDTO;
+import br.com.dbc.locadora.dto.AluguelDTO;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.service.AluguelService;
 import java.time.LocalDate;

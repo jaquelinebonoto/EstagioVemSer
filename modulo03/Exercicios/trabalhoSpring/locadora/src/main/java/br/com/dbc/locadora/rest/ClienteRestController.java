@@ -7,7 +7,7 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.config.SoapConnector;
 import br.com.dbc.locadora.entity.Cliente;
-import br.com.dbc.locadora.entity.ConsultaCepDTO;
+import br.com.dbc.locadora.dto.ConsultaCepDTO;
 import br.com.dbc.locadora.service.ClienteService;
 import br.com.dbc.locadora.service.CorreioService;
 import br.com.dbc.locadora.ws.ConsultaCEP;

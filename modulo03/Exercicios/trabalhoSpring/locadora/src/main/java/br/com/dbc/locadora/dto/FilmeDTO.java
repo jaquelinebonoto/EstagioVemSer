@@ -1,6 +1,9 @@
 
-package br.com.dbc.locadora.entity;
+package br.com.dbc.locadora.dto;
 
+import br.com.dbc.locadora.entity.Categoria;
+import br.com.dbc.locadora.entity.Filme;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -23,8 +26,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class FilmeDTO implements Serializable {
     private Long id;
     private String titulo;
-    //@JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate lancamento;
     private Categoria categoria;
     private List<MidiaDTO> midia;

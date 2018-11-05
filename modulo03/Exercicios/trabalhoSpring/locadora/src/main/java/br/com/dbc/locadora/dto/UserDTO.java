@@ -1,6 +1,7 @@
 
-package br.com.dbc.locadora.entity;
+package br.com.dbc.locadora.dto;
 
+import br.com.dbc.locadora.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

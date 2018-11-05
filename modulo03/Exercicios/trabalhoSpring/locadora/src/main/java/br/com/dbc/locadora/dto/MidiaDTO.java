@@ -1,6 +1,9 @@
 
-package br.com.dbc.locadora.entity;
+package br.com.dbc.locadora.dto;
 
+import br.com.dbc.locadora.entity.Filme;
+import br.com.dbc.locadora.entity.Midia;
+import br.com.dbc.locadora.entity.Tipo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

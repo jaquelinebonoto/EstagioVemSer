@@ -1,7 +1,7 @@
 package br.com.dbc.locadora.service;
 
 import br.com.dbc.locadora.entity.User;
-import br.com.dbc.locadora.entity.UserDTO;
+import br.com.dbc.locadora.dto.UserDTO;
 import br.com.dbc.locadora.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;

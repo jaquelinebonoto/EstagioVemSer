@@ -2,13 +2,18 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
-import br.com.dbc.locadora.entity.FilmeDTO;
+import br.com.dbc.locadora.dto.FilmeDTO;
+import br.com.dbc.locadora.dto.MidiaDTO;
+import br.com.dbc.locadora.dto.MidiaDTOCatalogo;
+import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.Tipo;
-import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import br.com.dbc.locadora.service.FilmeService;
 import br.com.dbc.locadora.service.MidiaService;
+import br.com.dbc.locadora.service.ValorMidiaService;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,6 +44,9 @@ public class FilmeRestController extends AbstractController<Filme> {
     private MidiaService midiaService;
     
     @Autowired
+    private ValorMidiaService valorMidiaService;
+    
+    @Autowired
     private MidiaRepository midiaRepository;
     @Override
     public FilmeService getService() {
@@ -52,14 +60,15 @@ public class FilmeRestController extends AbstractController<Filme> {
     }
     
     @RequestMapping(value="/search", method = RequestMethod.GET)
-    public ResponseEntity<Page<Filme>> findByTituloOrCategoriaOrLancamento(
+    public ResponseEntity<Page<Filme>> findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(
                 Pageable pageable,
                 @RequestParam(value = "titulo", required = false) String titulo,
                 @RequestParam(value = "categoria" , required = false) Categoria categoria,
-                @RequestParam(value = "lancamento", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate lancamento) {
-
+                @RequestParam(value = "lancamento", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lancamentoIni, 
+                @RequestParam(value = "lancamento", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lancamentoFim)
+                {
        return ResponseEntity.ok(
-                getService().findByTituloOrCategoriaOrLancamento(pageable, titulo, categoria, lancamento)
+                getService().findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(pageable, titulo, categoria, lancamentoIni, lancamentoFim)
             ); 
     }
     
@@ -68,21 +77,20 @@ public class FilmeRestController extends AbstractController<Filme> {
         return ResponseEntity.ok(getService().updateFilme(id, input));
     }
 
-    //@GetMapping("/precos/{id}")
-    /*@RequestMapping(value="/precos/{id}", method = RequestMethod.GET)
+    @GetMapping("/precos/{id}")
+    @RequestMapping(value="/precos/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> findValorMidiaByIdFilme (@PathVariable Long id) {
         return ResponseEntity.ok(getService().valoresByFilme(id));
-    }*/
-    
-    /*
-    @PostMapping("/count/{id}/{tipo}")
-    public ResponseEntity<Long> countByTipo(@PathVariable Long id, @PathVariable Tipo tipo){
-        return ResponseEntity.ok(midiaRepository.countByIdFilmeAndTipo(id, tipo));
-    }*/
-    
+    }
+        
     @GetMapping("/count/{id}/{tipo}")
     public ResponseEntity<Long> get(@PathVariable Long id, @PathVariable Tipo tipo){
         Filme filme = service.findById(id).orElse(null);        
         return ResponseEntity.ok(midiaService.countByTipoAndFilme(tipo, filme));
     }
+    
+    @PostMapping("/search/catalogo")
+    public ResponseEntity<?> createCatalogo (Pageable pageable, @RequestBody String titulo){
+        return ResponseEntity.ok(getService().createCatalogo(pageable, titulo));
+    }    
 }

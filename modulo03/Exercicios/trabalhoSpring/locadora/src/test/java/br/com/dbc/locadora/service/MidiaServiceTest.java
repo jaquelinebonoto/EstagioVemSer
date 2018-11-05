@@ -3,8 +3,8 @@ package br.com.dbc.locadora.service;
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import static br.com.dbc.locadora.entity.Categoria.ACAO;
 import br.com.dbc.locadora.entity.Filme;
-import br.com.dbc.locadora.entity.FilmeDTO;
-import br.com.dbc.locadora.entity.MidiaDTO;
+import br.com.dbc.locadora.dto.FilmeDTO;
+import br.com.dbc.locadora.dto.MidiaDTO;
 import static br.com.dbc.locadora.entity.Tipo.DVD;
 import static br.com.dbc.locadora.entity.Tipo.VHS;
 import br.com.dbc.locadora.repository.MidiaRepository;
@@ -43,8 +43,6 @@ public class MidiaServiceTest extends LocadoraApplicationTests {
     @After
     public void tearDown() {
     }
-
-
 
     @Test
     public void testCountByTipo() throws Exception {

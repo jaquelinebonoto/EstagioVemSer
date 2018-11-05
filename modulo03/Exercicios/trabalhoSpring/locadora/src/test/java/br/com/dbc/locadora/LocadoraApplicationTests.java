@@ -40,7 +40,6 @@ public abstract class LocadoraApplicationTests {
 
     @Before
     public void setUp() {
-        
         MockitoAnnotations.initMocks(this);
         this.restMockMvc = MockMvcBuilders.standaloneSetup(getController())
                 .setCustomArgumentResolvers(pageableArgumentResolver)

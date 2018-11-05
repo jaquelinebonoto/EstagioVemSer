@@ -1,13 +1,14 @@
 package br.com.dbc.locadora.service;
 
 import br.com.dbc.locadora.entity.Aluguel;
-import br.com.dbc.locadora.entity.AluguelDTO;
+import br.com.dbc.locadora.dto.AluguelDTO;
 import br.com.dbc.locadora.entity.Cliente;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.AluguelRepository;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -57,8 +58,8 @@ public class AluguelService extends AbstractCRUDService<Aluguel> {
 
     public Aluguel DtotoAluguel(AluguelDTO dto) {
         return Aluguel.builder()
-                .retirada(LocalDate.now())
-                .previsao(LocalDate.now().plusDays(dto.getMidias().size()))
+                .retirada(LocalDateTime.now())
+                .previsao(LocalDateTime.now().plusDays(dto.getMidias().size()))
                 .cliente((Cliente) clienteService.findById(dto.getIdCliente()).get())
                 .build();
     }
@@ -80,9 +81,9 @@ public class AluguelService extends AbstractCRUDService<Aluguel> {
         midiaService.updateAluguelToNullByIdMidias(dto.getMidias()); //atualizando para null
         
 
-        aluguel.setDevolucao(LocalDate.now());
+        aluguel.setDevolucao(LocalDateTime.now());
         Double multa = 0d;
-        if (LocalDate.now().isAfter(aluguel.getPrevisao())) {
+        if (LocalDateTime.now().isAfter(aluguel.getPrevisao())) {
             multa += valor;
         }
         aluguel.setMulta(multa);

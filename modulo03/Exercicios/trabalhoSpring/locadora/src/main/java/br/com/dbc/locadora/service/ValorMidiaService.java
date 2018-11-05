@@ -4,6 +4,7 @@ import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.ValorMidia;
 import br.com.dbc.locadora.repository.ValorMidiaRepository;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -31,7 +32,7 @@ public class ValorMidiaService extends AbstractCRUDService<ValorMidia>{
     public void updateByIdMidia(Midia midia, double valor) {
         
         ValorMidia val = valorMidiaRepository.findByMidiaIdAndFimVigenciaIsNull(midia.getId())
-                .orElseGet(()->valorMidiaRepository.save(ValorMidia.builder().inicioVigencia(LocalDate.now()).midia(midia).valor(valor).build()));
+                .orElseGet(()->valorMidiaRepository.save(ValorMidia.builder().inicioVigencia(LocalDateTime.now()).midia(midia).valor(valor).build()));
               
             if(val.getValor() == valor) return;
             val.setFimVigencia(LocalDate.now());
@@ -39,7 +40,7 @@ public class ValorMidiaService extends AbstractCRUDService<ValorMidia>{
     
         valorMidiaRepository.save(ValorMidia.builder()
                                                 .valor(valor)
-                                                .inicioVigencia(LocalDate.now())
+                                                .inicioVigencia(LocalDateTime.now())
                                                 .fimVigencia(null)
                                                 .midia(midia)
                                             .build()
@@ -47,11 +48,15 @@ public class ValorMidiaService extends AbstractCRUDService<ValorMidia>{
     }
 
 
-    List<ValorMidia> findByMidiaIdIn(List<Long> midias, LocalDate retirada) {
+    List<ValorMidia> findByMidiaIdIn(List<Long> midias, LocalDateTime retirada) {
         return valorMidiaRepository.findByMidiaIdIn(midias, retirada);
     }
 
     public List<ValorMidia> findByMidiaId(Long id) {
         return valorMidiaRepository.findByMidiaId(id);
+    }
+    
+    public Double findByMidiaIdWhereFimVigenciaIsNull (Long id){
+        return valorMidiaRepository.findByMidiaIdWhereFimVigenciaIsNull(id);
     }
 }

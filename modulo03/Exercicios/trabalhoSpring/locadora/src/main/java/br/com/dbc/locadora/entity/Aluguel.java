@@ -1,9 +1,11 @@
 
 package br.com.dbc.locadora.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,14 +37,17 @@ public class Aluguel extends AbstractEntity<Long> implements Serializable {
     @GeneratedValue(generator = "S_ALUGUEL", strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate retirada; // = LocalDate.now();
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    private LocalDateTime retirada; // = LocalDate.now();
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate previsao;// = LocalDate.now().plusDays(getMidias().size());    
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    private LocalDateTime previsao;// = LocalDate.now().plusDays(getMidias().size());    
   
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate devolucao;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    private LocalDateTime devolucao;
 
     private Double multa;
     

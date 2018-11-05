@@ -5,6 +5,7 @@
  */
 package br.com.dbc.locadora.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -42,11 +43,11 @@ public class Filme extends AbstractEntity<Long> implements Serializable {
 
     private String titulo;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate lancamento;
     
     private Categoria categoria;
-
 
     //@OneToMany(cascade = CascadeType.ALL, mappedBy = "filme")
     //private List<Midia> midia;
