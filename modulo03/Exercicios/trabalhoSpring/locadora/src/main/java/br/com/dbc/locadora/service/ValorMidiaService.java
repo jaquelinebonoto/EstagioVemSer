@@ -6,6 +6,7 @@ import br.com.dbc.locadora.repository.ValorMidiaRepository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -56,7 +57,7 @@ public class ValorMidiaService extends AbstractCRUDService<ValorMidia>{
         return valorMidiaRepository.findByMidiaId(id);
     }
     
-    public Double findByMidiaIdWhereFimVigenciaIsNull (Long id){
-        return valorMidiaRepository.findByMidiaIdWhereFimVigenciaIsNull(id);
+    public Optional<ValorMidia> findByMidiaIdAndFimVigenciaIsNull (Long id){
+        return valorMidiaRepository.findByMidiaIdAndFimVigenciaIsNull(id);
     }
 }

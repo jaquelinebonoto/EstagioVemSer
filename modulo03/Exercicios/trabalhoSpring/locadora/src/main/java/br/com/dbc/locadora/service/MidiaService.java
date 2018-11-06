@@ -113,8 +113,16 @@ public class MidiaService extends AbstractCRUDService<Midia>{
     public MidiaDTOCatalogo midiaToCatalogo (Midia midia){
         return MidiaDTOCatalogo.builder()
                     .tipo(midia.getTipo())
-                    .valorVigente(valorMidiaService.findByMidiaIdWhereFimVigenciaIsNull(midia.getId()))
+                    .valorVigente(valorMidiaService.findByMidiaIdAndFimVigenciaIsNull(midia.getId()).get().getValor())
                     .disponibilidade(LocalDateTime.now())
+                    .build();
+    }
+    
+    public MidiaDTOCatalogo midiaToCatalogoIndisponivel (Midia midia){
+        return MidiaDTOCatalogo.builder()
+                    .tipo(midia.getTipo())
+                    .valorVigente(valorMidiaService.findByMidiaIdAndFimVigenciaIsNull(midia.getId()).get().getValor())
+                    .disponibilidade(midia.getAluguel().getDevolucao())
                     .build();
     }
 

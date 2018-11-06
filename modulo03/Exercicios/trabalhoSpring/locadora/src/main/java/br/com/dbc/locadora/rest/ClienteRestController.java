@@ -7,13 +7,9 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.config.SoapConnector;
 import br.com.dbc.locadora.entity.Cliente;
-import br.com.dbc.locadora.dto.ConsultaCepDTO;
 import br.com.dbc.locadora.service.ClienteService;
 import br.com.dbc.locadora.service.CorreioService;
-import br.com.dbc.locadora.ws.ConsultaCEP;
-import br.com.dbc.locadora.ws.ConsultaCEPResponse;
 import br.com.dbc.locadora.ws.ObjectFactory;
-import javax.xml.bind.JAXBElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

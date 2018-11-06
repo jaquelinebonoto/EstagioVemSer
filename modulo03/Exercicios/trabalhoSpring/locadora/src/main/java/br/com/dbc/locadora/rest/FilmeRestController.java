@@ -1,20 +1,15 @@
 package br.com.dbc.locadora.rest;
 
+import br.com.dbc.locadora.dto.CatalogoSearchDTO;
 import br.com.dbc.locadora.entity.Categoria;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.dto.FilmeDTO;
-import br.com.dbc.locadora.dto.MidiaDTO;
-import br.com.dbc.locadora.dto.MidiaDTOCatalogo;
-import br.com.dbc.locadora.entity.Midia;
 import br.com.dbc.locadora.entity.Tipo;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import br.com.dbc.locadora.service.FilmeService;
 import br.com.dbc.locadora.service.MidiaService;
 import br.com.dbc.locadora.service.ValorMidiaService;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -64,8 +59,8 @@ public class FilmeRestController extends AbstractController<Filme> {
                 Pageable pageable,
                 @RequestParam(value = "titulo", required = false) String titulo,
                 @RequestParam(value = "categoria" , required = false) Categoria categoria,
-                @RequestParam(value = "lancamento", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lancamentoIni, 
-                @RequestParam(value = "lancamento", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lancamentoFim)
+                @RequestParam(value = "lancamentoIni", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lancamentoIni, 
+                @RequestParam(value = "lancamentoFim", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lancamentoFim)
                 {
        return ResponseEntity.ok(
                 getService().findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(pageable, titulo, categoria, lancamentoIni, lancamentoFim)
@@ -90,7 +85,7 @@ public class FilmeRestController extends AbstractController<Filme> {
     }
     
     @PostMapping("/search/catalogo")
-    public ResponseEntity<?> createCatalogo (Pageable pageable, @RequestBody String titulo){
-        return ResponseEntity.ok(getService().createCatalogo(pageable, titulo));
+    public ResponseEntity<?> createCatalogo (Pageable pageable, @RequestBody CatalogoSearchDTO titulo){
+        return ResponseEntity.ok(getService().createCatalogo(pageable, titulo.getTitulo()));
     }    
 }

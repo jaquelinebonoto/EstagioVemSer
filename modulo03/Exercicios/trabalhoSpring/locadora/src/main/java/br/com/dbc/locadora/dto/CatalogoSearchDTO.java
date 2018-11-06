@@ -5,10 +5,13 @@
  */
 package br.com.dbc.locadora.dto;
 
+import lombok.Data;
+
 /**
  *
  * @author jaqueline.bonoto
  */
-class ValorMidiaDTO {
-    
+@Data
+public class CatalogoSearchDTO {
+    private String titulo;
 }

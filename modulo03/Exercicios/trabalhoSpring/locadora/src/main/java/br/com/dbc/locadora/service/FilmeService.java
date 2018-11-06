@@ -69,7 +69,7 @@ public class FilmeService extends AbstractCRUDService<Filme> {
             LocalDate lancamentoFim) {
         return filmeRepository.findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(pageable, titulo, categoria, lancamentoIni, lancamentoFim);
     }
-    
+        
     public Page<Filme> findByAluguelPrevisao(
             Pageable pageable,
             LocalDate previsao) {
@@ -116,12 +116,11 @@ public class FilmeService extends AbstractCRUDService<Filme> {
     }
 
     public Page<CatalogoDTO> createCatalogo(Pageable pageable, @RequestBody String titulo){
-        Page<Filme> filme = (findByTituloContainingIgnoreCaseOrCategoriaOrLancamentoBetween(
+        System.out.println(titulo);
+        Page<Filme> filme = (filmeRepository.findByTituloContainingAllIgnoreCase(
                 pageable, 
-                titulo, 
-                Categoria.valueOf(titulo), 
-                LocalDate.MIN,
-                LocalDate.MAX));
+                titulo
+                ));
         
         List<CatalogoDTO> catalogo = new ArrayList<>();
         for (int i=0; i<filme.getTotalElements() ; i++){
@@ -130,8 +129,11 @@ public class FilmeService extends AbstractCRUDService<Filme> {
             Midia midDVD = midiaRepository.findFirstByFilmeIdAndTipoAndAluguelIsNull(filme.getContent().get(0).getId(), Tipo.DVD);
             Midia midBR = midiaRepository.findFirstByFilmeIdAndTipoAndAluguelIsNull(filme.getContent().get(0).getId(), Tipo.BLUE_RAY);
             
-            midiasDisponiveis.add(midiaService.midiaToCatalogo(midVHS));
+            if(midVHS == null){ midiasDisponiveis.add(midiaService.midiaToCatalogoIndisponivel(midVHS));}
+            else midiasDisponiveis.add(midiaService.midiaToCatalogo(midVHS));
+            if(midDVD == null){ midiasDisponiveis.add(midiaService.midiaToCatalogoIndisponivel(midDVD));}
             midiasDisponiveis.add(midiaService.midiaToCatalogo(midDVD));
+            if(midBR == null){ midiasDisponiveis.add(midiaService.midiaToCatalogoIndisponivel(midBR));}
             midiasDisponiveis.add(midiaService.midiaToCatalogo(midBR));
             
             catalogo.add(CatalogoDTO.builder()
@@ -140,6 +142,5 @@ public class FilmeService extends AbstractCRUDService<Filme> {
                  .build());
         }        
         return new PageImpl<>(catalogo, pageable, filme.getTotalElements());
-    }
-    
+    }  
 }

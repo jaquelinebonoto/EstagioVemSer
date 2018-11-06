@@ -47,7 +47,7 @@ public class AluguelRestController extends AbstractController<Aluguel> {
     @RequestMapping(value="/devolucao", method = RequestMethod.GET)
     public ResponseEntity<Page<Filme>> findByAluguelPrevisao(
                 Pageable pageable,
-                @RequestParam(value = "previsao", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate previsao){
+                @RequestParam(value = "previsao", required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate previsao){
        return ResponseEntity.ok(
                 aluguelService.findByAluguelPrevisao(pageable, previsao)
             );  
