@@ -38,11 +38,6 @@ public class FilmeRestController extends AbstractController<Filme> {
     @Autowired
     private MidiaService midiaService;
     
-    @Autowired
-    private ValorMidiaService valorMidiaService;
-    
-    @Autowired
-    private MidiaRepository midiaRepository;
     @Override
     public FilmeService getService() {
         return service;
@@ -72,10 +67,9 @@ public class FilmeRestController extends AbstractController<Filme> {
         return ResponseEntity.ok(getService().updateFilme(id, input));
     }
 
-    @GetMapping("/precos/{id}")
     @RequestMapping(value="/precos/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> findValorMidiaByIdFilme (@PathVariable Long id) {
-        return ResponseEntity.ok(getService().valoresByFilme(id));
+    public ResponseEntity<?> findValorMidiaByIdFilme (Pageable pageable, @PathVariable Long id) {
+        return ResponseEntity.ok(getService().valoresByFilme(pageable, id));
     }
         
     @GetMapping("/count/{id}/{tipo}")

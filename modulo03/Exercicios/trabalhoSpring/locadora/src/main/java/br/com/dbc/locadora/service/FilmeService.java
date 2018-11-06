@@ -98,7 +98,7 @@ public class FilmeService extends AbstractCRUDService<Filme> {
         return filme;//        return Filme.builder().build();        
     }
     
-    public List<ValorMidia> valoresByFilme (Long id){
+    public Page<ValorMidia> valoresByFilme (Pageable pageable, Long id){
         List<Midia> midias = midiaService.findByFilmeId(id);
         
         List<ValorMidia> valoresDoFilme = new ArrayList<>(); //para receber todos os valores que foram cadastrados
@@ -112,7 +112,8 @@ public class FilmeService extends AbstractCRUDService<Filme> {
                 } 
             }
         }
-        return valoresValidos;
+        Page<ValorMidia> page = new PageImpl<>(valoresValidos, pageable, midias.size());
+        return page;        
     }
 
     public Page<CatalogoDTO> createCatalogo(Pageable pageable, @RequestBody String titulo){

@@ -5,6 +5,7 @@
  */
 package br.com.dbc.locadora.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -12,6 +13,7 @@ import lombok.Data;
  * @author jaqueline.bonoto
  */
 @Data
+@Builder
 public class CatalogoSearchDTO {
     private String titulo;
 }

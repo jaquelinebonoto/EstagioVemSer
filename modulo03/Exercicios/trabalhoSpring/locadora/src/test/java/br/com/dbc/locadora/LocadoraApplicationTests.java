@@ -29,9 +29,6 @@ public abstract class LocadoraApplicationTests {
 
     @Autowired
     protected ObjectMapper objectMapper;
-
-    
-    
     
     @Autowired
     protected PageableHandlerMethodArgumentResolver pageableArgumentResolver;

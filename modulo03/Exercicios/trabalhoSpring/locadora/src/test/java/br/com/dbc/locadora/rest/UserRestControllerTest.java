@@ -2,11 +2,9 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.dto.UserDTO;
-import br.com.dbc.locadora.entity.Role;
 import br.com.dbc.locadora.entity.User;
 import br.com.dbc.locadora.repository.UserRepository;
 import java.util.List;
-import org.assertj.core.util.Arrays;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;

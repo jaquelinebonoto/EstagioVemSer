@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.11 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2018.11.06 às 03:24:37 PM BRST 
+// Gerado em: 2018.11.06 às 06:14:34 PM BRST 
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://cliente.bean.master.sigep.bsb.correios.com.br/")
