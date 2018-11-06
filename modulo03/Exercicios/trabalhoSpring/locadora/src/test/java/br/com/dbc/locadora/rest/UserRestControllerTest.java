@@ -1,72 +1,95 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.dbc.locadora.rest;
 
+import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.dto.UserDTO;
+import br.com.dbc.locadora.entity.Role;
 import br.com.dbc.locadora.entity.User;
-import br.com.dbc.locadora.service.AppUserDetailsService;
+import br.com.dbc.locadora.repository.UserRepository;
+import java.util.List;
+import org.assertj.core.util.Arrays;
 import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 /**
  *
  * @author jaqueline.bonoto
  */
-public class UserRestControllerTest {
-    
-    public UserRestControllerTest() {
+public class UserRestControllerTest extends LocadoraApplicationTests {
+
+    @Autowired
+    private UserRestController userRestController;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    protected AbstractController getController() {
+        return userRestController;
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
+
     @After
     public void tearDown() {
     }
 
-    /**
-     * Test of getService method, of class UserRestController.
-     */
     @Test
-    public void testGetService() {
-        System.out.println("getService");
-        UserRestController instance = new UserRestController();
-        AppUserDetailsService expResult = null;
-        AppUserDetailsService result = instance.getService();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testCreateUser() throws Exception {
+        User u = User.builder()
+                .firstName("Ele")
+                .lastName("Ele Mesmo")
+                .password("elesim")
+                .username("esseehocara")
+                .build();
+        restMockMvc.perform(MockMvcRequestBuilders.post("/api/user")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(u)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value(u.getFirstName()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.lastName").value(u.getLastName()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.password").value(u.getPassword()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value(u.getUsername()));
+        List<User> users = userRepository.findAll();
+        Assert.assertEquals(3, users.size());
+        Assert.assertEquals(u.getFirstName(), users.get(2).getFirstName());
+        Assert.assertEquals(u.getPassword(), users.get(2).getPassword());
     }
 
-    /**
-     * Test of updateSenha method, of class UserRestController.
-     */
-    @Test
-    public void testUpdateSenha() {
-        System.out.println("updateSenha");
-        UserDTO dto = null;
-        UserRestController instance = new UserRestController();
-        User expResult = null;
-        User result = instance.updateSenha(dto);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @Test(expected = Exception.class)
+    @WithMockUser(username = "joaodasneves",
+            password = "jwtpass",
+            authorities = {"STANDARD_USER"})
+    public void testGetUsersAccessDenied() throws Exception {
+        UserDTO u = UserDTO.builder()
+                .username("joaodasneves")
+                .password("jwtpass")
+                .build();
+        restMockMvc.perform(MockMvcRequestBuilders.post("/api/user/password")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(u)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
-    
+
+    @Test
+        @WithMockUser(username = "admin.admin",
+            password = "jwtpass",
+            authorities = {"ADMIN_USER"})
+    public void testeUpdateSenha() throws Exception {
+        UserDTO u = UserDTO.builder()
+                .username("admin.admin")
+                .password("jwtpass")
+                .build();
+        restMockMvc.perform(MockMvcRequestBuilders.post("/api/user/password")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(u)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+    }
 }
