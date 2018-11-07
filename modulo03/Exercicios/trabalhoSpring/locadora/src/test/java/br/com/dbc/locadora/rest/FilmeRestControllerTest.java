@@ -3,7 +3,10 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.dto.CatalogoSearchDTO;
+import br.com.dbc.locadora.dto.FilmeDTO;
+import br.com.dbc.locadora.dto.MidiaDTO;
 import static br.com.dbc.locadora.entity.Categoria.ACAO;
+import static br.com.dbc.locadora.entity.Categoria.AVENTURA;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
 import static br.com.dbc.locadora.entity.Tipo.BLUE_RAY;
@@ -114,5 +117,29 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].filme.id").isNumber())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].filme.titulo").value(filme.getTitulo()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.content.[0].midias.[0].valorVigente").value(2.1));
+    }
+    
+    
+    @Test
+    public void testSalvarComMidia() throws Exception{
+        List<MidiaDTO> midias = new ArrayList<>();
+        midias.add(MidiaDTO.builder().tipo(VHS).quantidade(3).valor(2.0).build());
+        midias.add(MidiaDTO.builder().tipo(VHS).quantidade(3).valor(2.0).build());
+        midias.add(MidiaDTO.builder().tipo(VHS).quantidade(3).valor(2.0).build());
+        
+        FilmeDTO filme = FilmeDTO.builder()
+                .titulo("Filme")
+                .lancamento(LocalDate.now())
+                .categoria(AVENTURA)
+                .midia(midias)
+                .build();
+        
+        restMockMvc.perform(MockMvcRequestBuilders.post("/api/filme/midia")
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsBytes(filme)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").isNumber())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.titulo").value(filme.getTitulo()));
     }
 }
