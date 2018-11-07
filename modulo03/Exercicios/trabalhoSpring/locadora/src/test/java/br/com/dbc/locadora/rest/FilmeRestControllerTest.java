@@ -3,6 +3,7 @@ package br.com.dbc.locadora.rest;
 
 import br.com.dbc.locadora.LocadoraApplicationTests;
 import br.com.dbc.locadora.dto.CatalogoSearchDTO;
+import static br.com.dbc.locadora.entity.Categoria.ACAO;
 import br.com.dbc.locadora.entity.Filme;
 import br.com.dbc.locadora.entity.Midia;
 import static br.com.dbc.locadora.entity.Tipo.BLUE_RAY;
@@ -13,6 +14,7 @@ import br.com.dbc.locadora.repository.FilmeRepository;
 import br.com.dbc.locadora.repository.MidiaRepository;
 import br.com.dbc.locadora.repository.ValorMidiaRepository;
 import br.com.dbc.locadora.service.FilmeService;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -65,7 +67,7 @@ public class FilmeRestControllerTest extends LocadoraApplicationTests {
 
     @Test
     public void testFindValorByIdFilme() throws Exception{
-        Filme filme = new Filme();
+        Filme filme = new Filme(null, "O Filme", LocalDate.now(), ACAO);
         filmeRepository.save(filme);
         List<Midia> midias = new ArrayList<>();
         midias.add(midiaRepository.save(Midia.builder().tipo(VHS).filme(filme).build()));

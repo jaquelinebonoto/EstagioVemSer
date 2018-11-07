@@ -52,5 +52,4 @@ public class AluguelRestController extends AbstractController<Aluguel> {
                 aluguelService.findByAluguelPrevisao(pageable, previsao)
             );  
     }
-    
 }

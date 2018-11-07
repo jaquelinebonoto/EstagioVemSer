@@ -42,7 +42,7 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
 
     @Test
     public void clienteCreateTest() throws Exception {
-        Cliente c = Cliente.builder().nome("nome").telefone(999999999l).rua("").bairro("").cidade("").estado("").build();
+        Cliente c = Cliente.builder().nome("nome").telefone("9999999").rua("").bairro("").cidade("").estado("").build();
         restMockMvc.perform(MockMvcRequestBuilders.post("/api/cliente")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsBytes(c)))
@@ -59,7 +59,7 @@ public class ClienteRestControllerTest extends LocadoraApplicationTests {
     
     @Test
     public void clienteDeleteTest() throws Exception {
-        Cliente c = Cliente.builder().nome("nome").telefone(999999999l).rua("").bairro("").cidade("").estado("").build();
+        Cliente c = Cliente.builder().nome("nome").telefone("9999999").rua("").bairro("").cidade("").estado("").build();
         clienteRepository.save(c);
         restMockMvc.perform(MockMvcRequestBuilders.delete("/api/cliente/{id}", c.getId())
                 .contentType(MediaType.APPLICATION_JSON_UTF8)

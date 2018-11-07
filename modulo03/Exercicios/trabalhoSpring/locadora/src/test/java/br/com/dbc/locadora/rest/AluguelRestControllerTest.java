@@ -98,7 +98,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         midiasId.add(midiasEnt.get(0).getId());
         midiasId.add(midiasEnt.get(1).getId());
 
-        Cliente cliente = new Cliente();
+        Cliente cliente = Cliente.builder().nome("nome").telefone("9999999").rua("").bairro("").cidade("").estado("").build();
         clienteService.save(cliente);
         AluguelDTO dto = AluguelDTO.builder()
                 .id(1l)
@@ -142,7 +142,7 @@ public class AluguelRestControllerTest extends LocadoraApplicationTests {
         List<Long> midiasId = new ArrayList<>();
         midiasId.add(midiasEnt.get(0).getId());
         midiasId.add(midiasEnt.get(1).getId());
-        Cliente cliente = new Cliente();
+        Cliente cliente = Cliente.builder().nome("nome").telefone("9999999").rua("").bairro("").cidade("").estado("").build();
         clienteService.save(cliente);
         AluguelDTO dto = AluguelDTO.builder()
                 .idCliente(cliente.getId())

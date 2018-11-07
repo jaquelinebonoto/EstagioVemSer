@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,6 +34,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Aluguel extends AbstractEntity<Long> implements Serializable {
    
     @Id
+    @NotNull
     @SequenceGenerator(name= "S_ALUGUEL", sequenceName = "S_ALUGUEL", allocationSize=1)
     @GeneratedValue(generator = "S_ALUGUEL", strategy = GenerationType.SEQUENCE)
     private Long id;
